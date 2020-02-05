@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "731738189274",
+    "firebase_url": "https://latesleeper-2ebfd.firebaseio.com",
+    "project_id": "latesleeper-2ebfd",
+    "storage_bucket": "latesleeper-2ebfd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:731738189274:android:e4f3ec8ea8522ad2c0e4e3",
+        "android_client_info": {
+          "package_name": "com.twelve.latesleeper"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "731738189274-bn3k6nrr620fi70955c0iaogqc55ol04.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD3FZeEqk-nho5NUJCvT-LgFBiGwOAzcnI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "731738189274-bn3k6nrr620fi70955c0iaogqc55ol04.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
