@@ -4,15 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#000099"
+    android:onClick="nextActivity"
     tools:context=".MainActivity">
 
-    <TextView
+    <ImageView
+        android:id="@+id/mainActivityLogo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:layout_marginStart="83dp"
+        android:layout_marginTop="293dp"
+        android:layout_marginEnd="83dp"
+        android:layout_marginBottom="293dp"
+        android:contentDescription="This is the logo in the main activity. It will have the functionality, when you tap the image twice, it will move to the log in screen of the application. "
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/mainactivitylogo" />
 </androidx.constraintlayout.widget.ConstraintLayout>
