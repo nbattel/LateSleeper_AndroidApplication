@@ -1,9 +1,11 @@
-package com.twelve.latesleeper;
+package com.twelve.latesleeper.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+
+import com.twelve.latesleeper.R;
 
 public class LogInActivity extends AppCompatActivity {
 
