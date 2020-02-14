@@ -64,6 +64,9 @@ So far, we have a users collection that stores all of the users of our applicati
 users
   -> user document
     -> journal
+      -> entry document
+      -> entry document
+      -> entry document
   -> user document
     -> journal
   -> user document
