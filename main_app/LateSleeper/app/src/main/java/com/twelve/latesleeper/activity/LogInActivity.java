@@ -2,6 +2,7 @@ package com.twelve.latesleeper.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -22,6 +23,7 @@ public class LogInActivity extends AppCompatActivity {
 
     // On click function to allow a new user to create an account
     public void createAccount(View view) {
-
+        Intent intent = new Intent(LogInActivity.this, NewAccountActivity.class);
+        startActivity(intent);
     }
 }
