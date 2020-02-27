@@ -12,8 +12,6 @@ import com.twelve.latesleeper.R;
 
 public class RelabelActivity extends AppCompatActivity {
 
-    Context context = getApplicationContext();
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,7 +23,7 @@ public class RelabelActivity extends AppCompatActivity {
         Intent intent = new Intent(RelabelActivity.this, ReframeActivity.class);
         startActivity(intent);
 
-        Toast toast = Toast.makeText(context,"Relabel Save Button Clicked",Toast.LENGTH_LONG);
+        Toast toast = Toast.makeText(getApplicationContext(),"Relabel Save Button Clicked",Toast.LENGTH_LONG);
         toast.show();
         //TODO
         //We need to save all the information the user enters on this screen into the database on save
@@ -33,7 +31,7 @@ public class RelabelActivity extends AppCompatActivity {
 
     //OnClick for the cancel button will not save any information
     public void backRelabel(View view){
-        Toast toast = Toast.makeText(context,"Relabel Back Button Clicked",Toast.LENGTH_LONG);
+        Toast toast = Toast.makeText(getApplicationContext(),"Relabel Back Button Clicked",Toast.LENGTH_LONG);
         toast.show();
     }
 }
