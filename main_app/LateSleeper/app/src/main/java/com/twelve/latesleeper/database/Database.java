@@ -3,6 +3,9 @@ package com.twelve.latesleeper.database;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class Database {
-    FirebaseFirestore lateSleeperDB = FirebaseFirestore.getInstance();
+    private FirebaseFirestore lateSleeperDB = FirebaseFirestore.getInstance();
 
+    public static void addEntry(){
+        
+    }
 }
