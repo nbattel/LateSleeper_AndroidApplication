@@ -23,7 +23,7 @@ public class LogInActivity extends AppCompatActivity {
 
     // On click function to allow a new user to create an account
     public void createAccount(View view) {
-        Intent intent = new Intent(LogInActivity.this, NewAccountActivity.class);
+        Intent intent = new Intent(LogInActivity.this, CreateAccountActivity.class);
         startActivity(intent);
     }
 }
