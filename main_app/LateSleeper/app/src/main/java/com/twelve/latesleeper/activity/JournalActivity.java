@@ -46,6 +46,8 @@ public class JournalActivity extends AppCompatActivity {
 
         Entry entry = new Entry(body, title, date);
 
+        System.out.println(entry.getTitle() + entry.getBody() + entry.getDate());
+
         Database.addEntry("b7rTinkMBp2NVenxTNkM", entry);
     }
 
