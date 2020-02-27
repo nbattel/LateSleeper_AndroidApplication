@@ -1,7 +1,6 @@
 package com.twelve.latesleeper.model;
 
 public class User {
-    String userId;
     String username;
     String password;
     String email;
@@ -13,8 +12,9 @@ public class User {
     String postalCode;
     String phoneNumber;
 
-    public User(String userId, String username, String password, String email, String firstName, String lastName, String address, String city, String province, String postalCode, String phoneNumber) {
-        this.userId = userId;
+    public User(){}
+
+    public User(String username, String password, String email, String firstName, String lastName, String address, String city, String province, String postalCode, String phoneNumber) {
         this.username = username;
         this.password = password;
         this.email = email;
@@ -25,14 +25,6 @@ public class User {
         this.province = province;
         this.postalCode = postalCode;
         this.phoneNumber = phoneNumber;
-    }
-
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
     }
 
     public String getUsername() {
