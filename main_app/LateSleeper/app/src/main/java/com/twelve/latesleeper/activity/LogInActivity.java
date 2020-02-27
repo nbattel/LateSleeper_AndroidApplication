@@ -26,4 +26,10 @@ public class LogInActivity extends AppCompatActivity {
         Intent intent = new Intent(LogInActivity.this, CreateAccountActivity.class);
         startActivity(intent);
     }
+
+    // On click test function to go to journal activity
+    public void toJournal(View view){
+        Intent intent = new Intent(LogInActivity.this, JournalActivity.class);
+        startActivity(intent);
+    }
 }
