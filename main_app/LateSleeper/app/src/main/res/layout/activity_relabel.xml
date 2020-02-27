@@ -10,15 +10,15 @@
         android:id="@+id/relabelTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="180dp"
+        android:layout_marginStart="41dp"
         android:layout_marginTop="40dp"
-        android:layout_marginEnd="180dp"
+        android:layout_marginEnd="41dp"
         android:text="Step 1: Relabel"
         android:textColor="#0000FF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:textSize="36sp" />
+        tools:textSize="50sp" />
 
     <Button
         android:id="@+id/backButton"
@@ -26,7 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginBottom="40dp"
-        android:onClick="backRelabel"
+        android:onClick="backButtonRelabel"
         android:text="Back"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -37,8 +37,8 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="40dp"
-        android:onClick="saveRelabel"
-        android:text="Save"
+        android:onClick="nextButtonRelabel"
+        android:text="Next"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
