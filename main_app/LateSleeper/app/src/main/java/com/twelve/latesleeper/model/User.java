@@ -1,4 +1,4 @@
-package com.twelve.latesleeper.user;
+package com.twelve.latesleeper.model;
 
 public class User {
     String userId;
