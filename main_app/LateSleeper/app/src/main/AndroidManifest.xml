@@ -11,12 +11,14 @@
         android:theme="@style/AppTheme">
         <activity android:name=".activity.RefocusActivity"></activity>
         <activity android:name=".activity.RelabelActivity" />
+        <activity android:name=".activity.UserHomeActivity" />
         <activity android:name=".activity.ReframeActivity" />
         <activity android:name=".activity.RevalueActivity" />
         <activity android:name=".activity.LogInActivity" />
         <activity android:name=".activity.CreateAccountActivity" />
         <activity android:name=".activity.JournalActivity" />
         <activity android:name=".activity.MainActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

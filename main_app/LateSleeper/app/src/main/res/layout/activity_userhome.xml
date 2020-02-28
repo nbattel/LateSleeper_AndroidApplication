@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/welcomeTezt"
+        android:layout_width="match_parent"
+        android:layout_height="163dp"
+        android:text="Welcome Back, USER"
+        android:textSize="48sp" />
+
+    <Button
+        android:id="@+id/journalBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="View Journal Entries" />
+
+    <Button
+        android:id="@+id/newEntry"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="toJournal"
+        android:text="Create New Entry" />
+
+    <Button
+        android:id="@+id/progressBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="View Progress" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="67dp"
+        android:text="Insert other USER INFO" />
+
+</LinearLayout>
