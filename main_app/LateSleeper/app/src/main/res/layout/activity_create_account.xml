@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:background="@color/colorPrimary"
+    tools:context=".activity.CreateAccountActivity">
+
+
+    <ImageView
+        android:id="@+id/loginActivityLogo"
+        android:layout_width="206dp"
+        android:layout_height="94dp"
+        android:layout_marginStart="83dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="83dp"
+        android:src="@drawable/mainactivitylogo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtCreate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Create new Account"
+        android:textColor="@android:color/white"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loginActivityLogo" />
+
+    <ScrollView
+        android:layout_width="409dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtCreate"
+        app:layout_constraintVertical_bias="0.0">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingLeft="65px"
+            android:paddingRight="65px">
+
+            <EditText
+                android:id="@+id/txtEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Email address"
+                android:inputType="textWebEmailAddress"
+                android:textAlignment="textStart"
+                android:textColor="@android:color/white"
+                android:textSize="30sp" />
+
+            <EditText
+                android:id="@+id/txtPass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:textAlignment="textStart"
+                android:textColor="@android:color/white"
+                android:textSize="30sp" />
+
+            <EditText
+                android:id="@+id/txtPassConfirm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Confirm Password"
+                android:inputType="textPassword"
+                android:textAlignment="textStart"
+                android:textColor="@android:color/white"
+                android:textSize="30sp" />
+
+            <EditText
+                android:id="@+id/txtName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="First Name"
+                android:inputType="textPersonName"
+                android:textAlignment="textStart"
+                android:textColor="@android:color/white"
+                android:textSize="30sp" />
+
+            <EditText
+                android:id="@+id/txtName4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Last Name"
+                android:inputType="textPersonName"
+                android:textAlignment="textStart"
+                android:textColor="@android:color/white"
+                android:textSize="30sp" />
+
+            <EditText
+                android:id="@+id/txtName5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Name"
+                android:textAlignment="textStart"
+                android:textColor="@android:color/white"
+                android:textSize="30sp" />
+
+            <EditText
+                android:id="@+id/txtName6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Name"
+                android:textAlignment="textStart"
+                android:textColor="@android:color/white"
+                android:textSize="30sp" />
+
+            <EditText
+                android:id="@+id/txtName7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Name"
+                android:textAlignment="textStart"
+                android:textColor="@android:color/white"
+                android:textSize="30sp" />
+
+            <EditText
+                android:id="@+id/txtName8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Name"
+                android:textAlignment="textStart"
+                android:textColor="@android:color/white"
+                android:textSize="30sp" />
+
+            <EditText
+                android:id="@+id/txtName9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Name"
+                android:textAlignment="textStart"
+                android:textColor="@android:color/white"
+                android:textSize="30sp" />
+
+            <EditText
+                android:id="@+id/txtName10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Name"
+                android:textAlignment="textStart"
+                android:textColor="@android:color/white"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/btnConfirm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Create New Account"
+                android:textAlignment="center"
+                android:textSize="24sp" />
+
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

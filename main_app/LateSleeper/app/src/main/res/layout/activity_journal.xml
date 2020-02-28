@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/journal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context=".activity.JournalActivity">
+
+    <TextView
+        android:id="@+id/journalTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="181dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="182dp"
+        android:text="Journal"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.461"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/titleEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="39dp"
+        android:layout_marginEnd="176dp"
+        android:layout_marginBottom="37dp"
+        android:ems="10"
+        android:hint="Title..."
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/bodyEditText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/journalTextView" />
+
+    <EditText
+        android:id="@+id/bodyEditText"
+        android:layout_width="366dp"
+        android:layout_height="460dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="37dp"
+        android:layout_marginEnd="23dp"
+        android:layout_marginBottom="81dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="Enter your thoughts here..."
+        android:inputType="textMultiLine"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleEditText" />
+
+    <Button
+        android:id="@+id/writeToJournalButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="128dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="129dp"
+        android:layout_marginBottom="16dp"
+        android:onClick="writeToJournal"
+        android:text="Write to Journal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bodyEditText" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="43dp"
+        android:layout_marginTop="109dp"
+        android:layout_marginEnd="45dp"
+        android:layout_marginBottom="45dp"
+        android:onClick="toRelabel"
+        android:text="Relabel"
+        app:layout_constraintBottom_toTopOf="@+id/bodyEditText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/titleEditText"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

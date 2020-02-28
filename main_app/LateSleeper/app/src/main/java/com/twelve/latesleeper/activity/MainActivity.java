@@ -22,7 +22,12 @@ public class MainActivity extends AppCompatActivity {
         touchCount  = touchCount  + 1;
 
         // If the user taps twice, the activity will change to the login screen
+<<<<<<< HEAD
         if (++touchCount == 2) {
+=======
+        if (touchCount == 2) {
+            touchCount = 0;
+>>>>>>> 5420476db11fa0e45f7890eb4cdc29977a859657
             Intent intent = new Intent(MainActivity.this, LogInActivity.class);
             startActivity(intent);
         }

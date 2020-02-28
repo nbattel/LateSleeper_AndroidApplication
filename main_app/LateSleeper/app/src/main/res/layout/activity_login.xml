@@ -4,13 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+<<<<<<< HEAD
     android:background="#000099"
+=======
+    android:background="@color/colorPrimary"
+>>>>>>> 5420476db11fa0e45f7890eb4cdc29977a859657
     tools:context=".activity.LogInActivity">
 
     <TextView
         android:id="@+id/logInTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
         android:layout_marginStart="137dp"
         android:layout_marginTop="160dp"
         android:layout_marginEnd="137dp"
@@ -20,11 +25,21 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+=======
+        android:layout_marginTop="32dp"
+        android:text="Log In"
+        android:textColor="#F8F4F4"
+        android:textSize="50sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loginActivityLogo" />
+>>>>>>> 5420476db11fa0e45f7890eb4cdc29977a859657
 
     <EditText
         android:id="@+id/emailEditText"
         android:layout_width="284dp"
         android:layout_height="69dp"
+<<<<<<< HEAD
         android:layout_marginStart="63dp"
         android:layout_marginTop="56dp"
         android:layout_marginEnd="64dp"
@@ -33,6 +48,15 @@
         android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
+=======
+        android:layout_marginTop="36dp"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:textColor="#F8F4F4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+>>>>>>> 5420476db11fa0e45f7890eb4cdc29977a859657
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logInTextView" />
 
@@ -46,6 +70,10 @@
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
+<<<<<<< HEAD
+=======
+        android:textColor="#F8F4F4"
+>>>>>>> 5420476db11fa0e45f7890eb4cdc29977a859657
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/emailEditText" />
@@ -67,9 +95,13 @@
         android:id="@+id/createAccountButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
         android:layout_marginStart="137dp"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="137dp"
+=======
+        android:layout_marginTop="16dp"
+>>>>>>> 5420476db11fa0e45f7890eb4cdc29977a859657
         android:onClick="createAccount"
         android:text="Create Account"
         app:layout_constraintEnd_toEndOf="parent"
@@ -80,6 +112,7 @@
         android:id="@+id/loginActivityLogo"
         android:layout_width="206dp"
         android:layout_height="94dp"
+<<<<<<< HEAD
         android:layout_marginStart="83dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="83dp"
@@ -88,4 +121,27 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+=======
+        android:layout_marginTop="16dp"
+        android:src="@drawable/mainactivitylogo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/journalButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="21dp"
+        android:layout_marginBottom="30dp"
+        android:onClick="toJournal"
+        android:text="Journal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/createAccountButton"
+        app:layout_constraintVertical_bias="0.163" />
+
+>>>>>>> 5420476db11fa0e45f7890eb4cdc29977a859657
 </androidx.constraintlayout.widget.ConstraintLayout>
