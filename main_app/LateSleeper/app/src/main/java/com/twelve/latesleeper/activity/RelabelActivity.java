@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.twelve.latesleeper.R;
@@ -14,6 +15,8 @@ public class RelabelActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_relabel);
+        TextView t = findViewById(R.id.text);
+        t.setText("This is the first line\nThis is the second line\nThird line...");
     }
 
     //OnClick for the save button will trigger the next screen in the workflow
