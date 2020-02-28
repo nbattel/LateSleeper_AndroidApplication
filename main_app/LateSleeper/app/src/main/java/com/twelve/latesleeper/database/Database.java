@@ -26,7 +26,7 @@ public class Database {
         CollectionReference journalCollection = userCollection.document(uniqueUserId).collection("journal");
 
         // Add entry to user
-        journalCollection.add(entry);
+        journalCollection.add(entry.getEntry());
 //
 //        journalCollection.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
 //            @Override
