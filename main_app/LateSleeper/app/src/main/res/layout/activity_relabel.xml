@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
     tools:context=".activity.RelabelActivity">
 
     <TextView
@@ -14,7 +15,7 @@
         android:layout_marginTop="40dp"
         android:layout_marginEnd="41dp"
         android:text="Step 1: Relabel"
-        android:textColor="#0000FF"
+        android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
