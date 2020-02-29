@@ -2,22 +2,10 @@ package com.twelve.latesleeper.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
-import android.os.Bundle;
 import android.view.View;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.twelve.latesleeper.R;
-
 public class RelabelActivity extends AppCompatActivity {
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_relabel);
-        TextView t = findViewById(R.id.text);
-        t.setText("This is the first line\nThis is the second line\nThird line...");
-    }
 
     //OnClick for the save button will trigger the next screen in the workflow
     public void nextButtonRelabel(View view){
@@ -35,7 +23,7 @@ public class RelabelActivity extends AppCompatActivity {
         Intent intent = new Intent(RelabelActivity.this, JournalActivity.class);
         startActivity(intent);
 
-        Toast toast = Toast.makeText(getApplicationContext(),"Relabel Back Button Clicked",Toast.LENGTH_LONG);
+        Toast toast = Toast.makeText(getApplicationContext(),"Relabel Back Button Clicked",Toast.LENGTH_SHORT);
         toast.show();
     }
 }

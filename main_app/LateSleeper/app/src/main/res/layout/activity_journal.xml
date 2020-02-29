@@ -5,7 +5,7 @@
     android:id="@+id/journal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
+    android:background="@color/colorPrimaryDark"
     tools:context=".activity.JournalActivity">
 
     <TextView
@@ -17,6 +17,7 @@
         android:layout_marginEnd="182dp"
         android:text="Journal"
         android:textSize="30sp"
+        android:textColor="@color/colorSecondaryDark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.461"
         app:layout_constraintStart_toStartOf="parent"
@@ -32,7 +33,9 @@
         android:layout_marginBottom="37dp"
         android:ems="10"
         android:hint="Title..."
+        android:textColorHint="@color/colorSecondaryDark"
         android:inputType="textPersonName"
+        android:textColor="@color/colorSecondaryDark"
         app:layout_constraintBottom_toTopOf="@+id/bodyEditText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -50,7 +53,9 @@
         android:ems="10"
         android:gravity="start|top"
         android:hint="Enter your thoughts here..."
+        android:textColorHint="@color/colorSecondaryDark"
         android:inputType="textMultiLine"
+        android:textColor="@color/colorSecondaryDark"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

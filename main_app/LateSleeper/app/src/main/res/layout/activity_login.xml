@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
+    android:background="@color/colorPrimaryDark"
     tools:context=".activity.LogInActivity">
 
     <TextView
@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="Log In"
-        android:textColor="#F8F4F4"
+        android:textColor="@color/colorSecondaryDark"
         android:textSize="50sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,8 +26,9 @@
         android:layout_marginTop="36dp"
         android:ems="10"
         android:hint="Email"
+        android:textColorHint="@color/colorSecondaryDark"
         android:inputType="textEmailAddress"
-        android:textColor="#F8F4F4"
+        android:textColor="@color/colorSecondaryDark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
@@ -42,8 +43,9 @@
         android:layout_marginEnd="64dp"
         android:ems="10"
         android:hint="Password"
+        android:textColorHint="@color/colorSecondaryDark"
         android:inputType="textPassword"
-        android:textColor="#F8F4F4"
+        android:textColor="@color/colorSecondaryDark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/emailEditText" />
