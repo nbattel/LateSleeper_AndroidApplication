@@ -32,7 +32,7 @@ public class RefocusActivity extends AppCompatActivity {
         Intent intent = new Intent(RefocusActivity.this, ReframeActivity.class);
         startActivity(intent);
 
-        Toast toast = Toast.makeText(getApplicationContext(),"Refocus Back Button Clicked",Toast.LENGTH_LONG);
+        Toast toast = Toast.makeText(getApplicationContext(),"Refocus Back Button Clicked",Toast.LENGTH_SHORT);
         toast.show();
     }
 }
