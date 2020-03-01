@@ -32,7 +32,7 @@ public class ReframeActivity extends AppCompatActivity {
         Intent intent = new Intent(ReframeActivity.this, RelabelActivity.class);
         startActivity(intent);
 
-        Toast toast = Toast.makeText(getApplicationContext(),"Reframe Back Button Clicked",Toast.LENGTH_LONG);
+        Toast toast = Toast.makeText(getApplicationContext(),"Reframe Back Button Clicked",Toast.LENGTH_SHORT);
         toast.show();
     }
 }

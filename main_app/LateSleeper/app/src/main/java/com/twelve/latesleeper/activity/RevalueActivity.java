@@ -28,7 +28,7 @@ public class RevalueActivity extends AppCompatActivity {
             startActivity(intent);
         }
 
-        Toast toast = Toast.makeText(getApplicationContext(),"Revalue Next Button Clicked",Toast.LENGTH_LONG);
+        Toast toast = Toast.makeText(getApplicationContext(),"Revalue Next Button Clicked",Toast.LENGTH_SHORT);
         toast.show();
         //TODO
         //We need to save all the information the user enters on this screen into the database on save

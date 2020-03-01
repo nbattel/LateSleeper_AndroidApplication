@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-<<<<<<< HEAD
     android:background="#000099"
     android:onClick="nextActivity"
     tools:context=".activity.MainActivity">
@@ -18,13 +17,11 @@
         android:layout_marginEnd="83dp"
         android:layout_marginBottom="293dp"
         android:contentDescription="This is the logo in the main activity. It will have the functionality, when you tap the image twice, it will move to the log in screen of the application. "
-=======
-    android:background="@color/colorPrimary"
     android:onClick="nextActivity"
     tools:context=".activity.MainActivity">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
@@ -40,7 +37,6 @@
         android:id="@+id/imageView"
         android:layout_width="379dp"
         android:layout_height="257dp"
->>>>>>> 5420476db11fa0e45f7890eb4cdc29977a859657
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

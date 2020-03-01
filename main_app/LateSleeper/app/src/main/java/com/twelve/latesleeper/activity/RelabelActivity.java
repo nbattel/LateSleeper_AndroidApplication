@@ -21,7 +21,7 @@ public class RelabelActivity extends AppCompatActivity {
         Intent intent = new Intent(RelabelActivity.this, ReframeActivity.class);
         startActivity(intent);
 
-        Toast toast = Toast.makeText(getApplicationContext(),"Relabel Next Button Clicked",Toast.LENGTH_LONG);
+        Toast toast = Toast.makeText(getApplicationContext(),"Relabel Next Button Clicked",Toast.LENGTH_SHORT);
         toast.show();
         //TODO
         //We need to save all the information the user enters on this screen into the database on save
@@ -32,7 +32,7 @@ public class RelabelActivity extends AppCompatActivity {
         Intent intent = new Intent(RelabelActivity.this, JournalActivity.class);
         startActivity(intent);
 
-        Toast toast = Toast.makeText(getApplicationContext(),"Relabel Back Button Clicked",Toast.LENGTH_LONG);
+        Toast toast = Toast.makeText(getApplicationContext(),"Relabel Back Button Clicked",Toast.LENGTH_SHORT);
         toast.show();
     }
 }

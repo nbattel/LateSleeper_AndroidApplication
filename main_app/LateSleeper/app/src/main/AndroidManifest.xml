@@ -9,18 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-<<<<<<< HEAD
-        <activity android:name=".activity.LogInActivity"></activity>
-=======
         <activity android:name=".activity.RefocusActivity"></activity>
         <activity android:name=".activity.RelabelActivity" />
+        <activity android:name=".activity.UserHomeActivity" />
         <activity android:name=".activity.ReframeActivity" />
         <activity android:name=".activity.RevalueActivity" />
         <activity android:name=".activity.LogInActivity" />
         <activity android:name=".activity.CreateAccountActivity" />
-        <activity android:name=".activity.JournalActivity" />
->>>>>>> 5420476db11fa0e45f7890eb4cdc29977a859657
         <activity android:name=".activity.MainActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

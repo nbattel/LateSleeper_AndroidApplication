@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
+    android:background="@color/colorPrimaryDark"
     tools:context=".activity.RefocusActivity">
 
     <TextView
@@ -15,7 +15,7 @@
         android:layout_marginTop="40dp"
         android:layout_marginEnd="41dp"
         android:text="Step 3: Refocus"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/colorSecondaryDark"
         android:textSize="50sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
