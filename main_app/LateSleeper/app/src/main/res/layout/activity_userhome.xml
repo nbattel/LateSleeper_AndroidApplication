@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="163dp"
         android:text="Welcome Back, USER"
-        android:textColor="@color/colorSecondaryDark"
+        android:textColor="@android:color/secondary_text_dark"
         android:textSize="48sp" />
 
     <Button
@@ -35,7 +35,7 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="67dp"
-        android:textColor="@color/colorSecondaryDark"
-        android:text="Insert other USER INFO" />
+        android:text="Insert other USER INFO"
+        android:textColor="@android:color/secondary_text_dark" />
 
 </LinearLayout>
