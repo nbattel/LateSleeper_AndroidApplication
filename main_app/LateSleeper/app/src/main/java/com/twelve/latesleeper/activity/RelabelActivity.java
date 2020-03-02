@@ -34,11 +34,6 @@ public class RelabelActivity extends AppCompatActivity {
         //dropdown.setOnItemSelectedListener(onItemSelected());
     }
 
-    //OnClick for the create journal entry 
-    public void toCreate(View view){
-
-    }
-
     //OnClick for the save button will trigger the next screen in the workflow
     public void nextButtonRelabel(View view){
         Intent intent = new Intent(RelabelActivity.this, ReframeActivity.class);
