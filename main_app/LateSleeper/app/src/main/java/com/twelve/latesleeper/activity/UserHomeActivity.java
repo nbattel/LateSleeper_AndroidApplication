@@ -21,13 +21,19 @@ public class UserHomeActivity extends AppCompatActivity {
         //Get the users username
     }
 
-
-
     // On click function to log the user into their account
     public void toJournal(View view){
         Intent intent = new Intent(UserHomeActivity.this, JournalActivity.class);
         //NEED to verify user info is valid in order to login - do this after
         startActivity(intent);
+
+    }
+
+    public void toCreate(View view){
+
+    }
+
+    public void viewProgress(View view){
 
     }
 
