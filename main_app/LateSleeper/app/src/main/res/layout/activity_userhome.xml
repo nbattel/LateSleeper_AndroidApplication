@@ -16,34 +16,61 @@
         android:id="@+id/journalBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="viewJournal"
-        android:text="View Journal Entries" />
+        android:onClick="toJournal"
+        android:text="Create New Goal" />
 
     <Button
         android:id="@+id/newEntry"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="toJournal"
-        android:text="Create New Entry" />
-
-    <Button
-        android:id="@+id/progressBtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="viewProgress"
-        android:text="View Progress" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="67dp"
-        android:textColor="@color/colorSecondaryDark"
-        android:text="Insert other USER INFO" />
+        android:onClick="toCreate"
+        android:text="View Goals" />
 
     <ProgressBar
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyle"
         android:layout_width="match_parent"
-        android:layout_height="213dp" />
+        android:layout_height="154dp"
+        android:indeterminate="false" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Goals set:"
+        android:textColor="@android:color/white"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Goals completed:"
+        android:textColor="@android:color/white"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Consecutive Days of Entries:"
+        android:textColor="@android:color/white"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Total Entries Submitted:"
+        android:textColor="@android:color/white"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Insects caught:"
+        android:textColor="@android:color/white"
+        android:textSize="30sp" />
 
 </LinearLayout>
