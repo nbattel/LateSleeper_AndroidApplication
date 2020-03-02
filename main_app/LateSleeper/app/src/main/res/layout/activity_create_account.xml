@@ -4,10 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
-    android:background="@color/colorPrimary"
+    android:background="@color/colorPrimaryDark"
     tools:context=".activity.CreateAccountActivity">
-
 
     <ImageView
         android:id="@+id/loginActivityLogo"
@@ -158,6 +156,7 @@
                 android:id="@+id/btnConfirm"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:onClick="createAccount"
                 android:text="Create New Account"
                 android:textAlignment="center"
                 android:textSize="24sp" />
