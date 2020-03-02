@@ -43,4 +43,18 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
+    <Spinner
+        android:id="@+id/spinner2"
+        android:layout_width="101dp"
+        android:layout_height="92dp"
+        android:layout_marginStart="204dp"
+        android:layout_marginTop="252dp"
+        android:dropDownWidth="1000dp"
+        android:dropDownHeight="1000dp"
+        android:theme="@style/spinnerTheme"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    app:layout_constraintTop_toBottomOf="@+id/relabelTextView"
+        tools:layout_editor_absoluteX="20dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

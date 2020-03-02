@@ -31,15 +31,4 @@ public class UserHomeActivity extends AppCompatActivity {
 
     }
 
-    // On click function to allow a new user to create an account
-    /*public void createAccount(View view) {
-        Intent intent = new Intent(LogInActivity.this, CreateAccountActivity.class);
-        startActivity(intent);
-    }
-
-    // On click test function to go to journal activity
-    public void toJournal(View view){
-        Intent intent = new Intent(LogInActivity.this, JournalActivity.class);
-        startActivity(intent);
-    }*/
 }
