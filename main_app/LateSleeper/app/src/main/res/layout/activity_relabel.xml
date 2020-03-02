@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
     tools:context=".activity.RelabelActivity">
 
     <TextView
@@ -14,11 +15,11 @@
         android:layout_marginTop="40dp"
         android:layout_marginEnd="41dp"
         android:text="Step 1: Relabel"
-        android:textColor="#0000FF"
+        android:textColor="@color/colorSecondaryDark"
+        android:textSize="50sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:textSize="50sp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/backButton"
@@ -41,4 +42,5 @@
         android:text="Next"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

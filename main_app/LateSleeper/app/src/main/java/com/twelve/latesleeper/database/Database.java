@@ -67,6 +67,7 @@ public class Database {
         CollectionReference journalCollection = userCollection.document(uniqueUserId).collection("journal");
 
         // Add entry to user
+<<<<<<< HEAD
         journalCollection.add(entry);
     }
 
@@ -109,6 +110,10 @@ public class Database {
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
+=======
+        journalCollection.add(entry.getEntry());
+//
+>>>>>>> 81ead40d3f1ccd0ac133d21cca6f3f9441f8a6cc
 //        journalCollection.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
 //            @Override
 //            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
