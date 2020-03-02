@@ -32,19 +32,20 @@ public class Database {
 
     // Function for adding a new user to the database and storing their generated ID in the CurrentUser class
     public static void addUser(User user){
-        userCollection.add(user)
+
+        userCollection.add(user.getUser())
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
-                        System.out.println(documentReference.getId());
 
                         // Empty entry
-                        Entry entry = new Entry(" "," "," ");
+                        Entry entry = new Entry("null","null","null");
 
                         // Adding a journal collection to the newly created user
                         CollectionReference temp = userCollection.document(documentReference.getId()).collection("journal");
 
                         temp.add(entry);
+                        temp.add(entry.getEntry());
 
                         // Setting the CurrentUser Id to the newly signed in user
                         CurrentUser.setID(documentReference.getId());
@@ -66,7 +67,7 @@ public class Database {
         CollectionReference journalCollection = userCollection.document(uniqueUserId).collection("journal");
 
         // Add entry to user
-        journalCollection.add(entry);
+        journalCollection.add(entry.getEntry());
     }
 
     public static Journal getJournal(String uniqueUserId){

@@ -26,8 +26,8 @@ public class CreateAccountActivity extends AppCompatActivity {
         // Adding the user to our database, this will also set the current user
         Database.addUser(user);
 
-        CurrentUser.setUser(user);
+        //CurrentUser.setUser(user);
 
-        System.out.println(CurrentUser.getJournal());
+        //System.out.println(CurrentUser.getJournal());
     }
 }
