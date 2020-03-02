@@ -4,24 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
-    android:background="@color/colorPrimary"
+    android:background="@color/colorPrimaryDark"
     tools:context=".activity.CreateAccountActivity">
-
-<<<<<<< HEAD
-    <Button
-        android:id="@+id/createAccountButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="157dp"
-        android:layout_marginEnd="118dp"
-        android:layout_marginBottom="46dp"
-        android:onClick="createAccount"
-        android:text="Create and Log In"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-=======
 
     <ImageView
         android:id="@+id/loginActivityLogo"
@@ -192,11 +176,11 @@
                 android:id="@+id/btnConfirm"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:onClick="createAccount"
                 android:text="Create New Account"
                 android:textAlignment="center"
                 android:textSize="24sp" />
 
         </LinearLayout>
     </ScrollView>
->>>>>>> 81ead40d3f1ccd0ac133d21cca6f3f9441f8a6cc
 </androidx.constraintlayout.widget.ConstraintLayout>
