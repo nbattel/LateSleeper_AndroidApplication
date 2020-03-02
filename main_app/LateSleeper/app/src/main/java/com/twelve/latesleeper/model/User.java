@@ -15,11 +15,10 @@ public class User {
         user.put("address", "");
         user.put("city", "");
         user.put("province", "");
-        user.put("postalCode", "");
         user.put("phoneNumber", "");
     }
 
-    public User(String username, String password, String email, String firstName, String lastName, String address, String city, String province, String postalCode, String phoneNumber) {
+    public User(String username, String password, String email, String firstName, String lastName, String address, String city, String province, String phoneNumber) {
         user = new HashMap<String, String>();
 
         user.put("username", username);
@@ -30,7 +29,6 @@ public class User {
         user.put("address", address);
         user.put("city", city);
         user.put("province", province);
-        user.put("postalCode", postalCode);
         user.put("phoneNumber", phoneNumber);
     }
 
