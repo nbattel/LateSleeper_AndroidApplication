@@ -4,9 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.twelve.latesleeper.R;
 import com.twelve.latesleeper.database.Database;
 import com.twelve.latesleeper.model.User;
