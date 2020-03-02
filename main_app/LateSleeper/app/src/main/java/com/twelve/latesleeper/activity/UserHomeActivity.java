@@ -29,7 +29,7 @@ public class UserHomeActivity extends AppCompatActivity {
 
     }
 
-    public void toCreate(View view){
+    public void viewJournal(View view){
 
     }
 
