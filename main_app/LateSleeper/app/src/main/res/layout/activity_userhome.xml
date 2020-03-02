@@ -16,14 +16,14 @@
         android:id="@+id/journalBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="toJournal"
+        android:onClick="viewJournal"
         android:text="View Journal Entries" />
 
     <Button
         android:id="@+id/newEntry"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="toCreate"
+        android:onClick="toJournal"
         android:text="Create New Entry" />
 
     <Button
