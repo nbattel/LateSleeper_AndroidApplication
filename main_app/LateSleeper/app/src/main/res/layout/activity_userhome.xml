@@ -16,19 +16,21 @@
         android:id="@+id/journalBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="toJournal"
         android:text="View Journal Entries" />
 
     <Button
         android:id="@+id/newEntry"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="toJournal"
+        android:onClick="toCreate"
         android:text="Create New Entry" />
 
     <Button
         android:id="@+id/progressBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="viewProgress"
         android:text="View Progress" />
 
     <TextView
