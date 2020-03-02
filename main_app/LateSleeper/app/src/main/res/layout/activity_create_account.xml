@@ -4,20 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
-    android:background="@color/colorPrimary"
+    android:background="@color/colorPrimaryDark"
     tools:context=".activity.CreateAccountActivity">
-
 
     <ImageView
         android:id="@+id/loginActivityLogo"
         android:layout_width="206dp"
         android:layout_height="94dp"
         android:layout_marginStart="83dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="83dp"
         android:src="@drawable/mainactivitylogo"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -25,10 +24,10 @@
         android:id="@+id/txtCreate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
         android:text="Create new Account"
         android:textColor="@android:color/white"
-        android:textSize="36sp"
+        android:textSize="32sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/loginActivityLogo" />
@@ -37,7 +36,6 @@
         android:layout_width="409dp"
         android:layout_height="0dp"
         android:layout_marginStart="1dp"
-        android:layout_marginTop="40dp"
         android:layout_marginEnd="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -62,7 +60,7 @@
                 android:inputType="textWebEmailAddress"
                 android:textAlignment="textStart"
                 android:textColor="@android:color/white"
-                android:textSize="30sp" />
+                android:textSize="26sp" />
 
             <EditText
                 android:id="@+id/txtPass"
@@ -73,7 +71,7 @@
                 android:inputType="textPassword"
                 android:textAlignment="textStart"
                 android:textColor="@android:color/white"
-                android:textSize="30sp" />
+                android:textSize="26sp" />
 
             <EditText
                 android:id="@+id/txtPassConfirm"
@@ -84,10 +82,10 @@
                 android:inputType="textPassword"
                 android:textAlignment="textStart"
                 android:textColor="@android:color/white"
-                android:textSize="30sp" />
+                android:textSize="26sp" />
 
             <EditText
-                android:id="@+id/txtName"
+                android:id="@+id/txtFirstName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -95,10 +93,10 @@
                 android:inputType="textPersonName"
                 android:textAlignment="textStart"
                 android:textColor="@android:color/white"
-                android:textSize="30sp" />
+                android:textSize="26sp" />
 
             <EditText
-                android:id="@+id/txtName4"
+                android:id="@+id/txtLastName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -106,78 +104,59 @@
                 android:inputType="textPersonName"
                 android:textAlignment="textStart"
                 android:textColor="@android:color/white"
-                android:textSize="30sp" />
+                android:textSize="26sp" />
 
             <EditText
-                android:id="@+id/txtName5"
+                android:id="@+id/txtStreetAddress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Name"
+                android:hint="Street Address"
+                android:inputType="textPostalAddress"
                 android:textAlignment="textStart"
                 android:textColor="@android:color/white"
-                android:textSize="30sp" />
+                android:textSize="26sp" />
 
             <EditText
-                android:id="@+id/txtName6"
+                android:id="@+id/txtCity"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Name"
+                android:hint="City"
+                android:inputType="textPostalAddress"
                 android:textAlignment="textStart"
                 android:textColor="@android:color/white"
-                android:textSize="30sp" />
+                android:textSize="26sp" />
 
             <EditText
-                android:id="@+id/txtName7"
+                android:id="@+id/txtProvince"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Name"
+                android:hint="Province"
+                android:inputType="textPostalAddress"
                 android:textAlignment="textStart"
                 android:textColor="@android:color/white"
-                android:textSize="30sp" />
+                android:textSize="26sp" />
 
             <EditText
-                android:id="@+id/txtName8"
+                android:id="@+id/txtPhoneNumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Name"
+                android:hint="Phone Number"
+                android:inputType="text|number"
                 android:textAlignment="textStart"
                 android:textColor="@android:color/white"
-                android:textSize="30sp" />
+                android:textSize="26sp" />
 
-            <EditText
-                android:id="@+id/txtName9"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Name"
-                android:textAlignment="textStart"
-                android:textColor="@android:color/white"
-                android:textSize="30sp" />
-
-            <EditText
-                android:id="@+id/txtName10"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Name"
-                android:textAlignment="textStart"
-                android:textColor="@android:color/white"
-                android:textSize="30sp" />
+            
 
             <Button
                 android:id="@+id/btnConfirm"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:onClick="createAccount"
                 android:text="Create New Account"
                 android:textAlignment="center"
                 android:textSize="24sp" />
