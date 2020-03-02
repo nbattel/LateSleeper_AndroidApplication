@@ -38,4 +38,10 @@
         android:textColor="@color/colorSecondaryDark"
         android:text="Insert other USER INFO" />
 
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="213dp" />
+
 </LinearLayout>
