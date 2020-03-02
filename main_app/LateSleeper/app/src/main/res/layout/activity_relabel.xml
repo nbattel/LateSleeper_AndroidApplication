@@ -21,6 +21,15 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
+        android:id="@+id/newEntry"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="toCreate"
+        android:text="Create New Entry"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="449dp" />
+
+    <Button
         android:id="@+id/backButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
