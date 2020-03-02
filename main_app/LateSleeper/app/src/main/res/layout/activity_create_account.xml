@@ -8,7 +8,6 @@
     android:background="@color/colorPrimary"
     tools:context=".activity.CreateAccountActivity">
 
-<<<<<<< HEAD
     <Button
         android:id="@+id/createAccountButton"
         android:layout_width="wrap_content"
@@ -21,7 +20,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-=======
 
     <ImageView
         android:id="@+id/loginActivityLogo"
@@ -198,5 +196,4 @@
 
         </LinearLayout>
     </ScrollView>
->>>>>>> 81ead40d3f1ccd0ac133d21cca6f3f9441f8a6cc
 </androidx.constraintlayout.widget.ConstraintLayout>

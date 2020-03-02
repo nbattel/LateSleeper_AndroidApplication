@@ -10,7 +10,6 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -67,7 +66,6 @@ public class Database {
         CollectionReference journalCollection = userCollection.document(uniqueUserId).collection("journal");
 
         // Add entry to user
-<<<<<<< HEAD
         journalCollection.add(entry);
     }
 
@@ -110,10 +108,6 @@ public class Database {
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-=======
-        journalCollection.add(entry.getEntry());
-//
->>>>>>> 81ead40d3f1ccd0ac133d21cca6f3f9441f8a6cc
 //        journalCollection.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
 //            @Override
 //            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
