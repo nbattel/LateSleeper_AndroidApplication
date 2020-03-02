@@ -11,13 +11,12 @@
         android:id="@+id/relabelTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="41dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="41dp"
+        android:layout_marginTop="64dp"
         android:text="Step 1: Relabel"
         android:textColor="@color/colorSecondaryDark"
         android:textSize="50sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -45,15 +44,29 @@
 
     <Spinner
         android:id="@+id/spinner2"
-        android:layout_width="101dp"
-        android:layout_height="92dp"
-        android:layout_marginStart="204dp"
-        android:layout_marginTop="252dp"
+        android:layout_width="194dp"
+        android:layout_height="97dp"
+        android:layout_marginTop="40dp"
         android:dropDownWidth="1000dp"
         android:dropDownHeight="1000dp"
         android:theme="@style/spinnerTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="313dp"
+        android:layout_height="91dp"
+        android:layout_marginTop="52dp"
+        android:text="Congratulations on logging an entry! Tell us how you feel right now:"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relabelTextView" />
     app:layout_constraintTop_toBottomOf="@+id/relabelTextView"
         tools:layout_editor_absoluteX="20dp" />
 
