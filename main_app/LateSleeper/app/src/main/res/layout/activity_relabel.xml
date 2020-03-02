@@ -20,14 +20,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/newEntry"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="toCreate"
-        android:text="Create New Entry"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="449dp" />
 
     <Button
         android:id="@+id/backButton"
@@ -55,7 +47,7 @@
         android:id="@+id/spinner2"
         android:layout_width="194dp"
         android:layout_height="97dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="92dp"
         android:dropDownWidth="1000dp"
         android:dropDownHeight="1000dp"
         android:theme="@style/spinnerTheme"
@@ -68,7 +60,7 @@
         android:id="@+id/textView"
         android:layout_width="313dp"
         android:layout_height="91dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="120dp"
         android:text="Congratulations on logging an entry! Tell us how you feel right now:"
         android:textAlignment="center"
         android:textColor="@android:color/white"
