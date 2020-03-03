@@ -9,14 +9,12 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.twelve.latesleeper.model.Entry;
 import com.twelve.latesleeper.model.Journal;
 import com.twelve.latesleeper.model.User;
-import com.twelve.latesleeper.user.CurrentUser;
 
 public class Database {
 
@@ -31,24 +29,21 @@ public class Database {
     }
 
     // Function for adding a new user to the database and storing their generated ID in the CurrentUser class
-    public static void addUser(User user){
-
-        userCollection.add(user.getUser())
-                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+    public static void addUser(User user, String id){
+        userCollection.document(id)
+                .set(user.getUser())
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
-                    public void onSuccess(DocumentReference documentReference) {
+                    public void onSuccess(Void aVoid) {
 
                         // Empty entry
-                        Entry entry = new Entry("null","null","null");
+                        //Entry entry = new Entry("null","null","null");
 
                         // Adding a journal collection to the newly created user
-                        CollectionReference temp = userCollection.document(documentReference.getId()).collection("journal");
+                        //CollectionReference temp = userCollection.document(id).collection("journal");
 
-                        temp.add(entry);
-                        temp.add(entry.getEntry());
-
-                        // Setting the CurrentUser Id to the newly signed in user
-                        CurrentUser.setID(documentReference.getId());
+                        //temp.add(entry);
+                        //temp.add(entry.getEntry());
 
                         Log.w("SUCCESS", ".addUser() has succeeded");
                     }
