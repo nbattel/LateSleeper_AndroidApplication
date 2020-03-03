@@ -20,7 +20,7 @@
         app:layout_constraintTop_toBottomOf="@+id/loginActivityLogo" />
 
     <EditText
-        android:id="@+id/emailEditText"
+        android:id="@+id/txtEmail"
         android:layout_width="284dp"
         android:layout_height="69dp"
         android:layout_marginTop="36dp"
@@ -35,7 +35,7 @@
         app:layout_constraintTop_toBottomOf="@+id/logInTextView" />
 
     <EditText
-        android:id="@+id/passwordEditText"
+        android:id="@+id/txtPass"
         android:layout_width="282dp"
         android:layout_height="70dp"
         android:layout_marginStart="63dp"
@@ -48,26 +48,24 @@
         android:textColor="@color/colorSecondaryDark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/txtEmail" />
 
     <Button
         android:id="@+id/logInButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="137dp"
         android:layout_marginTop="44dp"
-        android:layout_marginEnd="137dp"
         android:onClick="logIn"
         android:text="Log In"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passwordEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/txtPass" />
 
     <Button
         android:id="@+id/createAccountButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="20dp"
         android:onClick="createAccount"
         android:text="Create Account"
         app:layout_constraintEnd_toEndOf="parent"

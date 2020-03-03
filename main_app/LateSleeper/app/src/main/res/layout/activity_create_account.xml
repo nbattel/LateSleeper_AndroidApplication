@@ -11,45 +11,37 @@
         android:id="@+id/loginActivityLogo"
         android:layout_width="206dp"
         android:layout_height="94dp"
-        android:layout_marginStart="83dp"
         android:layout_marginTop="24dp"
-        android:layout_marginEnd="83dp"
         android:src="@drawable/mainactivitylogo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/txtCreate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Create new Account"
-        android:textColor="@android:color/white"
-        android:textSize="32sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginActivityLogo" />
-
     <ScrollView
-        android:layout_width="409dp"
-        android:layout_height="0dp"
+        android:layout_width="0dp"
+        android:layout_height="434dp"
         android:layout_marginStart="1dp"
+        android:layout_marginTop="60dp"
         android:layout_marginEnd="1dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtCreate"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toBottomOf="@+id/loginActivityLogo">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
             android:paddingLeft="65px"
             android:paddingRight="65px">
+
+            <TextView
+                android:id="@+id/createNewTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Create new Account"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="32sp" />
 
             <EditText
                 android:id="@+id/txtEmail"
@@ -150,7 +142,6 @@
                 android:textColor="@android:color/white"
                 android:textSize="26sp" />
 
-            
 
             <Button
                 android:id="@+id/btnConfirm"
@@ -163,4 +154,5 @@
 
         </LinearLayout>
     </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
