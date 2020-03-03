@@ -14,7 +14,8 @@ public class QuizResultsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.quizresults);
         quizResult = findViewById(R.id.mcResults);
-        int sc = getIntent().getIntExtra("quizScore",0);
+        Bundle bundle = getIntent().getExtras();
+        int sc = bundle.getInt("finalScore");
         quizResult.setText("You scored a total of: "+ sc);
     }
 

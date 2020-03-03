@@ -39,12 +39,16 @@ public class WiseAdvocateActivity extends AppCompatActivity {
         choice1.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                score = score +1;
+                score = score;
                 updateScore(score);
                 if (isQuizOver() == true)
                 {
                     Intent intent = new Intent(WiseAdvocateActivity.this, QuizResultsActivity.class);
-                    intent.putExtra("finalScore",score);
+                   // intent.putExtra("finalScore",score);
+
+                    Bundle bundle = new Bundle();
+                    bundle.putInt("finalScore", score);
+                    intent.putExtras(bundle);
                     startActivity(intent);
                 }
                 else {
@@ -55,12 +59,14 @@ public class WiseAdvocateActivity extends AppCompatActivity {
         choice2.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                score = score +2;
+                score = score +1;
                 updateScore(score);
                 if (isQuizOver() == true)
                 {
                     Intent intent = new Intent(WiseAdvocateActivity.this, QuizResultsActivity.class);
-                    intent.putExtra("finalScore",score);
+                    Bundle bundle = new Bundle();
+                    bundle.putInt("finalScore", score);
+                    intent.putExtras(bundle);
                     startActivity(intent);
                 }
                 else {
@@ -71,12 +77,14 @@ public class WiseAdvocateActivity extends AppCompatActivity {
         choice3.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                score = score +3;
+                score = score +2;
                 updateScore(score);
                 if (isQuizOver() == true)
                 {
                     Intent intent = new Intent(WiseAdvocateActivity.this, QuizResultsActivity.class);
-                    intent.putExtra("finalScore",score);
+                    Bundle bundle = new Bundle();
+                    bundle.putInt("finalScore", score);
+                    intent.putExtras(bundle);
                     startActivity(intent);
                 }
                 else {
@@ -87,13 +95,15 @@ public class WiseAdvocateActivity extends AppCompatActivity {
         choice4.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                score = score +4;
+                score = score +3;
                 updateScore(score);
 
                 if (isQuizOver() == true)
                 {
                     Intent intent = new Intent(WiseAdvocateActivity.this, QuizResultsActivity.class);
-                    intent.putExtra("finalScore",score);
+                    Bundle bundle = new Bundle();
+                    bundle.putInt("finalScore", score);
+                    intent.putExtras(bundle);
                     startActivity(intent);
                 }
                 else {
@@ -104,12 +114,14 @@ public class WiseAdvocateActivity extends AppCompatActivity {
         choice5.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                score = score +5;
+                score = score +4;
                 updateScore(score);
                 if (isQuizOver() == true)
                 {
                     Intent intent = new Intent(WiseAdvocateActivity.this, QuizResultsActivity.class);
-                    intent.putExtra("finalScore",score);
+                    Bundle bundle = new Bundle();
+                    bundle.putInt("finalScore", score);
+                    intent.putExtras(bundle);
                     startActivity(intent);
                 }
                 else {
