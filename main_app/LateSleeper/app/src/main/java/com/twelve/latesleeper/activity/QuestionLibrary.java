@@ -1,7 +1,7 @@
 package com.twelve.latesleeper.activity;
 
 public class QuestionLibrary {
-    private String mcQuestions[] = {
+    public static String mcQuestions[] = {
                     "This pattern causes me to have a lack of sleep.",
                     "This pattern causes me to not get my work done",
                     "This pattern causes me to get nervous/upset.",

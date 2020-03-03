@@ -16,6 +16,7 @@
         <activity android:name=".activity.UserHomeActivity" />
         <activity android:name=".activity.JournalActivity" />
         <activity android:name=".activity.ReframeActivity" />
+        <activity android:name=".activity.QuizResultsActivity" />
         <activity android:name=".activity.RevalueActivity" />
         <activity android:name=".activity.LogInActivity" />
         <activity android:name=".activity.CreateAccountActivity" />
