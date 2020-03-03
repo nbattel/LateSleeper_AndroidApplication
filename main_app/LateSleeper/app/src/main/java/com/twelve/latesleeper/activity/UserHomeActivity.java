@@ -29,12 +29,9 @@ public class UserHomeActivity extends AppCompatActivity {
 
     }
 
-    public void viewJournal(View view){
-
-    }
-
-    public void viewProgress(View view){
-
+    public void toViewGoals(View view){
+        Intent intent = new Intent(UserHomeActivity.this, ViewGoalsActivity.class);
+        startActivity(intent);
     }
 
 }

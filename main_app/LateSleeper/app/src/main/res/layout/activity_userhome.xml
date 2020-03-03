@@ -23,7 +23,7 @@
         android:id="@+id/newEntry"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="toCreate"
+        android:onClick="toViewGoals"
         android:text="View Goals" />
 
     <ProgressBar
