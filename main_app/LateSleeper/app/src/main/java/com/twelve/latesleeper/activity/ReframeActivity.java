@@ -16,6 +16,12 @@ public class ReframeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_reframe);
     }
 
+    /*public void toMultipleChoice(View view)
+    {
+        Intent intent = new Intent(ReframeActivity.this, WiseAdvocateActivity.class);
+        startActivity(intent);
+    }*/
+
     //OnClick for the save button will trigger the next screen in the workflow
     public void nextButtonReframe(View view){
         Intent intent = new Intent(ReframeActivity.this, RefocusActivity.class);
@@ -27,12 +33,16 @@ public class ReframeActivity extends AppCompatActivity {
         //We need to save all the information the user enters on this screen into the database on save
     }
 
+
+
+
+
     //OnClick for the cancel button will not save any information
-    public void backButtonReframe(View view){
-        Intent intent = new Intent(ReframeActivity.this, RelabelActivity.class);
+    public void backButtonExit(View view){
+        Intent intent = new Intent(ReframeActivity.this, UserHomeActivity.class);
         startActivity(intent);
 
-        Toast toast = Toast.makeText(getApplicationContext(),"Reframe Back Button Clicked",Toast.LENGTH_SHORT);
+        Toast toast = Toast.makeText(getApplicationContext(),"Back Button Clicked",Toast.LENGTH_SHORT);
         toast.show();
     }
 }
