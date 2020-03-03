@@ -98,6 +98,11 @@ public class Database {
 
         return tempJournal;
     }
+
+   /* public static int getNumGoals()
+    {
+
+    }*/
 }
 
 
