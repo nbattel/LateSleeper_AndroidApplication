@@ -34,6 +34,7 @@ public class UserHomeActivity extends AppCompatActivity {
         consecutiveDays = findViewById(R.id.daysConsec);
         totalEntries = findViewById(R.id.totalEntries);
         welcomeBack = findViewById(R.id.welcomeTezt);
+        //now modify the text based on information about user in database
     }
 
     // On click function to log the user into their account
@@ -49,10 +50,7 @@ public class UserHomeActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void updateInfoOnScreen(View view)
-    {
-        TextView goalsSet = findViewById(android.R.layout);
-    }
+
 
 
 

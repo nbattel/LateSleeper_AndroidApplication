@@ -12,6 +12,7 @@
         <activity android:name=".activity.RefocusActivity" />
         <activity android:name=".activity.RelabelActivity" />
         <activity android:name=".activity.ViewGoalsActivity" />
+        <activity android:name=".activity.WiseAdvocateActivity"/>
         <activity android:name=".activity.UserHomeActivity" />
         <activity android:name=".activity.JournalActivity" />
         <activity android:name=".activity.ReframeActivity" />
