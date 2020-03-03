@@ -1,15 +1,15 @@
 package com.twelve.latesleeper.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.twelve.latesleeper.R;
-import com.twelve.latesleeper.model.Journal;
 
 
 public class UserHomeActivity extends AppCompatActivity {
@@ -23,10 +23,15 @@ public class UserHomeActivity extends AppCompatActivity {
     //this should be done whenever the activity is instantiated
 
 
+    private FirebaseAuth mAuth;
+    private TextView welcomeText;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mAuth = FirebaseAuth.getInstance();
         setContentView(R.layout.activity_userhome);
+        welcomeText = (TextView) findViewById(R.id.welcomeText);
         //TODO
         //Get the users username
         goalsCompleted = findViewById(R.id.goalsCompleted);
@@ -35,6 +40,18 @@ public class UserHomeActivity extends AppCompatActivity {
         totalEntries = findViewById(R.id.totalEntries);
         welcomeBack = findViewById(R.id.welcomeTezt);
         //now modify the text based on information about user in database
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        updateUI(currentUser);
+    }
+
+    public void signOut(View view) {
+        mAuth.signOut();
+        updateUI(mAuth.getCurrentUser());
     }
 
     // On click function to log the user into their account
@@ -53,5 +70,14 @@ public class UserHomeActivity extends AppCompatActivity {
 
 
 
+
+    public void updateUI(FirebaseUser user) {
+        if (user != null) {
+            welcomeText.setText("Welcome Back, " + user.getDisplayName());
+        } else {
+            Intent intent = new Intent(UserHomeActivity.this, LogInActivity.class);
+            startActivity(intent);
+        }
+    }
 
 }
