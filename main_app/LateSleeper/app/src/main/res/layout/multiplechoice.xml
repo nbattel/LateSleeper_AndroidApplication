@@ -37,7 +37,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:text="Which thing is alive?"
+        android:text="Whos is the most savage?"
         android:textSize="20sp"
         android:padding="8dp"
         android:layout_marginBottom="40dp"
@@ -47,7 +47,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="bird"
+        android:text="mike"
         android:background="#0091EA"
         android:textColor="#fff"
         android:padding="8dp"
@@ -57,7 +57,17 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="door"
+        android:text="tomer"
+        android:background="#0091EA"
+        android:textColor="#fff"
+        android:padding="8dp"
+        android:layout_marginBottom="24dp"
+        android:id="@+id/choice1b"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="nick"
         android:background="#0091EA"
         android:textColor="#fff"
         android:padding="8dp"
@@ -67,7 +77,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="rock"
+        android:text="chris"
         android:background="#0091EA"
         android:textColor="#fff"
         android:padding="8dp"
@@ -77,7 +87,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="quit"
+        android:text="quit/milos"
         android:background="#B71C1C"
         android:textColor="#fff"
         android:padding="8dp"
