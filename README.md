@@ -80,11 +80,11 @@ users
 
 # Four-Steps
 The application implements the four steps to aid users in breaking their bad habit of staying up too late.
-## Relabel
+## 1. Relabel
 At this Step, the user is directed to imput how they are feeling. This is done to remind the user of how they are feeling at the moment.
-## Reframe
+## 2. Reframe
 At this step, the user is reminded to be aware of bad thinking and to try to reason with the "wise advocate".
-## Refocus
+## 3. Refocus
 At this step, the user is directed to shift their attention to the direction they want to go, and do something constructive as what one has control over is their actions.
-## Revalue
+## 4. Revalue
 At this step, the user will be directed to make a journal entry to reflect on how the pattern of behaviour affected their life negatively.
