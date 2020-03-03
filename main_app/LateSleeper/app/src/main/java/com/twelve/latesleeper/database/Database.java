@@ -4,29 +4,24 @@ import android.util.Log;
 
 import androidx.annotation.NonNull;
 
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
 import com.twelve.latesleeper.model.Entry;
-import com.twelve.latesleeper.model.Journal;
 import com.twelve.latesleeper.model.User;
 
 public class Database {
 
     private static FirebaseFirestore database;
     private static CollectionReference userCollection;
-    private static Journal tempJournal;
 
     static {
         database = FirebaseFirestore.getInstance();
         userCollection = database.collection("users");
-        tempJournal = new Journal();
     }
+
+    public static FirebaseFirestore getDatabase() { return database; }
 
     // Function for adding a new user to the database and storing their generated ID in the CurrentUser class
     public static void addUser(User user, String id){
@@ -35,16 +30,6 @@ public class Database {
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-
-                        // Empty entry
-                        //Entry entry = new Entry("null","null","null");
-
-                        // Adding a journal collection to the newly created user
-                        //CollectionReference temp = userCollection.document(id).collection("journal");
-
-                        //temp.add(entry);
-                        //temp.add(entry.getEntry());
-
                         Log.w("SUCCESS", ".addUser() has succeeded");
                     }
                 })
@@ -60,38 +45,8 @@ public class Database {
     public static void addEntry(String uniqueUserId, Entry entry){
         // Getting a reference to the journal collection of the specific user
         CollectionReference journalCollection = userCollection.document(uniqueUserId).collection("journal");
-
         // Add entry to user
         journalCollection.add(entry.getEntry());
-    }
-
-    public static Journal getJournal(String uniqueUserId){
-        // Wiping any previous journal we got
-        tempJournal.wipe();
-
-        userCollection.document(uniqueUserId).collection("journal")
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            for (QueryDocumentSnapshot document : task.getResult()) {
-                                Log.d("SUCCESS", document.getId() + " => " + document.getData());
-
-                                // Create new Entry object
-                                Entry entry = new Entry(document.getString("body"),
-                                        document.getString("title"), document.getString("date"));
-
-                                // Add entry object to the tempJournal
-                                tempJournal.addEntry(entry);
-                            }
-                        } else {
-                            Log.d("FAILURE", "Error getting documents: ", task.getException());
-                        }
-                    }
-                });
-
-        return tempJournal;
     }
 }
 
