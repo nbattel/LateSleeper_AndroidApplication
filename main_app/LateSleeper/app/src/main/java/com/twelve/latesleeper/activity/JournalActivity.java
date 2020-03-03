@@ -1,8 +1,5 @@
 package com.twelve.latesleeper.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -12,6 +9,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
 import com.twelve.latesleeper.R;
 import com.twelve.latesleeper.database.Database;
 import com.twelve.latesleeper.model.Entry;
@@ -21,6 +27,8 @@ import java.util.Date;
 
 public class JournalActivity extends AppCompatActivity {
 
+    private FirebaseAuth mAuth;
+    private FirebaseUser currentUser;
     EditText titleEditText;
     EditText bodyEditText;
     Button journalButton;
@@ -30,6 +38,7 @@ public class JournalActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mAuth = FirebaseAuth.getInstance();
         setContentView(R.layout.activity_journal);
         titleEditText = findViewById(R.id.titleEditText);
         bodyEditText = findViewById(R.id.bodyEditText);
@@ -92,9 +101,13 @@ public class JournalActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        currentUser = mAuth.getCurrentUser();
+    }
+
     public void writeToJournal(View view){
-        Toast toast = Toast.makeText(getApplicationContext(), "Writing to Journal!", Toast.LENGTH_SHORT);
-        toast.show();
 
         String title = titleEditText.getText().toString();
         String body = bodyEditText.getText().toString();
@@ -102,10 +115,25 @@ public class JournalActivity extends AppCompatActivity {
 
         Entry entry = new Entry(body, title, date);
 
-        Database.addEntry("b7rTinkMBp2NVenxTNkM", entry);
-
-        Intent intent = new Intent(JournalActivity.this, RelabelActivity.class);
-        startActivity(intent);
+        // Getting a reference to the journal collection of the specific user
+        CollectionReference journalCollection = Database.getDatabase().document("users/" + currentUser.getUid()).collection("journal");
+        // Add entry to user
+        journalCollection.add(entry.getEntry())
+                .addOnCompleteListener(this, new OnCompleteListener<DocumentReference>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentReference> task) {
+                        if (task.isSuccessful()) {
+                            Toast toast = Toast.makeText(getApplicationContext(), "Wrote to Journal!", Toast.LENGTH_SHORT);
+                            toast.show();
+                            Intent intent = new Intent(JournalActivity.this, RelabelActivity.class);
+                            startActivity(intent);
+                        }
+                        else {
+                            Toast toast = Toast.makeText(getApplicationContext(), "Failed writing to Journal!", Toast.LENGTH_SHORT);
+                            toast.show();
+                        }
+                    }
+                });
     }
 
     public void cancelJournal(View view){
