@@ -10,8 +10,60 @@
         android:id="@+id/mcResults"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Quiz Results"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/moveToRefocus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="TextView"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/mcResults" />
+
+    <Button
+        android:id="@+id/continueBtn"
+        android:onClick="ContinueButton"
+        android:layout_width="120dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="65dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="56dp"
+        android:layout_marginBottom="191dp"
+        android:text="Continue"
+        app:layout_constraintBottom_toTopOf="@+id/mcResults"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/backToHomeBtn"
+        app:layout_constraintTop_toBottomOf="@+id/resultTitle" />
+
+    <Button
+        android:id="@+id/backToHomeBtn"
+        android:onClick="BackToHome"
+        android:layout_width="120dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="65dp"
+        android:layout_marginBottom="161dp"
+        android:text="Back to Home"
+        app:layout_constraintBottom_toTopOf="@+id/mcResults"
+        app:layout_constraintEnd_toStartOf="@+id/continueBtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/resultTitle" />
+
+    <TextView
+        android:id="@+id/resultTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Quiz Results"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toTopOf="@+id/continueBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

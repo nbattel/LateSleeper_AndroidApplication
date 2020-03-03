@@ -34,7 +34,7 @@ public class RelabelActivity extends AppCompatActivity {
 
     //OnClick for the save button will trigger the next screen in the workflow
     public void nextButtonRelabel(View view){
-        Intent intent = new Intent(RelabelActivity.this, ReframeActivity.class);
+        Intent intent = new Intent(RelabelActivity.this, WiseAdvocateActivity.class);
         startActivity(intent);
 
         Toast toast = Toast.makeText(getApplicationContext(),"Relabel Next Button Clicked",Toast.LENGTH_SHORT);
