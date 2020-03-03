@@ -12,6 +12,11 @@ An android application to help you break the habit of going to sleep late.
   * [User](#user)
   * [Entry](#entry)
 - [Collections](#collections)
+- [ImplementationOfthe4Steps](#four-steps)
+  * [Relabel](#relabel)
+  * [Reframe](#reframe)
+  * [Refocus](#refocus)
+  * [Revalue](#revalue)
 
 # Functionalities
 
