@@ -18,6 +18,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
 import com.twelve.latesleeper.R;
+import com.twelve.latesleeper.database.Database;
 import com.twelve.latesleeper.model.User;
 
 public class CreateAccountActivity extends AppCompatActivity {
@@ -85,6 +86,7 @@ public class CreateAccountActivity extends AppCompatActivity {
                                             }
                                         }
                                     });
+
                             Database.addUser(newUser, user.getUid());
                             updateUI(user);
                         } else {

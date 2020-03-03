@@ -19,6 +19,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.twelve.latesleeper.R;
+import com.twelve.latesleeper.database.Database;
 import com.twelve.latesleeper.model.Entry;
 
 import java.text.SimpleDateFormat;

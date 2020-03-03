@@ -38,7 +38,7 @@ public class UserHomeActivity extends AppCompatActivity {
         goalsSet = findViewById(R.id.goalsSet);
         consecutiveDays = findViewById(R.id.daysConsec);
         totalEntries = findViewById(R.id.totalEntries);
-        welcomeBack = findViewById(R.id.welcomeTezt);
+        welcomeBack = findViewById(R.id.welcomeText);
         //now modify the text based on information about user in database
     }
 
