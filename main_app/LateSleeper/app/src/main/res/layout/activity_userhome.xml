@@ -76,7 +76,7 @@
         android:id="@+id/totalEntries"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Total Entries Submitted:"
+        android:text="Total Entries Submitted: ..."
         android:textColor="@android:color/white"
         android:textSize="30sp" />
 

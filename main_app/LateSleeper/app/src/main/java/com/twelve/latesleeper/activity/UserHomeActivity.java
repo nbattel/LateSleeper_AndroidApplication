@@ -2,14 +2,20 @@ package com.twelve.latesleeper.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.twelve.latesleeper.R;
+import com.twelve.latesleeper.database.Database;
 
 
 public class UserHomeActivity extends AppCompatActivity {
@@ -25,6 +31,7 @@ public class UserHomeActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private TextView welcomeText;
+    private int entries = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,12 +53,14 @@ public class UserHomeActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         FirebaseUser currentUser = mAuth.getCurrentUser();
+        retrieveJournalAmount(currentUser.getUid());
         updateUI(currentUser);
     }
 
     public void signOut(View view) {
         mAuth.signOut();
-        updateUI(mAuth.getCurrentUser());
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        updateUI(currentUser);
     }
 
     // On click function to log the user into their account
@@ -68,7 +77,22 @@ public class UserHomeActivity extends AppCompatActivity {
     }
 
 
-
+    public void retrieveJournalAmount(String id) {
+        Database.getDatabase().collection("users").document(id).collection("journal")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            entries = task.getResult().size();
+                            totalEntries.setText("Total Entries Submitted: " + entries);
+                            Log.d("TESTSIZE", task.getResult().size() + "");
+                        } else {
+                            Log.d("FAILEDDOCUMENT", "Error getting documents.", task.getException());
+                        }
+                    }
+                });
+    }
 
 
     public void updateUI(FirebaseUser user) {

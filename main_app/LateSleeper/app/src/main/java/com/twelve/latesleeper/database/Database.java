@@ -4,10 +4,14 @@ import android.util.Log;
 
 import androidx.annotation.NonNull;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.twelve.latesleeper.model.Entry;
 import com.twelve.latesleeper.model.User;
 
@@ -15,6 +19,7 @@ public class Database {
 
     private static FirebaseFirestore database;
     private static CollectionReference userCollection;
+    private static int size;
 
     static {
         database = FirebaseFirestore.getInstance();
@@ -37,6 +42,23 @@ public class Database {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         Log.w("FAILURE", ".addUser() has failed", e);
+                    }
+                });
+    }
+
+    public static void retrieveJournalCollection(String id) {
+        userCollection.document(id).collection("journal")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                Log.d("DOCUMENT", document.getId() + "=>" + document.getData());
+                            }
+                        } else {
+                            Log.d("FAILEDDOCUMENT", "Error getting documents.", task.getException());
+                        }
                     }
                 });
     }
