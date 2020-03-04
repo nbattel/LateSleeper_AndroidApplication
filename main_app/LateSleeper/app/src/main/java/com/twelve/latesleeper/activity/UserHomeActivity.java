@@ -97,7 +97,7 @@ public class UserHomeActivity extends AppCompatActivity {
 
     public void updateUI(FirebaseUser user) {
         if (user != null) {
-            welcomeText.setText("Welcome Back, " + user.getDisplayName());
+            welcomeText.setText("Welcome, " + user.getDisplayName());
         } else {
             Intent intent = new Intent(UserHomeActivity.this, LogInActivity.class);
             startActivity(intent);
