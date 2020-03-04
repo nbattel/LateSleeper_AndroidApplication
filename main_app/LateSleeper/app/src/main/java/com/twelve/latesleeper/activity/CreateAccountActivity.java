@@ -86,6 +86,7 @@ public class CreateAccountActivity extends AppCompatActivity {
                                             }
                                         }
                                     });
+
                             Database.addUser(newUser, user.getUid());
                             updateUI(user);
                         } else {

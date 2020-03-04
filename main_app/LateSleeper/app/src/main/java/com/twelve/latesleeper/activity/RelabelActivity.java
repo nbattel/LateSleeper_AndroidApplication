@@ -5,10 +5,8 @@ import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.twelve.latesleeper.R;
@@ -36,7 +34,7 @@ public class RelabelActivity extends AppCompatActivity {
 
     //OnClick for the save button will trigger the next screen in the workflow
     public void nextButtonRelabel(View view){
-        Intent intent = new Intent(RelabelActivity.this, ReframeActivity.class);
+        Intent intent = new Intent(RelabelActivity.this, WiseAdvocateActivity.class);
         startActivity(intent);
 
         Toast toast = Toast.makeText(getApplicationContext(),"Relabel Next Button Clicked",Toast.LENGTH_SHORT);
