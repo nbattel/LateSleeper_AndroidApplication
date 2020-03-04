@@ -70,7 +70,7 @@ public class CreateAccountActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             Log.d(TAG, "createUserWithEmail:success");
-                            FirebaseUser user = mAuth.getCurrentUser();
+                            final FirebaseUser user = mAuth.getCurrentUser();
                             UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
                                     .setDisplayName(newUser.getUser().get("firstName")).build();
                             Log.d("TEST", newUser.getUser().get("firstName"));
@@ -80,15 +80,14 @@ public class CreateAccountActivity extends AppCompatActivity {
                                         public void onComplete(@NonNull Task<Void> task) {
                                             if(task.isSuccessful()) {
                                                 Log.d(TAG, "Display name set!");
+                                                Database.addUser(newUser, user.getUid());
+                                                updateUI(user);
                                             }
                                             else {
                                                 Log.d(TAG, "Error setting name!");
                                             }
                                         }
                                     });
-
-                            Database.addUser(newUser, user.getUid());
-                            updateUI(user);
                         } else {
                             Log.w(TAG, "createUserWithEmail:failure", task.getException());
                             Toast.makeText(CreateAccountActivity.this, "Authentication failed.",

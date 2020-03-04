@@ -9,11 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.CreateGoalActivity"></activity>
+        <activity android:name=".activity.ViewGoalActivity"></activity>
+        <activity android:name=".activity.CreateGoalActivity" />
         <activity android:name=".activity.RefocusActivity" />
         <activity android:name=".activity.RelabelActivity" />
         <activity android:name=".activity.ViewGoalsActivity" />
-        <activity android:name=".activity.WiseAdvocateActivity"/>
+        <activity android:name=".activity.WiseAdvocateActivity" />
         <activity android:name=".activity.UserHomeActivity" />
         <activity android:name=".activity.JournalActivity" />
         <activity android:name=".activity.ReframeActivity" />
