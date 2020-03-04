@@ -47,12 +47,12 @@
         android:id="@+id/spinner2"
         android:layout_width="194dp"
         android:layout_height="97dp"
-        android:layout_marginTop="92dp"
+        android:layout_marginTop="52dp"
         android:dropDownWidth="1000dp"
         android:dropDownHeight="1000dp"
         android:theme="@style/spinnerTheme"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.552"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
@@ -61,7 +61,7 @@
         android:layout_width="313dp"
         android:layout_height="91dp"
         android:layout_marginTop="120dp"
-        android:text="Congratulations on logging an entry! Tell us how you feel right now:"
+        android:text="Congratulations on logging an entry! Tell us how staying up late makes you feel"
         android:textAlignment="center"
         android:textColor="@android:color/white"
         android:textSize="24sp"

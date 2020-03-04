@@ -14,6 +14,7 @@ public class ReframeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reframe);
+
     }
 
     /*public void toMultipleChoice(View view)
