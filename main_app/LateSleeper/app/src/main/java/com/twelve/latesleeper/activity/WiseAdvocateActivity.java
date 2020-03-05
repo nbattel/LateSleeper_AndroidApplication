@@ -33,7 +33,8 @@ public class WiseAdvocateActivity extends AppCompatActivity {
         choice3 = findViewById(R.id.choice3);
         choice4 = findViewById(R.id.choice4);
         choice5 = findViewById(R.id.choice5);
-        chooseQuestion();
+        setChoices();
+        setQuestion();
 
         choice1.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -44,7 +45,7 @@ public class WiseAdvocateActivity extends AppCompatActivity {
                    endQuiz();
                 }
                 else {
-                    chooseQuestion();
+                    setQuestion();
                 }
             }
         });
@@ -58,7 +59,7 @@ public class WiseAdvocateActivity extends AppCompatActivity {
                     endQuiz();
                 }
                 else {
-                    chooseQuestion();
+                    setQuestion();
                 }
             }
         });
@@ -72,7 +73,7 @@ public class WiseAdvocateActivity extends AppCompatActivity {
                     endQuiz();
                 }
                 else {
-                    chooseQuestion();
+                    setQuestion();
                 }
             }
         });
@@ -86,7 +87,7 @@ public class WiseAdvocateActivity extends AppCompatActivity {
                     endQuiz();
                 }
                 else {
-                    chooseQuestion();
+                    setQuestion();
                 }
             }
         });
@@ -100,19 +101,22 @@ public class WiseAdvocateActivity extends AppCompatActivity {
                     endQuiz();
                 }
                 else {
-                    chooseQuestion();
+                    setQuestion();
                 }
             }
         });
     }
 
-    private void chooseQuestion(){
-        mQuestionView.setText(questionLibrary.getQuestion(question++));
+    private void setChoices(){
         choice1.setText(questionLibrary.getChoice(0));
         choice2.setText(questionLibrary.getChoice(1));
         choice3.setText(questionLibrary.getChoice(2));
         choice4.setText(questionLibrary.getChoice(3));
         choice5.setText(questionLibrary.getChoice(4));
+    }
+
+    private void setQuestion(){
+        mQuestionView.setText(questionLibrary.getQuestion(question++));
     }
 
     private void updateScore() {
