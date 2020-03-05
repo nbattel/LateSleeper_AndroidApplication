@@ -24,11 +24,11 @@ public class QuizResultsActivity extends AppCompatActivity {
         int sc = bundle.getInt("finalScore");
         quizResult.setText("You scored a total of: " + sc);
         if (sc > 5) {
-            refocus.setText("After taking the quiz, the wise advocate has determined that this pattern is unhealty, click continue button ");
+            refocus.setText("After taking the quiz, the wise advocate has determined that this pattern is unhealthy, click continue button ");
         } else {
-            refocus.setText("this pattern has been determined as healthy by the wise advocate, " +
-                    "no further action is required, however, it is upto you if you want to continue with the 4 steps. " +
-                    "Cliek the continue button" +
+            refocus.setText("This pattern has been determined as healthy by the wise advocate, " +
+                    "no further action is required, however, it is up to you if you want to continue with the 4 steps. " +
+                    "Click the continue button" +
                     "if you do");
         }
 
