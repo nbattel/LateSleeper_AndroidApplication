@@ -5,10 +5,12 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -22,6 +24,8 @@ public class LogInActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private EditText emailEditText, passwordEditText;
     private String email, pass;
+    ProgressBar loadingBar;
+    ConstraintLayout dimLayout;
     private static final String TAG = "LOGIN";
 
 
@@ -33,6 +37,8 @@ public class LogInActivity extends AppCompatActivity {
 
         emailEditText = (EditText) findViewById(R.id.txtEmail);
         passwordEditText = (EditText) findViewById(R.id.txtPass);
+        loadingBar = (ProgressBar) findViewById(R.id.loadingBar);
+        dimLayout = (ConstraintLayout) findViewById(R.id.dimLayout);
     }
 
     @Override
@@ -42,13 +48,10 @@ public class LogInActivity extends AppCompatActivity {
         updateUI(currentUser);
     }
 
-    public void updateUI(FirebaseUser currentUser) {
-        if (currentUser == null) {
-
-        } else {
-            Intent intent = new Intent(LogInActivity.this, UserHomeActivity.class);
-            startActivity(intent);
-        }
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
 
     // On click function to log the user into their account
@@ -59,6 +62,10 @@ public class LogInActivity extends AppCompatActivity {
             Toast.makeText(LogInActivity.this, "Some fields are not entered correctly.",
                     Toast.LENGTH_SHORT).show();
         } else {
+            dimLayout.bringToFront();
+            loadingBar.bringToFront();
+            loadingBar.setVisibility(View.VISIBLE);
+            dimLayout.setVisibility(View.VISIBLE);
             mAuth.signInWithEmailAndPassword(email, pass)
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                         @Override
@@ -69,6 +76,8 @@ public class LogInActivity extends AppCompatActivity {
                                 updateUI(user);
                             } else {
                                 Log.w(TAG, "signInWithEmail:failure", task.getException());
+                                loadingBar.setVisibility(View.INVISIBLE);
+                                dimLayout.setVisibility(View.INVISIBLE);
                                 Toast.makeText(LogInActivity.this, "Authentication failed.",
                                         Toast.LENGTH_SHORT).show();
                                 updateUI(null);
@@ -82,6 +91,19 @@ public class LogInActivity extends AppCompatActivity {
     public void createAccount(View view) {
         Intent intent = new Intent(LogInActivity.this, CreateAccountActivity.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+    }
+
+    public void updateUI(FirebaseUser currentUser) {
+        if (currentUser == null) {
+
+        } else {
+            Intent intent = new Intent(LogInActivity.this, UserHomeActivity.class);
+            loadingBar.setVisibility(View.INVISIBLE);
+            dimLayout.setVisibility(View.INVISIBLE);
+            startActivity(intent);
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+        }
     }
 }
 //
