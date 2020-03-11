@@ -6,10 +6,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -27,6 +29,8 @@ public class CreateAccountActivity extends AppCompatActivity {
     EditText txtEmail, txtPass, txtPassConfirm, txtFirstName, txtLastName,
                 txtStreetAddress, txtCity, txtProvince, txtPhoneNumber;
     Button btnConfirm;
+    ProgressBar loadingBar;
+    ConstraintLayout dimLayout;
     User newUser;
     private static final String TAG = "CreateACC";
 
@@ -35,6 +39,9 @@ public class CreateAccountActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_account);
         mAuth = FirebaseAuth.getInstance();
+
+        loadingBar = (ProgressBar) findViewById(R.id.loadingBar);
+        dimLayout = (ConstraintLayout) findViewById(R.id.dimLayout);
 
         txtEmail = (EditText) findViewById(R.id.txtEmail);
         txtPass = (EditText) findViewById(R.id.txtPass);
@@ -48,20 +55,22 @@ public class CreateAccountActivity extends AppCompatActivity {
         btnConfirm = (Button) findViewById(R.id.btnConfirm);
     }
 
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+    }
+
     public void createAccount(View view) {
         // Adding the user to our database, this will also set the current user
-        btnConfirm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                newUser = new User(txtEmail.getText().toString(), txtFirstName.getText().toString(), txtLastName.getText().toString(),
+        dimLayout.bringToFront();
+        loadingBar.bringToFront();
+        loadingBar.setVisibility(View.VISIBLE);
+        dimLayout.setVisibility(View.VISIBLE);
+        newUser = new User(txtEmail.getText().toString(), txtFirstName.getText().toString(), txtLastName.getText().toString(),
                         txtStreetAddress.getText().toString(), txtCity.getText().toString(), txtProvince.getText().toString(), txtPhoneNumber.getText().toString());
-                firebaseNewAcc(txtEmail.getText().toString(), txtPass.getText().toString());
-            }
-        });
-        //CurrentUser.setUser(user);
-
-        //System.out.println(CurrentUser.getJournal());
-    }
+        firebaseNewAcc(txtEmail.getText().toString(), txtPass.getText().toString());
+        };
 
     public void firebaseNewAcc(String email, String password) {
         mAuth.createUserWithEmailAndPassword(email, password)
@@ -84,12 +93,16 @@ public class CreateAccountActivity extends AppCompatActivity {
                                                 updateUI(user);
                                             }
                                             else {
+                                                loadingBar.setVisibility(View.INVISIBLE);
+                                                dimLayout.setVisibility(View.INVISIBLE);
                                                 Log.d(TAG, "Error setting name!");
                                             }
                                         }
                                     });
                         } else {
                             Log.w(TAG, "createUserWithEmail:failure", task.getException());
+                            loadingBar.setVisibility(View.INVISIBLE);
+                            dimLayout.setVisibility(View.INVISIBLE);
                             Toast.makeText(CreateAccountActivity.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
                             updateUI(null);
@@ -104,6 +117,8 @@ public class CreateAccountActivity extends AppCompatActivity {
         }
         else {
             Intent intent = new Intent(CreateAccountActivity.this, UserHomeActivity.class);
+            loadingBar.setVisibility(View.INVISIBLE);
+            dimLayout.setVisibility(View.INVISIBLE);
             startActivity(intent);
         }
     }
