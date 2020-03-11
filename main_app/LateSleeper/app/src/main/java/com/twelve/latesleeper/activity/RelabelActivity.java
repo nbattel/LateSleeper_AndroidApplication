@@ -18,7 +18,7 @@ public class RelabelActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_relabel);
         //get the spinner from the xml.
-        Spinner dropdown = findViewById(R.id.spinner2);
+        Spinner dropdown = findViewById(R.id.feelingDropdown);
 
 //create a list of items for the spinner.
         String[] items = new String[]{"I feel anxious", "I feel nervous", "I fear of missing out", "I am bored"};
