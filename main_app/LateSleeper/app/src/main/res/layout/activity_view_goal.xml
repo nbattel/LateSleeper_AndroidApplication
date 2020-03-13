@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent"
-    >
-    <TextClock
-        android:id="@+id/textClock1"
-        android:layout_width="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="@color/colorPrimaryDark"
+    android:layout_height="match_parent">
+    <TimePicker
+        android:id="@+id/timepicker"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:layout_marginLeft="70dp"
-        android:format12Hour="hh:mm:ss a"
-        android:textColor="#F1511B"
-        android:textSize="45dp"
-        android:textStyle="bold" />
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"/>
 
 
+    <TextClock
+        android:id="@+id/textclock"
+        android:layout_width="0dp"
+        android:layout_height="120dp"
+        ></TextClock>
 
 </RelativeLayout>
