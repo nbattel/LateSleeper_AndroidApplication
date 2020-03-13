@@ -35,4 +35,11 @@ public class ViewGoalsActivity  extends AppCompatActivity
         startActivity(intent);
     }
 
+    public void toCreateGoal() {}
+
+    public void startGoal() {}
+
+    public void continueGoal() {}
+
+    public void viewProgress() {}
 }
