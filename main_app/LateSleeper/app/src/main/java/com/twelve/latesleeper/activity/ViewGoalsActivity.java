@@ -31,7 +31,7 @@ public class ViewGoalsActivity  extends AppCompatActivity
     }
 
     public void startGoal(View view){
-        Intent intent = new Intent(ViewGoalsActivity.this, ViewGoalActivity.class);
+        Intent intent = new Intent(ViewGoalsActivity.this, alarmClockActivity.class);
         startActivity(intent);
     }
 
