@@ -11,7 +11,16 @@ import android.net.Uri;
 import android.os.Vibrator;
 
 import com.twelve.latesleeper.R;
+interface RingtoneHelper {
+    void stopRingtone();
+}
 
+class Utility {
+
+    public static RingtoneHelper ringtoneHelper;
+
+
+}
 public class MyBroadcastReceiver extends BroadcastReceiver {
 
     @Override
@@ -33,10 +42,15 @@ public class MyBroadcastReceiver extends BroadcastReceiver {
 
 
       Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_RINGTONE); //get default rington
-      Ringtone r = RingtoneManager.getRingtone(context,notification);
+      final Ringtone r = RingtoneManager.getRingtone(context,notification);
       r.play();//play the ringtone
 
       //add receiver to android manifest
-
+    Utility.ringtoneHelper = new RingtoneHelper() {
+        @Override
+        public void stopRingtone() {
+            if(r.isPlaying()){r.stop();}
+        }
+    };
   }
 }

@@ -55,6 +55,19 @@ public class alarmClockActivity extends AppCompatActivity {
 
     }//end of oncreate bracket
 
+    //trying to have button disable alarm once its going off
+    public void turnOffAlarm(View view)
+    {
+      /*  Intent intent = new Intent(alarmClockActivity.this, MyBroadcastReceiver.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this.getApplicationContext(), 24444, intent, PendingIntent.FLAG_UPDATE_CURRENT| Intent.FILL_IN_DATA);
+        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+        alarmManager.cancel(pendingIntent);*/
+        if(Utility.ringtoneHelper != null) {
+            Utility.ringtoneHelper.stopRingtone();
+        }
+
+    }
+
     public void setTimer(View view) //this is the onclick for the button
     {
         AlarmManager alarmManager = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
@@ -73,7 +86,7 @@ public class alarmClockActivity extends AppCompatActivity {
         }
         //call broadcast receiver
         Intent i = new Intent(alarmClockActivity.this,MyBroadcastReceiver.class);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(alarmClockActivity.this,24444,i,0);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(alarmClockActivity.this,24444,i,PendingIntent.FLAG_UPDATE_CURRENT);
         //24444 is request code, its just random, and 0 is the flag
         alarmManager.set(AlarmManager.RTC_WAKEUP,calAlarm.getTimeInMillis(),pendingIntent);//actually set the alarm
     }

@@ -7,6 +7,28 @@
     android:background="@color/colorPrimaryDark"
     android:layout_height="match_parent">
 
+    <Button
+        android:id="@+id/setAlarmBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="69dp"
+        android:layout_marginBottom="110dp"
+        android:onClick="setTimer"
+        android:text="SET ALARM" />
+
+    <Button
+        android:id="@+id/turnOffAlarmBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="66dp"
+        android:layout_marginBottom="105dp"
+        android:layout_toStartOf="@+id/setAlarmBtn"
+        android:onClick="turnOffAlarm"
+        android:text="TURN OFF ALARM" />
 
     <TimePicker
         android:id="@+id/timepicker"
@@ -29,28 +51,4 @@
         android:textColor="#090"
         android:textSize="20sp"
         android:textStyle="bold"></TextView>
-
-    <TextClock
-        android:id="@+id/textClock"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="177dp"
-        android:layout_centerHorizontal="true"
-        android:layout_toStartOf="@+id/timeTextView"
-        android:textSize="30sp" />
-
-
-    <Button
-        android:id="@+id/setAlarmBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="134dp"
-        android:layout_marginTop= "11dp"
-        android:layout_marginBottom="103dp"
-        android:onClick="setTimer"
-        android:text="SET ALARM" />
-
-
 </RelativeLayout>
