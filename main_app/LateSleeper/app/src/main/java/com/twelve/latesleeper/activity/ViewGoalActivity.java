@@ -1,5 +1,6 @@
 package com.twelve.latesleeper.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,7 +27,10 @@ public class ViewGoalActivity extends AppCompatActivity {
         //updateUI(currentUser);
     }
 
-    public void toCreateGoal() {}
+    public void toCreateGoal() {
+        Intent intent = new Intent(ViewGoalActivity.this, CreateGoalActivity.class);
+        startActivity(intent);
+    }
 
     public void startGoal() {}
 
