@@ -1,6 +1,8 @@
 package com.twelve.latesleeper.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -26,6 +28,11 @@ public class ViewGoalsActivity  extends AppCompatActivity
         FirebaseUser currentUser = mAuth.getCurrentUser();
         Database.retrieveJournalCollection(currentUser.getUid());
         //updateUI(currentUser);
+    }
+
+    public void startGoal(View view){
+        Intent intent = new Intent(ViewGoalsActivity.this, alarmClockActivity.class);
+        startActivity(intent);
     }
 
 }

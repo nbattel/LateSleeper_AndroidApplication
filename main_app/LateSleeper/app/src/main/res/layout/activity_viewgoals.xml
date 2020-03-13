@@ -16,4 +16,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/toGoal"
+        android:layout_width="148dp"
+        android:layout_height="79dp"
+        android:text="Start Goal"
+        android:onClick="startGoal"
+        tools:layout_editor_absoluteX="116dp"
+        tools:layout_editor_absoluteY="462dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
