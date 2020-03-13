@@ -1,6 +1,5 @@
 package com.twelve.latesleeper.activity;
 
-import android.app.AppComponentFactory;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -20,8 +19,8 @@ public class WiseAdvocateActivity extends AppCompatActivity {
     private Button choice3;
     private Button choice4;
     private Button choice5;
-    private int score =0;
-    private int question =0;
+    private int score;
+    private int question = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,131 +33,105 @@ public class WiseAdvocateActivity extends AppCompatActivity {
         choice3 = findViewById(R.id.choice3);
         choice4 = findViewById(R.id.choice4);
         choice5 = findViewById(R.id.choice5);
-        chooseQuestion();
+        setChoices();
+        setQuestion();
 
         choice1.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                score = score;
-                updateScore(score);
-                if (isQuizOver() == true)
+                score += 0;
+                if (isQuizOver())
                 {
-                    Intent intent = new Intent(WiseAdvocateActivity.this, QuizResultsActivity.class);
-                   // intent.putExtra("finalScore",score);
-
-                    Bundle bundle = new Bundle();
-                    bundle.putInt("finalScore", score);
-                    intent.putExtras(bundle);
-                    startActivity(intent);
+                   endQuiz();
                 }
                 else {
-                    chooseQuestion();
+                    setQuestion();
                 }
             }
         });
         choice2.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                score = score +1;
-                updateScore(score);
-                if (isQuizOver() == true)
+                score += 1;
+                updateScore();
+                if (isQuizOver())
                 {
-                    Intent intent = new Intent(WiseAdvocateActivity.this, QuizResultsActivity.class);
-                    Bundle bundle = new Bundle();
-                    bundle.putInt("finalScore", score);
-                    intent.putExtras(bundle);
-                    startActivity(intent);
+                    endQuiz();
                 }
                 else {
-                    chooseQuestion();
+                    setQuestion();
                 }
             }
         });
         choice3.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                score = score +2;
-                updateScore(score);
-                if (isQuizOver() == true)
+                score += 2;
+                updateScore();
+                if (isQuizOver())
                 {
-                    Intent intent = new Intent(WiseAdvocateActivity.this, QuizResultsActivity.class);
-                    Bundle bundle = new Bundle();
-                    bundle.putInt("finalScore", score);
-                    intent.putExtras(bundle);
-                    startActivity(intent);
+                    endQuiz();
                 }
                 else {
-                    chooseQuestion();
+                    setQuestion();
                 }
             }
         });
         choice4.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                score = score +3;
-                updateScore(score);
-
-                if (isQuizOver() == true)
+                score += 3;
+                updateScore();
+                if (isQuizOver())
                 {
-                    Intent intent = new Intent(WiseAdvocateActivity.this, QuizResultsActivity.class);
-                    Bundle bundle = new Bundle();
-                    bundle.putInt("finalScore", score);
-                    intent.putExtras(bundle);
-                    startActivity(intent);
+                    endQuiz();
                 }
                 else {
-                    chooseQuestion();
+                    setQuestion();
                 }
             }
         });
         choice5.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                score = score +4;
-                updateScore(score);
-                if (isQuizOver() == true)
+                score += 4;
+                updateScore();
+                if (isQuizOver())
                 {
-                    Intent intent = new Intent(WiseAdvocateActivity.this, QuizResultsActivity.class);
-                    Bundle bundle = new Bundle();
-                    bundle.putInt("finalScore", score);
-                    intent.putExtras(bundle);
-                    startActivity(intent);
+                    endQuiz();
                 }
                 else {
-                    chooseQuestion();
+                    setQuestion();
                 }
             }
         });
-
-
-
-
     }
 
-    private void chooseQuestion(){
-        System.out.println(isQuizOver()+ "question: "+question);
-
-        mQuestionView.setText(questionLibrary.getQuestion(question));
-       choice1.setText(questionLibrary.getChoice1(question));
-        choice2.setText(questionLibrary.getChoice2(question));
-       choice3.setText(questionLibrary.getChoice3(question));
-        choice4.setText(questionLibrary.getChoice4(question));
-        choice5.setText(questionLibrary.getChoice5(question));
-        question++;
-    }
-    private void updateScore(int point) {
-        mScoreView.setText("" + score);
+    private void setChoices(){
+        choice1.setText(questionLibrary.getChoice(0));
+        choice2.setText(questionLibrary.getChoice(1));
+        choice3.setText(questionLibrary.getChoice(2));
+        choice4.setText(questionLibrary.getChoice(3));
+        choice5.setText(questionLibrary.getChoice(4));
     }
 
-    private boolean isQuizOver()
-    {
-        if (question == QuestionLibrary.mcQuestions.length)
-        {
-            return true;
-
-        }
-        else{return false;}
+    private void setQuestion(){
+        mQuestionView.setText(questionLibrary.getQuestion(question++));
     }
 
+    private void updateScore() {
+        mScoreView.setText(Integer.toString(score));
+    }
 
+    private boolean isQuizOver() {
+        return question == QuestionLibrary.mcQuestions.length;
+    }
+
+    private void endQuiz() {
+        Intent intent = new Intent(WiseAdvocateActivity.this, QuizResultsActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putInt("finalScore", score);
+        intent.putExtras(bundle);
+        startActivity(intent);
+    }
 }

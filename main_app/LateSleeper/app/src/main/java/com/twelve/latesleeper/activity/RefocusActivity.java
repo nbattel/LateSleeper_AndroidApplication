@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
 import com.twelve.latesleeper.R;
 
 public class RefocusActivity extends AppCompatActivity {
@@ -21,18 +20,12 @@ public class RefocusActivity extends AppCompatActivity {
         Intent intent = new Intent(RefocusActivity.this, RevalueActivity.class);
         startActivity(intent);
 
-        Toast toast = Toast.makeText(getApplicationContext(),"Refocus Next Button Clicked",Toast.LENGTH_LONG);
-        toast.show();
-        //TODO
-        //We need to save all the information the user enters on this screen into the database on save
+        //TODO --> We need to save all the information the user enters on this screen into the database on save
     }
 
     //OnClick for the cancel button will not save any information
     public void backButtonRefocus(View view){
         Intent intent = new Intent(RefocusActivity.this, ReframeActivity.class);
         startActivity(intent);
-
-        Toast toast = Toast.makeText(getApplicationContext(),"Refocus Back Button Clicked",Toast.LENGTH_SHORT);
-        toast.show();
     }
 }

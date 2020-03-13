@@ -44,7 +44,7 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <Spinner
-        android:id="@+id/spinner2"
+        android:id="@+id/feelingDropdown"
         android:layout_width="194dp"
         android:layout_height="97dp"
         android:layout_marginTop="52dp"
