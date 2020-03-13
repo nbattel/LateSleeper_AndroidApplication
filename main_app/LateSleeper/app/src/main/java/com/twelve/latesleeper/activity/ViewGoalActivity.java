@@ -25,4 +25,12 @@ public class ViewGoalActivity extends AppCompatActivity {
         FirebaseUser currentUser = mAuth.getCurrentUser();
         //updateUI(currentUser);
     }
+
+    public void toCreateGoal() {}
+
+    public void startGoal() {}
+
+    public void continueGoal() {}
+
+    public void viewProgress() {}
 }

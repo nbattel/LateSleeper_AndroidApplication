@@ -7,7 +7,7 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/createGoal"
+        android:id="@+id/goalsText"
         android:layout_width="match_parent"
         android:layout_height="163dp"
         android:text="Here are your goals"
@@ -15,12 +15,22 @@
         android:textSize="48sp" />
 
     <Button
+        android:id="@+id/createGoal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/btn_default"
+        android:backgroundTint="@android:color/holo_blue_dark"
+        android:onClick="toCreateGoal"
+        android:text="Create Goal" />
+
+    <Button
         android:id="@+id/startGoal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:drawable/btn_default"
         android:backgroundTint="@android:color/holo_blue_dark"
-        android:text="Create Goal" />
+        android:onClick="startGoal"
+        android:text="Start Goal" />
 
     <Button
         android:id="@+id/continueGoal"
@@ -28,14 +38,7 @@
         android:layout_height="wrap_content"
         android:background="@android:drawable/btn_default"
         android:backgroundTint="@android:color/holo_blue_dark"
-        android:text="Start Goal" />
-
-    <Button
-        android:id="@+id/newEntry"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:drawable/btn_default"
-        android:backgroundTint="@android:color/holo_blue_dark"
+        android:onClick="continueGoal"
         android:text="Continue Goal" />
 
     <Button
@@ -44,6 +47,7 @@
         android:layout_height="wrap_content"
         android:background="@android:drawable/btn_default"
         android:backgroundTint="@android:color/holo_blue_dark"
+        android:onClick="viewProgress"
         android:text="Progress" />
 
 
