@@ -10,7 +10,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.alarmClockActivity"></activity>
+        <activity android:name=".activity.AlarmClockWakeUpActivity"></activity>
+        <activity android:name=".activity.AlarmClockSleepTimeActivity"></activity>
         <activity android:name=".activity.CreateGoalActivity" />
         <activity android:name=".activity.RefocusActivity" />
         <activity android:name=".activity.RelabelActivity" />
@@ -21,6 +22,7 @@
         <activity android:name=".activity.ReframeActivity" />
         <activity android:name=".activity.QuizResultsActivity" />
         <activity android:name=".activity.RevalueActivity" />
+        <activity android:name=".activity.SleepResultsActivity" />
         <activity android:name=".activity.LogInActivity" />
         <activity android:name=".activity.CreateAccountActivity" />
         <activity android:name=".activity.MainActivity">
@@ -30,7 +32,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <receiver android:name=".activity.MyBroadcastReceiver"></receiver>
+        <receiver android:name=".activity.MyBroadcastReceiverAlarm"></receiver>
+        <receiver android:name=".activity.MyBroadCastReceiverNotification"></receiver>
     </application>
 
 </manifest>

@@ -21,7 +21,7 @@ class Utility {
 
 
 }
-public class MyBroadcastReceiver extends BroadcastReceiver {
+public class MyBroadcastReceiverAlarm extends BroadcastReceiver {
 
     @Override
   public void onReceive(Context context, Intent intent)
