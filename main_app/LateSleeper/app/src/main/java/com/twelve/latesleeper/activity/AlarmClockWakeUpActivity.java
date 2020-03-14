@@ -29,10 +29,15 @@ public class AlarmClockWakeUpActivity extends AppCompatActivity {
     TextClock currentTime;
     TextView timeTextView;
     int mHour,mMin;
+    public long sleepTime;
+    public long wakeUpTime;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alarm_clock_wakeup);
+        Bundle bundle = getIntent().getExtras();
+        sleepTime = bundle.getLong("bedTime");
         timePicker = findViewById(R.id.timepicker);
         timeTextView = findViewById(R.id.timeTextView);
         timePicker.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
@@ -58,6 +63,15 @@ public class AlarmClockWakeUpActivity extends AppCompatActivity {
             Utility.ringtoneHelper.stopRingtone();
         }
 
+
+        //go to results page saying how much they slept and track that day
+        Intent intent = new Intent(AlarmClockWakeUpActivity.this, SleepResultsActivity.class);
+        Bundle bundle = new Bundle();
+
+        bundle.putLong("sleepTime", sleepTime);
+        bundle.putLong("wakeUpTime",wakeUpTime);
+        intent.putExtras(bundle);
+        startActivity(intent); //navigate to set alarm
     }
 
     public void setTimer(View view) //this is the onclick for the button
@@ -72,10 +86,12 @@ public class AlarmClockWakeUpActivity extends AppCompatActivity {
         calAlarm.set(Calendar.MINUTE,mMin); //setting the minute to the user entered minute through timepicker
         calAlarm.set(Calendar.SECOND,0);//just setting the alarm to go off  right when time changes to the specific minute
 
+
         if(calAlarm.before((calNow)))
         {
             calAlarm.add(Calendar.DATE,1);
         }
+        wakeUpTime = calAlarm.getTimeInMillis();
         //call broadcast receiver
         Intent i = new Intent(AlarmClockWakeUpActivity.this,MyBroadcastReceiverAlarm.class);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(AlarmClockWakeUpActivity.this,24444,i,PendingIntent.FLAG_UPDATE_CURRENT);

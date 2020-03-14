@@ -37,7 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:id="@+id/timeTextViewSleep"
-        android:text="Wake Up Time: "
+        android:text="Sleep Time: "
         android:textColor="#090"
         android:textSize="20sp"
         android:textStyle="bold"></TextView>

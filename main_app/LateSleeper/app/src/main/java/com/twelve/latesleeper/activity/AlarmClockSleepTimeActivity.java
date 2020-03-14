@@ -58,17 +58,18 @@ public class AlarmClockSleepTimeActivity extends AppCompatActivity {
 
             calAlarm.add(Calendar.DATE,1); //if its 8pm and you set alarm to 6:30pm it will happen the next day
         }
-
-
-
-
-
-
             Intent i = new Intent(AlarmClockSleepTimeActivity.this,MyBroadCastReceiverNotification.class);
             PendingIntent pendingIntent = PendingIntent.getBroadcast(AlarmClockSleepTimeActivity.this,9,i,PendingIntent.FLAG_UPDATE_CURRENT);
-            //24444 is request code, its just random, and 0 is the flag
+            //9 is request code, its just random, and 0 is the flag
             alarmManager.set(AlarmManager.RTC_WAKEUP,calAlarm.getTimeInMillis(),pendingIntent);
 
+        Intent intent = new Intent(AlarmClockSleepTimeActivity.this, AlarmClockWakeUpActivity.class);
+        Bundle bundle = new Bundle();
+
+        bundle.putLong("bedTime",calAlarm.getTimeInMillis());
+        intent.putExtras(bundle);
+
+        startActivity(intent); //navigate to set alarm
 
     }
 
