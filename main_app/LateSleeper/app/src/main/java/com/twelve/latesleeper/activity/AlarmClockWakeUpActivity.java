@@ -5,8 +5,6 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
-import android.media.Ringtone;
-import android.media.RingtoneManager;
 import android.os.Bundle;
 
 import android.view.View;
@@ -23,15 +21,9 @@ import com.twelve.latesleeper.R;
 
 import java.util.Calendar;
 import java.util.Date;
-import java.util.Timer;
-import java.util.TimerTask;
 
 
-
-
-
-
-public class alarmClockActivity extends AppCompatActivity {
+public class AlarmClockWakeUpActivity extends AppCompatActivity {
     TimePicker timePicker;
     private FirebaseAuth mAuth;
     TextClock currentTime;
@@ -40,7 +32,7 @@ public class alarmClockActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_alarm_clock);
+        setContentView(R.layout.activity_alarm_clock_wakeup);
         timePicker = findViewById(R.id.timepicker);
         timeTextView = findViewById(R.id.timeTextView);
         timePicker.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
@@ -85,8 +77,8 @@ public class alarmClockActivity extends AppCompatActivity {
             calAlarm.add(Calendar.DATE,1);
         }
         //call broadcast receiver
-        Intent i = new Intent(alarmClockActivity.this,MyBroadcastReceiver.class);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(alarmClockActivity.this,24444,i,PendingIntent.FLAG_UPDATE_CURRENT);
+        Intent i = new Intent(AlarmClockWakeUpActivity.this,MyBroadcastReceiverAlarm.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(AlarmClockWakeUpActivity.this,24444,i,PendingIntent.FLAG_UPDATE_CURRENT);
         //24444 is request code, its just random, and 0 is the flag
         alarmManager.set(AlarmManager.RTC_WAKEUP,calAlarm.getTimeInMillis(),pendingIntent);//actually set the alarm
     }
