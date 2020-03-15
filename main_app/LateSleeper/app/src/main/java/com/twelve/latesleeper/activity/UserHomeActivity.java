@@ -65,7 +65,7 @@ public class UserHomeActivity extends AppCompatActivity {
 
     // On click function to log the user into their account
     public void toJournal(View view){
-        Intent intent = new Intent(UserHomeActivity.this, JournalActivity.class);
+        Intent intent = new Intent(UserHomeActivity.this, RelabelActivity.class);
         //NEED to verify user info is valid in order to login - do this after
         startActivity(intent);
 
@@ -99,7 +99,7 @@ public class UserHomeActivity extends AppCompatActivity {
         if (user != null) {
             welcomeText.setText("Welcome, " + user.getDisplayName());
         } else {
-            Intent intent = new Intent(UserHomeActivity.this, LogInActivity.class);
+            Intent intent = new Intent(UserHomeActivity.this, RelabelActivity.class);
             startActivity(intent);
         }
     }

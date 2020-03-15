@@ -24,7 +24,7 @@ public class RevalueActivity extends AppCompatActivity {
             //Add Gratification screen into workflow HERE
         }
         else{
-            Intent intent = new Intent(RevalueActivity.this, JournalActivity.class);
+            Intent intent = new Intent(RevalueActivity.this, RelabelActivity.class);
             startActivity(intent);
         }
 
