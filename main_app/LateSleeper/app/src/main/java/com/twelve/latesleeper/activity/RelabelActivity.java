@@ -3,7 +3,6 @@ package com.twelve.latesleeper.activity;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
-import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -34,7 +33,6 @@ public class RelabelActivity extends AppCompatActivity {
     EditText bodyEditText;
     Button nextButton;
     Spinner dropdown;
-    Boolean titleTextComplete = false;
     Boolean bodyTextComplete = false;
     //create a list of items for the spinner.
     String[] items = new String[]{"", "I feel anxious", "I feel nervous", "I fear missing out", "I am bored"};
@@ -116,7 +114,7 @@ public class RelabelActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<DocumentReference> task) {
                         if (task.isSuccessful()) {
-                            Toast toast = Toast.makeText(getApplicationContext(), "Wrote to Journal!", Toast.LENGTH_SHORT);
+                            Toast toast = Toast.makeText(getApplicationContext(), "Congratulations on completing the Relabel step!", Toast.LENGTH_SHORT);
                             toast.show();
                             Intent intent = new Intent(RelabelActivity.this, ReframeActivity.class);
                             startActivity(intent);
