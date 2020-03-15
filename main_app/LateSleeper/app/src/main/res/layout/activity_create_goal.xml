@@ -109,23 +109,14 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/backButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="75dp"
-                    android:layout_marginBottom="15dp"
-                    android:layout_weight="1"
-                    android:text="Back" />
-
-                <Button
                     android:id="@+id/continueButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="75dp"
+                    android:layout_marginLeft="250dp"
                     android:layout_marginRight="15dp"
                     android:layout_marginBottom="15dp"
                     android:layout_weight="1"
+                    android:onClick="continueButton"
                     android:text="Continue" />
             </LinearLayout>
 

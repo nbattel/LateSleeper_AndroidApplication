@@ -22,17 +22,6 @@
 
 
     <Button
-        android:id="@+id/backButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="40dp"
-        android:onClick="backButtonRelabel"
-        android:text="Back"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
         android:id="@+id/saveButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -47,12 +36,11 @@
         android:id="@+id/feelingDropdown"
         android:layout_width="194dp"
         android:layout_height="97dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="108dp"
         android:dropDownWidth="1000dp"
         android:dropDownHeight="1000dp"
         android:theme="@style/spinnerTheme"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.552"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
