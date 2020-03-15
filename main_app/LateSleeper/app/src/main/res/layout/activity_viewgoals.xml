@@ -25,4 +25,5 @@
         android:onClick="startGoal"
         tools:layout_editor_absoluteX="116dp"
         tools:layout_editor_absoluteY="462dp" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>

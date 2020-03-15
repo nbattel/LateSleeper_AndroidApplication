@@ -11,10 +11,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.twelve.latesleeper.R;
 
 public class WiseAdvocateActivity extends AppCompatActivity {
-   private QuestionLibrary questionLibrary = new QuestionLibrary();
-   private TextView mScoreView;
-   private TextView mQuestionView;
-   private TextView choice1;
+    private QuestionLibrary questionLibrary = new QuestionLibrary();
+    private TextView mScoreView;
+    private TextView mQuestionView;
+    private TextView choice1;
     private Button choice2;
     private Button choice3;
     private Button choice4;
