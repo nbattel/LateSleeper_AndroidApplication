@@ -2,6 +2,8 @@ package com.twelve.latesleeper.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -32,6 +34,9 @@ public class CreateAccountActivity extends AppCompatActivity {
     ProgressBar loadingBar;
     ConstraintLayout dimLayout;
     User newUser;
+    Boolean confirmPasswordComplete = false;
+    Boolean passwordComplete = false;
+    Boolean emailComplete = false;
     private static final String TAG = "CreateACC";
 
     @Override
@@ -40,19 +45,98 @@ public class CreateAccountActivity extends AppCompatActivity {
         setContentView(R.layout.activity_create_account);
         mAuth = FirebaseAuth.getInstance();
 
-        loadingBar = (ProgressBar) findViewById(R.id.loadingBar);
-        dimLayout = (ConstraintLayout) findViewById(R.id.dimLayout);
+        loadingBar = findViewById(R.id.loadingBar);
+        dimLayout = findViewById(R.id.dimLayout);
 
-        txtEmail = (EditText) findViewById(R.id.txtEmail);
-        txtPass = (EditText) findViewById(R.id.txtPass);
-        txtPassConfirm = (EditText) findViewById(R.id.txtPassConfirm);
-        txtFirstName = (EditText) findViewById(R.id.txtFirstName);
-        txtLastName = (EditText) findViewById(R.id.txtLastName);
-        txtStreetAddress = (EditText) findViewById(R.id.txtStreetAddress);
-        txtCity = (EditText) findViewById(R.id.txtCity);
-        txtProvince = (EditText) findViewById(R.id.txtProvince);
-        txtPhoneNumber = (EditText) findViewById(R.id.txtPhoneNumber);
-        btnConfirm = (Button) findViewById(R.id.btnConfirm);
+        txtEmail = findViewById(R.id.txtEmail);
+        txtPass = findViewById(R.id.txtPass);
+        txtPassConfirm = findViewById(R.id.txtPassConfirm);
+        txtFirstName = findViewById(R.id.txtFirstName);
+        txtLastName = findViewById(R.id.txtLastName);
+        txtStreetAddress = findViewById(R.id.txtStreetAddress);
+        txtCity = findViewById(R.id.txtCity);
+        txtProvince = findViewById(R.id.txtProvince);
+        txtPhoneNumber = findViewById(R.id.txtPhoneNumber);
+        btnConfirm = findViewById(R.id.btnConfirm);
+        btnConfirm.setEnabled(false);
+
+        txtPass.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (s.toString().equals("")) {
+                    btnConfirm.setEnabled(false);
+                    passwordComplete = false;
+                }else {
+                    passwordComplete = true;
+                    if(passwordComplete && emailComplete && confirmPasswordComplete){
+                        btnConfirm.setEnabled(true);
+                    }
+                }
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // TODO Auto-generated method stub
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                // TODO Auto-generated method stub
+            }
+        });
+
+        txtPassConfirm.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (s.toString().equals("")) {
+                    btnConfirm.setEnabled(false);
+                    confirmPasswordComplete = false;
+                }else {
+                    confirmPasswordComplete = true;
+                    if(confirmPasswordComplete && emailComplete && passwordComplete){
+                        btnConfirm.setEnabled(true);
+                    }
+                }
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // TODO Auto-generated method stub
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                // TODO Auto-generated method stub
+            }
+        });
+
+        txtEmail.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (s.toString().equals("")) {
+                    btnConfirm.setEnabled(false);
+                    emailComplete = false;
+                }else {
+                    emailComplete = true;
+                    if(passwordComplete && emailComplete && confirmPasswordComplete){
+                        btnConfirm.setEnabled(true);
+                    }
+                }
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // TODO Auto-generated method stub
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                // TODO Auto-generated method stub
+            }
+        });
     }
 
     @Override
@@ -63,14 +147,19 @@ public class CreateAccountActivity extends AppCompatActivity {
 
     public void createAccount(View view) {
         // Adding the user to our database, this will also set the current user
-        dimLayout.bringToFront();
-        loadingBar.bringToFront();
-        loadingBar.setVisibility(View.VISIBLE);
-        dimLayout.setVisibility(View.VISIBLE);
-        newUser = new User(txtEmail.getText().toString(), txtFirstName.getText().toString(), txtLastName.getText().toString(),
-                        txtStreetAddress.getText().toString(), txtCity.getText().toString(), txtProvince.getText().toString(), txtPhoneNumber.getText().toString());
-        firebaseNewAcc(txtEmail.getText().toString(), txtPass.getText().toString());
-        };
+        if(!txtPass.getText().toString().equals(txtPassConfirm.getText().toString())){
+            Toast.makeText(CreateAccountActivity.this, "Passwords do not match.", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            dimLayout.bringToFront();
+            loadingBar.bringToFront();
+            loadingBar.setVisibility(View.VISIBLE);
+            dimLayout.setVisibility(View.VISIBLE);
+            newUser = new User(txtEmail.getText().toString(), txtFirstName.getText().toString(), txtLastName.getText().toString(),
+                    txtStreetAddress.getText().toString(), txtCity.getText().toString(), txtProvince.getText().toString(), txtPhoneNumber.getText().toString());
+            firebaseNewAcc(txtEmail.getText().toString(), txtPass.getText().toString());
+        }
+    };
 
     public void firebaseNewAcc(String email, String password) {
         mAuth.createUserWithEmailAndPassword(email, password)
