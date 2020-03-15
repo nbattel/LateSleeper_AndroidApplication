@@ -9,17 +9,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentReference;
 import com.twelve.latesleeper.R;
-import com.twelve.latesleeper.database.Database;
 import com.twelve.latesleeper.model.Entry;
 
 import java.text.SimpleDateFormat;
@@ -116,24 +110,27 @@ public class JournalActivity extends AppCompatActivity {
         Entry entry = new Entry(body, title, date);
 
         // Getting a reference to the journal collection of the specific user
-        CollectionReference journalCollection = Database.getDatabase().document("users/" + currentUser.getUid()).collection("journal");
-        // Add entry to user
-        journalCollection.add(entry.getEntry())
-                .addOnCompleteListener(this, new OnCompleteListener<DocumentReference>() {
-                    @Override
-                    public void onComplete(@NonNull Task<DocumentReference> task) {
-                        if (task.isSuccessful()) {
-                            Toast toast = Toast.makeText(getApplicationContext(), "Wrote to Journal!", Toast.LENGTH_SHORT);
-                            toast.show();
-                            Intent intent = new Intent(JournalActivity.this, RelabelActivity.class);
-                            startActivity(intent);
-                        }
-                        else {
-                            Toast toast = Toast.makeText(getApplicationContext(), "Failed writing to Journal!", Toast.LENGTH_SHORT);
-                            toast.show();
-                        }
-                    }
-                });
+//        CollectionReference journalCollection = Database.getDatabase().document("users/" + currentUser.getUid()).collection("journal");
+//        // Add entry to user
+//        journalCollection.add(entry.getEntry())
+//                .addOnCompleteListener(this, new OnCompleteListener<DocumentReference>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<DocumentReference> task) {
+//                        if (task.isSuccessful()) {
+//                            Toast toast = Toast.makeText(getApplicationContext(), "Wrote to Journal!", Toast.LENGTH_SHORT);
+//                            toast.show();
+//                            Intent intent = new Intent(JournalActivity.this, RelabelActivity.class);
+//                            startActivity(intent);
+//                        }
+//                        else {
+//                            Toast toast = Toast.makeText(getApplicationContext(), "Failed writing to Journal!", Toast.LENGTH_SHORT);
+//                            toast.show();
+//                        }
+//                    }
+//                });
+        Intent intent = new Intent(JournalActivity.this, RelabelActivity.class);
+        intent.putExtra("entry", entry.getEntry());
+        startActivity(intent);
     }
 
     public void cancelJournal(View view){
