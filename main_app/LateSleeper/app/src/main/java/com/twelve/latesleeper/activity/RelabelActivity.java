@@ -116,7 +116,7 @@ public class RelabelActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             Toast toast = Toast.makeText(getApplicationContext(), "Congratulations on completing the Relabel step!", Toast.LENGTH_SHORT);
                             toast.show();
-                            Intent intent = new Intent(RelabelActivity.this, ReframeActivity.class);
+                            Intent intent = new Intent(RelabelActivity.this, WiseAdvocateActivity.class);
                             startActivity(intent);
                         }
                         else {
