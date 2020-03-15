@@ -64,8 +64,8 @@ public class UserHomeActivity extends AppCompatActivity {
     }
 
     // On click function to log the user into their account
-    public void toJournal(View view){
-        Intent intent = new Intent(UserHomeActivity.this, JournalActivity.class);
+    public void toCreateGoal(View view){
+        Intent intent = new Intent(UserHomeActivity.this, RelabelActivity.class);
         //NEED to verify user info is valid in order to login - do this after
         startActivity(intent);
 

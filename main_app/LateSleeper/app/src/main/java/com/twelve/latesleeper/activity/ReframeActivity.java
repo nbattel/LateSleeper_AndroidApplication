@@ -32,7 +32,7 @@ public class ReframeActivity extends AppCompatActivity {
 
     //OnClick for the cancel button will not save any information
     public void backButtonExit(View view){
-        Intent intent = new Intent(ReframeActivity.this, UserHomeActivity.class);
+        Intent intent = new Intent(ReframeActivity.this, RelabelActivity.class);
         startActivity(intent);
     }
 }
