@@ -7,22 +7,13 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/testTextView"
+        android:id="@+id/sleepResults"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TEST FOR VIEW GOALS PG"
-        android:textSize="36sp"
+        android:text="TextView"
+        android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/toGoal"
-        android:layout_width="148dp"
-        android:layout_height="79dp"
-        android:text="Start Goal"
-        android:onClick="startGoal"
-        tools:layout_editor_absoluteX="116dp"
-        tools:layout_editor_absoluteY="462dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
