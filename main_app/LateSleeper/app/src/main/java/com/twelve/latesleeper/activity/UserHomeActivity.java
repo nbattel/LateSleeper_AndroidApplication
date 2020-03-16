@@ -30,6 +30,7 @@ public class UserHomeActivity extends AppCompatActivity {
 
 
     private FirebaseAuth mAuth;
+    private FirebaseUser currentUser;
     private TextView welcomeText;
     private int entries = 0;
 
@@ -52,21 +53,22 @@ public class UserHomeActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        FirebaseUser currentUser = mAuth.getCurrentUser();
+        currentUser = mAuth.getCurrentUser();
         retrieveJournalAmount(currentUser.getUid());
         updateUI(currentUser);
     }
 
     public void signOut(View view) {
         mAuth.signOut();
-        FirebaseUser currentUser = mAuth.getCurrentUser();
+        currentUser = mAuth.getCurrentUser();
         updateUI(currentUser);
     }
 
     // On click function to log the user into their account
-    public void toCreateGoal(View view){ //this needs to change
-        Intent intent = new Intent(UserHomeActivity.this, RelabelActivity.class);
+    public void toCreateGoal(View view){
+        Intent intent = new Intent(UserHomeActivity.this, CreateGoalActivity.class);
         //NEED to verify user info is valid in order to login - do this after
+        intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
         startActivity(intent);
 
     }

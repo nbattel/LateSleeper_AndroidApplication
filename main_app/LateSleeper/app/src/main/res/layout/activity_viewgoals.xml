@@ -2,53 +2,51 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@color/colorPrimaryDark"
-    android:layout_height="match_parent">
+    android:orientation="vertical">
 
     <TextView
-        android:id="@+id/goalsText"
-        android:layout_width="match_parent"
-        android:layout_height="163dp"
-        android:text="Here are your goals"
-        android:textColor="@color/colorSecondaryDark"
-        android:textSize="48sp" />
-
-    <Button
-        android:id="@+id/createGoal"
+        android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:drawable/btn_default"
-        android:backgroundTint="@android:color/holo_blue_dark"
-        android:onClick="toCreateGoal"
-        android:text="Create Goal" />
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="26dp"
+        android:text="View Goals"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="36sp" />
 
-    <Button
-        android:id="@+id/startGoal"
+    <ListView
+        android:id="@+id/goalListView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:drawable/btn_default"
-        android:backgroundTint="@android:color/holo_blue_dark"
-        android:onClick="startGoal"
-        android:text="Start Goal" />
+        android:layout_height="wrap_content">
 
-    <Button
-        android:id="@+id/continueGoal"
+    </ListView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/dimLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:drawable/btn_default"
-        android:backgroundTint="@android:color/holo_blue_dark"
-        android:onClick="continueGoal"
-        android:text="Continue Goal" />
+        android:layout_height="match_parent"
+        android:alpha=".45"
+        android:background="@android:color/black"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <Button
-        android:id="@+id/progress"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:drawable/btn_default"
-        android:backgroundTint="@android:color/holo_blue_dark"
-        android:onClick="viewProgress"
-        android:text="Progress" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-
+    <ProgressBar
+        android:id="@+id/loadingBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="238dp"
+        android:layout_height="252dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </LinearLayout>

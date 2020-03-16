@@ -8,6 +8,11 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="Accent" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="android:textColorPrimary">@color/colorAccent</item>
+    </style>
+
     <style name="spinnerTheme">
         <item name="android:textColor">@color/colorPrimary</item>
 

@@ -32,10 +32,12 @@ public class CreateGoalActivity extends AppCompatActivity {
 
     public void continueButton(View view) {
         Intent intent = new Intent(CreateGoalActivity.this, CreateGoalSettingsActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
         startActivity(intent);
     }
 
     public void backButton(View view) {
 
     }
+
 }
