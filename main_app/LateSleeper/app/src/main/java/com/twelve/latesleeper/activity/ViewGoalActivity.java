@@ -17,6 +17,8 @@ import com.twelve.latesleeper.model.Goal;
 import java.util.Date;
 import java.util.HashMap;
 
+import static java.lang.Integer.parseInt;
+
 public class ViewGoalActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
@@ -69,6 +71,13 @@ public class ViewGoalActivity extends AppCompatActivity {
 
         goal = (Goal) getIntent().getSerializableExtra("goal");
         goalInfo = goal.getGoal();
+
+        sleepTime = goalInfo.get("sleepTime").toString();
+        days = parseInt(goalInfo.get("days").toString());
+        daysCompleted = parseInt(goalInfo.get("daysCompleted").toString());
+        totalHours = parseInt(goalInfo.get("daysCompleted").toString());
+        dateCreated = new Date(goalInfo.get("dateCreated").toString());
+        completed = Boolean.parseBoolean(goalInfo.get("completed").toString());
 
         sleepTimeTextView.setText("Sleep time: " + goalInfo.get("sleepTime").toString());
         daysTextView.setText("Days for goal: " + goalInfo.get("days").toString());
