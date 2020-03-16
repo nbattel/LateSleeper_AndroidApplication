@@ -1,5 +1,6 @@
 package com.twelve.latesleeper.model;
 
+import java.util.Date;
 import java.util.HashMap;
 
 public class Goal {
@@ -15,9 +16,10 @@ public class Goal {
         goalInfo.put("daysCompleted", 0);
         goalInfo.put("totalHours", 0);
         goalInfo.put("completed", false);
+        goalInfo.put("dateCreated", new Date());
     }
 
-    public Goal(String time, Integer days, Integer daysCompleted, Integer totalHours)
+    public Goal(String time, Integer days, Integer daysCompleted, Integer totalHours, Date date)
     {
         goalInfo = new HashMap<>();
 
@@ -26,6 +28,7 @@ public class Goal {
         goalInfo.put("daysCompleted", daysCompleted);
         goalInfo.put("totalHours", totalHours);
         goalInfo.put("completed", false);
+        goalInfo.put("dateCreated", date);
     }
 
     public HashMap<String, Object> getGoal() { return goalInfo; }
