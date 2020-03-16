@@ -31,7 +31,7 @@ public class CreateGoalActivity extends AppCompatActivity {
     }
 
     public void continueButton(View view) {
-        Intent intent = new Intent(CreateGoalActivity.this, RelabelActivity.class);
+        Intent intent = new Intent(CreateGoalActivity.this, CreateGoalSettingsActivity.class);
         startActivity(intent);
     }
 
