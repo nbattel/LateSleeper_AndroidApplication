@@ -9,7 +9,7 @@
     <TextView
         android:id="@+id/welcomeText"
         android:layout_width="match_parent"
-        android:layout_height="163dp"
+        android:layout_height="103dp"
         android:text="Welcome, USER"
         android:textColor="@color/colorSecondaryDark"
         android:textSize="48sp" />
@@ -64,26 +64,16 @@
         android:textColor="@android:color/white"
         android:textSize="30sp" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1">
-
-        <Button
-            android:id="@+id/button"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:layout_weight="1"
-            android:background="@drawable/common_google_signin_btn_icon_light_normal_background"
-            android:backgroundTint="@android:color/holo_blue_dark"
-            android:onClick="signOut"
-            android:text="Sign Out"
-            android:textAlignment="center"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_weight="1"
+        android:background="@drawable/common_google_signin_btn_icon_light_normal_background"
+        android:backgroundTint="@android:color/holo_blue_dark"
+        android:onClick="signOut"
+        android:text="Sign Out"
+        android:textAlignment="center" />
 
 </LinearLayout>
