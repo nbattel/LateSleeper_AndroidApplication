@@ -4,34 +4,75 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.twelve.latesleeper.R;
 
+import static java.lang.Integer.parseInt;
+
 public class ReframeActivity extends AppCompatActivity {
+
+    private String mcChoices[] = {"", "0 (Never)", "1 (Rarely)", "2 (Sometimes)","3 (Often)", "4 (Always)"};
+    Spinner dropdown1;
+    Spinner dropdown2;
+    Spinner dropdown3;
+    Spinner dropdown4;
+    Button nextButton;
+    private int score;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reframe);
+        nextButton = findViewById(R.id.nextButton);
+        dropdown1 = findViewById(R.id.question1Dropdown);
+        dropdown2 = findViewById(R.id.question2Dropdown);
+        dropdown3 = findViewById(R.id.question3Dropdown);
+        dropdown4 = findViewById(R.id.question4Dropdown);
 
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item , mcChoices);
+
+        dropdown1.setAdapter(adapter);
+        dropdown2.setAdapter(adapter);
+        dropdown3.setAdapter(adapter);
+        dropdown4.setAdapter(adapter);
     }
-
-    /*public void toMultipleChoice(View view)
-    {
-        Intent intent = new Intent(ReframeActivity.this, WiseAdvocateActivity.class);
-        startActivity(intent);
-    }*/
 
     //OnClick for the save button will trigger the next screen in the workflow
     public void nextButtonReframe(View view){
-        Intent intent = new Intent(ReframeActivity.this, RefocusActivity.class);
-        startActivity(intent);
 
-        //TODO --> We need to save all the information the user enters on this screen into the database on save
+        if(dropdown1.getSelectedItem().toString() == "" || dropdown2.getSelectedItem().toString() == "" || dropdown3.getSelectedItem().toString() == "" || dropdown4.getSelectedItem().toString() == ""){
+            Toast.makeText(getApplicationContext(), "Please complete all questions.", Toast.LENGTH_SHORT).show();
+        }else{
+            for(int i = 0; i < mcChoices.length; i++){
+                if(dropdown1.getSelectedItem().toString().equals(mcChoices[i])){
+                    score += parseInt(mcChoices[i].substring(0,1));
+                }
+                if(dropdown2.getSelectedItem().toString().equals(mcChoices[i])){
+                    score += parseInt(mcChoices[i].substring(0,1));
+                }
+                if(dropdown3.getSelectedItem().toString().equals(mcChoices[i])){
+                    score += parseInt(mcChoices[i].substring(0,1));
+                }
+                if(dropdown4.getSelectedItem().toString().equals(mcChoices[i])){
+                    score += parseInt(mcChoices[i].substring(0,1));
+                }
+            }
+
+            Intent intent = new Intent(ReframeActivity.this, QuizResultsActivity.class);
+            Bundle bundle = new Bundle();
+            bundle.putInt("finalScore", score);
+            intent.putExtras(bundle);
+            startActivity(intent);
+        }
     }
 
     //OnClick for the cancel button will not save any information
-    public void backButtonExit(View view){
+    public void backButton(View view){
         Intent intent = new Intent(ReframeActivity.this, RelabelActivity.class);
         startActivity(intent);
     }

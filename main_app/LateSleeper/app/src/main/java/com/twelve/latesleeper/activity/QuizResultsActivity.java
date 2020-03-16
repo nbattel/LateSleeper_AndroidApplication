@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -28,24 +29,17 @@ public class QuizResultsActivity extends AppCompatActivity {
         } else {
             refocus.setText("This pattern has been determined as healthy by the wise advocate, " +
                     "no further action is required, however, it is up to you if you want to continue with the 4 steps. " +
-                    "Click the continue button" +
-                    "if you do");
+                    "Click the next button if you do");
         }
 
     }
 
-    public void ContinueButton(View view) {
-        Intent intent = new Intent(QuizResultsActivity.this, ReframeActivity.class);
+    public void nextButton(View view) {
+        Intent intent = new Intent(QuizResultsActivity.this, RefocusActivity.class);
         startActivity(intent);
+        Toast toast = Toast.makeText(getApplicationContext(), "Congratulations on completing the Reframe step!", Toast.LENGTH_SHORT);
+        toast.show();
     }
-
-    public void BackToHome(View view)
-    {
-        Intent intent = new Intent(QuizResultsActivity.this, UserHomeActivity.class);
-        startActivity(intent);
-    }
-
-
 }
 
 
