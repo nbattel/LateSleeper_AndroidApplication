@@ -100,7 +100,7 @@ public class ViewGoalsActivity  extends AppCompatActivity
                     Date date = timestamp.toDate();
 
                     goals.add(new Goal(snapshot.getString("sleepTime"), parseInt(snapshot.get("days").toString()),
-                            parseInt(snapshot.get("days").toString()), parseInt(snapshot.get("totalHours").toString()),
+                            parseInt(snapshot.get("daysCompleted").toString()), parseInt(snapshot.get("totalHours").toString()),
                             date, snapshot.getBoolean("completed")));
 
                     dates.add(date);
@@ -126,7 +126,7 @@ public class ViewGoalsActivity  extends AppCompatActivity
                 goalListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                        Intent intent = new Intent(ViewGoalsActivity.this, ViewGoalActivity.class);
+                        Intent intent = new Intent(ViewGoalsActivity.this, ViewSpecificGoalActivity.class);
                         intent.putExtra("goal", goals.get(i));
                         startActivity(intent);
                     }

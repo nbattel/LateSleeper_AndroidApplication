@@ -37,16 +37,16 @@ public class AlarmClockWakeUpActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alarm_clock_wakeup);
-        Bundle bundle = getIntent().getExtras();
+        //Bundle bundle = getIntent().getExtras();
         //sleepTime = bundle.getLong("bedTime");
         timePicker = findViewById(R.id.timepicker);
-        timeTextView = findViewById(R.id.timeTextView);
+       // timeTextView = findViewById(R.id.timeTextView);
         timePicker.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
             @Override
             public void onTimeChanged(TimePicker timePicker, int hour, int minute) {
             mHour = hour; //when the user changes the time on the timepicker(big clock on screen), the change in minute and hour are store
             mMin = minute;
-            timeTextView.setText(timeTextView.getText().toString()+" "+mHour+" :"+mMin); //output the time that they are setting the alarm to
+         //   timeTextView.setText(timeTextView.getText().toString()+" "+mHour+" :"+mMin); //output the time that they are setting the alarm to
             }
         });
 
@@ -72,10 +72,10 @@ public class AlarmClockWakeUpActivity extends AppCompatActivity {
        // bundle.putLong("sleepTime", sleepTime);
         bundle.putLong("wakeUpTime",wakeUpTime);
         intent.putExtras(bundle);
-        startActivity(intent); //navigate to set alarm
+        startActivity(intent); //navigate to alarm results
     }
 
-    public void setTimer(View view) //this is the onclick for the button
+    public void setAlarm(View view) //this is the onclick for the button
     {
        // Toast.makeText(getApplicationContext(), "ALARM SET", Toast.LENGTH_SHORT);
         AlarmManager alarmManager = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
@@ -99,6 +99,8 @@ public class AlarmClockWakeUpActivity extends AppCompatActivity {
         PendingIntent pendingIntent = PendingIntent.getBroadcast(AlarmClockWakeUpActivity.this,24444,i,PendingIntent.FLAG_UPDATE_CURRENT);
         //24444 is request code, its just random, and 0 is the flag
         alarmManager.set(AlarmManager.RTC_WAKEUP,calAlarm.getTimeInMillis(),pendingIntent);//actually set the alarm
+        Toast.makeText(getApplicationContext(), "Alarm Set!", Toast.LENGTH_SHORT).show();
+
     }
 
 }//end of class bracket
