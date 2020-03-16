@@ -15,7 +15,7 @@
         <activity android:name=".activity.RevalueJournalActivity" />
         <activity android:name=".activity.AlarmClockWakeUpActivity" />
         <activity android:name=".activity.AlarmClockSleepTimeActivity" />
-        <activity android:name=".activity.CreateGoalActivity" />
+        <activity android:name=".activity.GoalOverviewActivity" />
         <activity android:name=".activity.RefocusActivity" />
         <activity android:name=".activity.RelabelActivity" />
         <activity android:name=".activity.ViewGoalsActivity" />

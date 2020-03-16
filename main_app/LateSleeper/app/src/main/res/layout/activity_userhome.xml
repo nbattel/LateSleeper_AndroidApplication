@@ -21,7 +21,7 @@
         android:background="@android:drawable/btn_default"
         android:backgroundTint="@android:color/holo_blue_dark"
         android:onClick="toCreateGoal"
-        android:text="DONT CLICJ THIS BUTTON" />
+        android:text="Create Goal" />
 
     <Button
         android:id="@+id/newEntry"
