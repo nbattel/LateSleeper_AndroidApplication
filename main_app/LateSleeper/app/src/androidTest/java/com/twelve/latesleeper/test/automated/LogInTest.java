@@ -50,7 +50,7 @@ public class LogInTest {
 
         SystemClock.sleep(4000);
 
-        Espresso.onView(withId(R.id.button)).perform(click());
+        Espresso.onView(withId(R.id.signOut)).perform(click());
 
     }
 }
