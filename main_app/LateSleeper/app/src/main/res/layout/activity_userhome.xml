@@ -19,7 +19,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:drawable/btn_default"
-        android:backgroundTint="@android:color/holo_blue_dark"
+        android:backgroundTint="@color/colorAccent"
         android:onClick="toCreateGoal"
         android:text="Create Goal" />
 
@@ -27,8 +27,9 @@
         android:id="@+id/newEntry"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
         android:background="@android:drawable/btn_default"
-        android:backgroundTint="@android:color/holo_blue_dark"
+        android:backgroundTint="@color/colorAccent"
         android:onClick="toViewGoals"
         android:text="View Goals" />
 
@@ -36,6 +37,7 @@
         android:id="@+id/goalsSet"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
         android:text="Goals set: ..."
         android:textColor="@android:color/white"
         android:textSize="30sp" />
@@ -44,6 +46,7 @@
         android:id="@+id/goalsCompleted"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
         android:text="Goals completed: ..."
         android:textColor="@android:color/white"
         android:textSize="30sp" />
@@ -52,6 +55,7 @@
         android:id="@+id/totalEntries"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
         android:text="Total Entries Submitted: ..."
         android:textColor="@android:color/white"
         android:textSize="30sp" />
@@ -65,15 +69,14 @@
         android:textSize="30sp" />
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
+        android:id="@+id/signOut"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:layout_weight="1"
-        android:background="@drawable/common_google_signin_btn_icon_light_normal_background"
-        android:backgroundTint="@android:color/holo_blue_dark"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="50dp"
+        android:background="@android:drawable/btn_default"
+        android:backgroundTint="@color/colorAccent"
         android:onClick="signOut"
-        android:text="Sign Out"
-        android:textAlignment="center" />
+        android:text="Sign Out" />
 
 </LinearLayout>

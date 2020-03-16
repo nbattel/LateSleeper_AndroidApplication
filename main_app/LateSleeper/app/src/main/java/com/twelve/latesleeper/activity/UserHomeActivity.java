@@ -20,9 +20,7 @@ import com.twelve.latesleeper.database.Database;
 
 public class UserHomeActivity extends AppCompatActivity {
     TextView goalsSet;
-    //TextView getGoalsCompleted;
     TextView goalsCompleted;
-    TextView consecutiveDays;
     TextView totalEntries;
     TextView welcomeBack;
     //we have to access our database to get the data, then modify all of these textfields to have the updated info

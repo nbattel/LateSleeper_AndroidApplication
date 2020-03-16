@@ -27,6 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="156dp"
         android:layout_marginBottom="104dp"
+        android:background="@color/colorAccent"
         android:onClick="nextButtonAlarm"
         android:text="To Alarm"
         app:layout_constraintBottom_toBottomOf="parent"

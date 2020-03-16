@@ -28,7 +28,7 @@
 
             <TextView
                 android:id="@+id/textView7"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="52dp"
@@ -38,8 +38,8 @@
 
             <TextView
                 android:id="@+id/textView6"
-                android:layout_width="358dp"
-                android:layout_height="97dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
                 android:text="We want to congratulate you on taking the first step to a healthier lifestyle."
@@ -49,7 +49,7 @@
 
             <TextView
                 android:id="@+id/YOUTextView"
-                android:layout_width="332dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="16dp"
@@ -71,7 +71,7 @@
 
             <TextView
                 android:id="@+id/YOUTextView2"
-                android:layout_width="367dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="24dp"
@@ -93,8 +93,8 @@
 
             <TextView
                 android:id="@+id/textView12"
-                android:layout_width="370dp"
-                android:layout_height="118dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="24dp"
                 android:layout_marginBottom="28dp"
