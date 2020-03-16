@@ -12,6 +12,7 @@ import android.widget.TextClock;
 
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -37,7 +38,7 @@ public class AlarmClockWakeUpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alarm_clock_wakeup);
         Bundle bundle = getIntent().getExtras();
-        sleepTime = bundle.getLong("bedTime");
+        //sleepTime = bundle.getLong("bedTime");
         timePicker = findViewById(R.id.timepicker);
         timeTextView = findViewById(R.id.timeTextView);
         timePicker.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
@@ -68,7 +69,7 @@ public class AlarmClockWakeUpActivity extends AppCompatActivity {
         Intent intent = new Intent(AlarmClockWakeUpActivity.this, SleepResultsActivity.class);
         Bundle bundle = new Bundle();
 
-        bundle.putLong("sleepTime", sleepTime);
+       // bundle.putLong("sleepTime", sleepTime);
         bundle.putLong("wakeUpTime",wakeUpTime);
         intent.putExtras(bundle);
         startActivity(intent); //navigate to set alarm
@@ -76,6 +77,7 @@ public class AlarmClockWakeUpActivity extends AppCompatActivity {
 
     public void setTimer(View view) //this is the onclick for the button
     {
+       // Toast.makeText(getApplicationContext(), "ALARM SET", Toast.LENGTH_SHORT);
         AlarmManager alarmManager = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
         Date date = new Date();
         Calendar calAlarm = Calendar.getInstance();//for alarm

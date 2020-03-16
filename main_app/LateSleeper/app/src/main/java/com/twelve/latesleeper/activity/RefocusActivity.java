@@ -16,16 +16,16 @@ public class RefocusActivity extends AppCompatActivity {
     }
 
     //OnClick for the save button will trigger the next screen in the workflow
-    public void nextButtonRefocus(View view){
-        Intent intent = new Intent(RefocusActivity.this, RevalueActivity.class);
+    public void nextButtonAlarm(View view){
+        Intent intent = new Intent(RefocusActivity.this, AlarmClockWakeUpActivity.class);
         startActivity(intent);
 
         //TODO --> We need to save all the information the user enters on this screen into the database on save
     }
 
     //OnClick for the cancel button will not save any information
-    public void backButtonRefocus(View view){
+    /*public void backButtonRefocus(View view){
         Intent intent = new Intent(RefocusActivity.this, ReframeActivity.class);
         startActivity(intent);
-    }
+    }*/
 }

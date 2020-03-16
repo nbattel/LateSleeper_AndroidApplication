@@ -21,40 +21,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/refocusTextView2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="180dp"
-        android:text="What can I do instead to shift my direction to a healthy action?"
-        android:textColor="@color/colorSecondaryDark"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.6"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/spinner2"
-        android:layout_width="257dp"
-        android:layout_height="259dp"
-        android:dropDownWidth="1000dp"
-        android:dropDownHeight="1000dp"
-        android:theme="@style/spinnerTheme"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/refocusTextView2" />
-
     <Button
         android:id="@+id/nextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="40dp"
-        android:onClick="nextButtonRefocus"
-        android:text="Next"
+        android:layout_marginEnd="156dp"
+        android:layout_marginBottom="104dp"
+        android:onClick="nextButtonAlarm"
+        android:text="To Alarm"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -63,7 +37,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="92dp"
-        android:text="Here the user will set a time to try and put their phone down so that they can go to bed. In the morning, they will input the actual time they went to bed compared to the time they set and a score will be calculated."
+        android:text="Its time to put your goal into action. Go to the Alarm Clock to ensure you get enough sleep!"
         android:textAlignment="center"
         android:textColor="@android:color/white"
         android:textSize="36sp"
