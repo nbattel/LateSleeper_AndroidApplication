@@ -28,7 +28,7 @@ public class ViewGoalActivity extends AppCompatActivity {
     }
 
     public void toCreateGoal() {
-        Intent intent = new Intent(ViewGoalActivity.this, CreateGoalActivity.class);
+        Intent intent = new Intent(ViewGoalActivity.this, GoalOverviewActivity.class);
         startActivity(intent);
     }
 

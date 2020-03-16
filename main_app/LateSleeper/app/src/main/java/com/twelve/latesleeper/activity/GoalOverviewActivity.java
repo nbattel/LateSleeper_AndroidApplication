@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.twelve.latesleeper.R;
 
-public class CreateGoalActivity extends AppCompatActivity {
+public class GoalOverviewActivity extends AppCompatActivity {
 
     TextView YOUTextView;
     TextView YOUTextView2;
@@ -31,7 +31,7 @@ public class CreateGoalActivity extends AppCompatActivity {
     }
 
     public void continueButton(View view) {
-        Intent intent = new Intent(CreateGoalActivity.this, CreateGoalSettingsActivity.class);
+        Intent intent = new Intent(GoalOverviewActivity.this, CreateGoalSettingsActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
         startActivity(intent);
     }

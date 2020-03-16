@@ -100,47 +100,7 @@ public class AlarmClockWakeUpActivity extends AppCompatActivity {
         //24444 is request code, its just random, and 0 is the flag
         alarmManager.set(AlarmManager.RTC_WAKEUP,calAlarm.getTimeInMillis(),pendingIntent);//actually set the alarm
     }
-        //alarmTime = findViewById(R.id.textClock)
 
-        /*currentTime = findViewById(R.id.textClock);
-        final Ringtone r = RingtoneManager.getRingtone(getApplicationContext(),RingtoneManager.getDefaultUri(RingtoneManager.TYPE_RINGTONE));
-
-        Timer t = new Timer();
-        t.scheduleAtFixedRate(new TimerTask() {
-            @Override
-            public void run() {
-
-                if (currentTime.getText().toString().equals(AlarmTime())){
-                    r.play();
-                }else{
-                    r.stop();
-                }
-            }
-        }, 0, 1000);
-    }
-
-    public String AlarmTime(){
-
-        Integer alarmHours = alarmTime.getCurrentHour();
-        Integer alarmMinutes = alarmTime.getCurrentMinute();
-        String stringAlarmMinutes;
-
-        if (alarmMinutes<10){
-            stringAlarmMinutes = "0";
-            stringAlarmMinutes = stringAlarmMinutes.concat(alarmMinutes.toString());
-        }else{
-            stringAlarmMinutes = alarmMinutes.toString();
-        }
-        String stringAlarmTime;
-
-        if(alarmHours>12){
-            alarmHours = alarmHours-12;
-            stringAlarmTime = alarmHours.toString().concat(":").concat(stringAlarmMinutes).concat("PM");
-        }else{
-            stringAlarmTime = alarmHours.toString().concat(":").concat(stringAlarmMinutes).concat("AM");
-        }
-        return stringAlarmTime;
-    }*/
 }//end of class bracket
 
 
