@@ -126,7 +126,7 @@ public class ViewGoalsActivity  extends AppCompatActivity
                 goalListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                        Intent intent = new Intent(ViewGoalsActivity.this, ViewGoalActivity.class);
+                        Intent intent = new Intent(ViewGoalsActivity.this, ViewSpecificGoalActivity.class);
                         intent.putExtra("goal", goals.get(i));
                         startActivity(intent);
                     }

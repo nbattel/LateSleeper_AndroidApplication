@@ -1,6 +1,8 @@
 package com.twelve.latesleeper.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 
@@ -22,7 +24,7 @@ public class SleepResultsActivity extends AppCompatActivity {
        // Bundle bundle = getIntent().getExtras();
         //sleepTime = bundle.getLong("sleepTime");
         //wakeUpTime = bundle.getLong("wakeUpTime");
-        //sleepResults = findViewById(R.id.sleepResults);
+        sleepResults = findViewById(R.id.sleepResults);
 
         /*long totalSleep = wakeUpTime - sleepTime;
         String result = String.format("%02d:%02d:%02d",
@@ -38,5 +40,14 @@ public class SleepResultsActivity extends AppCompatActivity {
 
 
 
+    }
+
+    public void toRevalue(View view)
+    {
+        Intent intent = new Intent(SleepResultsActivity.this, RevalueActivity.class);
+
+
+
+        startActivity(intent); //navigate to set alarm
     }
 }
