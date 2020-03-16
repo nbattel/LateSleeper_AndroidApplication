@@ -1,9 +1,10 @@
 package com.twelve.latesleeper.model;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.HashMap;
 
-public class Goal {
+public class Goal implements Serializable {
 
     HashMap<String, Object> goalInfo;
 

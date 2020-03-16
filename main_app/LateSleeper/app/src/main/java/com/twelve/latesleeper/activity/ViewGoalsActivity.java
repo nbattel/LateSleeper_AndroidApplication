@@ -29,6 +29,7 @@ import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.twelve.latesleeper.R;
 import com.twelve.latesleeper.database.Database;
+import com.twelve.latesleeper.model.Goal;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -53,7 +54,7 @@ public class ViewGoalsActivity  extends AppCompatActivity
     private List<String> bodies = new ArrayList<>();
     private List<Integer> days = new ArrayList<>();
     private List<Integer> daysCompleted = new ArrayList<>();
-    private List<DocumentSnapshot> goals = new ArrayList<>();
+    private List<Goal> goals = new ArrayList<>();
 
     int images[] = {R.drawable.darkred, R.drawable.orange, R.drawable.yellow, R.drawable.pink, R.drawable.purple, R.drawable.blue, R.drawable.green};
 
@@ -94,11 +95,14 @@ public class ViewGoalsActivity  extends AppCompatActivity
                 Calendar cal = Calendar.getInstance();
 
                 for (DocumentSnapshot snapshot : DocumentSnapshots) {
-                    goals.add(snapshot);
 
                     Timestamp timestamp = snapshot.getTimestamp("dateCreated");
-
                     Date date = timestamp.toDate();
+
+                    goals.add(new Goal(snapshot.getString("sleepTime"), parseInt(snapshot.get("days").toString()),
+                            parseInt(snapshot.get("days").toString()), parseInt(snapshot.get("totalHours").toString()),
+                            date, snapshot.getBoolean("completed")));
+
                     dates.add(date);
 
                     String[] bedTime = snapshot.get("sleepTime").toString().split(":");
@@ -123,7 +127,7 @@ public class ViewGoalsActivity  extends AppCompatActivity
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                         Intent intent = new Intent(ViewGoalsActivity.this, ViewGoalActivity.class);
-                        //intent.putExtra("goal", goals.get(i));
+                        intent.putExtra("goal", goals.get(i));
                         startActivity(intent);
                     }
                 });
