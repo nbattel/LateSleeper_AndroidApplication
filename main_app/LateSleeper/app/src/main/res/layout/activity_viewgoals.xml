@@ -2,28 +2,53 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="@color/colorPrimaryDark"
+    android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/testTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TEST FOR VIEW GOALS PG"
-        android:textSize="36sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:id="@+id/goalsText"
+        android:layout_width="match_parent"
+        android:layout_height="163dp"
+        android:text="Here are your goals"
+        android:textColor="@color/colorSecondaryDark"
+        android:textSize="48sp" />
 
     <Button
-        android:id="@+id/toGoal"
-        android:layout_width="148dp"
-        android:layout_height="79dp"
-        android:text="Start Goal"
+        android:id="@+id/createGoal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/btn_default"
+        android:backgroundTint="@android:color/holo_blue_dark"
+        android:onClick="toCreateGoal"
+        android:text="Create Goal" />
+
+    <Button
+        android:id="@+id/startGoal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/btn_default"
+        android:backgroundTint="@android:color/holo_blue_dark"
         android:onClick="startGoal"
-        tools:layout_editor_absoluteX="116dp"
-        tools:layout_editor_absoluteY="462dp" />
+        android:text="Start Goal" />
+
+    <Button
+        android:id="@+id/continueGoal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/btn_default"
+        android:backgroundTint="@android:color/holo_blue_dark"
+        android:onClick="continueGoal"
+        android:text="Continue Goal" />
+
+    <Button
+        android:id="@+id/progress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/btn_default"
+        android:backgroundTint="@android:color/holo_blue_dark"
+        android:onClick="viewProgress"
+        android:text="Progress" />
+
 
 </LinearLayout>
