@@ -36,7 +36,7 @@
         android:id="@+id/goalsSet"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Goals set:"
+        android:text="Goals set: ..."
         android:textColor="@android:color/white"
         android:textSize="30sp" />
 
@@ -44,15 +44,7 @@
         android:id="@+id/goalsCompleted"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Goals completed:"
-        android:textColor="@android:color/white"
-        android:textSize="30sp" />
-
-    <TextView
-        android:id="@+id/daysConsec"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Consecutive Days of Entries:"
+        android:text="Goals completed: ..."
         android:textColor="@android:color/white"
         android:textSize="30sp" />
 

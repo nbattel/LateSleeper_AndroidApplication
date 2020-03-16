@@ -32,7 +32,7 @@ public class UserHomeActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseUser currentUser;
     private TextView welcomeText;
-    private int entries = 0;
+    private int count = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +44,6 @@ public class UserHomeActivity extends AppCompatActivity {
         //Get the users username
         goalsCompleted = findViewById(R.id.goalsCompleted);
         goalsSet = findViewById(R.id.goalsSet);
-        consecutiveDays = findViewById(R.id.daysConsec);
         totalEntries = findViewById(R.id.totalEntries);
         welcomeBack = findViewById(R.id.welcomeText);
         //now modify the text based on information about user in database
@@ -86,8 +85,37 @@ public class UserHomeActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
-                            entries = task.getResult().size();
-                            totalEntries.setText("Total Entries Submitted: " + entries);
+                            count = task.getResult().size();
+                            totalEntries.setText("Total Entries Submitted: " + count);
+                            Log.d("TESTSIZE", task.getResult().size() + "");
+                        } else {
+                            Log.d("FAILEDDOCUMENT", "Error getting documents.", task.getException());
+                        }
+                    }
+                });
+        Database.getDatabase().collection("users").document(id).collection("goals")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            count = task.getResult().size();
+                            goalsSet.setText("Goals set: " + count);
+                            Log.d("TESTSIZE", task.getResult().size() + "");
+                        } else {
+                            Log.d("FAILEDDOCUMENT", "Error getting documents.", task.getException());
+                        }
+                    }
+                });
+        Database.getDatabase().collection("users").document(id).collection("goals")
+                .whereEqualTo("completed", true)
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            count = task.getResult().size();
+                            goalsCompleted.setText("Goals completed: " + count);
                             Log.d("TESTSIZE", task.getResult().size() + "");
                         } else {
                             Log.d("FAILEDDOCUMENT", "Error getting documents.", task.getException());

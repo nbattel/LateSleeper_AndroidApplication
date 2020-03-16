@@ -19,7 +19,7 @@ public class Goal {
         goalInfo.put("dateCreated", new Date());
     }
 
-    public Goal(String time, Integer days, Integer daysCompleted, Integer totalHours, Date date)
+    public Goal(String time, Integer days, Integer daysCompleted, Integer totalHours, Date date, boolean completed)
     {
         goalInfo = new HashMap<>();
 
@@ -27,7 +27,7 @@ public class Goal {
         goalInfo.put("days", days);
         goalInfo.put("daysCompleted", daysCompleted);
         goalInfo.put("totalHours", totalHours);
-        goalInfo.put("completed", false);
+        goalInfo.put("completed", completed);
         goalInfo.put("dateCreated", date);
     }
 

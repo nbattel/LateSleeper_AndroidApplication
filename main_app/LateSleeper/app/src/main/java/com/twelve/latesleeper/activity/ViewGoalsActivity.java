@@ -1,10 +1,13 @@
 package com.twelve.latesleeper.activity;
 
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -22,12 +25,19 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.twelve.latesleeper.R;
 import com.twelve.latesleeper.database.Database;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+
+import static java.lang.Integer.parseInt;
 
 public class ViewGoalsActivity  extends AppCompatActivity
 {
@@ -38,10 +48,14 @@ public class ViewGoalsActivity  extends AppCompatActivity
     ListView goalListView;
     Context context;
 
+    private List<Date> dates = new ArrayList<>();
     private List<String> titles = new ArrayList<>();
     private List<String> bodies = new ArrayList<>();
+    private List<Integer> days = new ArrayList<>();
+    private List<Integer> daysCompleted = new ArrayList<>();
+    private List<DocumentSnapshot> goals = new ArrayList<>();
 
-    int images[] = {R.drawable.blue, R.drawable.darkred, R.drawable.yellow, R.drawable.green, R.drawable.purple, R.drawable.pink, R.drawable.orange};
+    int images[] = {R.drawable.darkred, R.drawable.orange, R.drawable.yellow, R.drawable.pink, R.drawable.purple, R.drawable.blue, R.drawable.green};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,24 +78,39 @@ public class ViewGoalsActivity  extends AppCompatActivity
     public void onStart() {
         super.onStart();
         currentUser = mAuth.getCurrentUser();
-        dimLayout.bringToFront();
-        loadingBar.bringToFront();
-        loadingBar.setVisibility(View.VISIBLE);
         dimLayout.setVisibility(View.VISIBLE);
+        dimLayout.bringToFront();
         retrieveGoals();
     }
 
     public void retrieveGoals() {
         Database.getDatabase().collection("users").document(currentUser.getUid()).collection("goals")
+                .orderBy("dateCreated", Query.Direction.ASCENDING)
         .addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(@Nullable QuerySnapshot DocumentSnapshots, @Nullable FirebaseFirestoreException e) {
 
                 titles.clear();
+                Calendar cal = Calendar.getInstance();
 
                 for (DocumentSnapshot snapshot : DocumentSnapshots) {
+                    goals.add(snapshot);
+
                     Timestamp timestamp = snapshot.getTimestamp("dateCreated");
-                    titles.add(timestamp.toDate().toString());
+
+                    Date date = timestamp.toDate();
+                    dates.add(date);
+
+                    String[] bedTime = snapshot.get("sleepTime").toString().split(":");
+                    cal.set(Calendar.HOUR_OF_DAY, parseInt(bedTime[0]));
+                    cal.set(Calendar.MINUTE, parseInt(bedTime[1]));
+                    Date d = cal.getTime();
+                    DateFormat dateFormat = new SimpleDateFormat("hh:mm a");
+                    titles.add("Bedtime at " + dateFormat.format(d));
+
+                    days.add(parseInt(snapshot.get("days").toString()));
+                    daysCompleted.add(parseInt(snapshot.get("daysCompleted").toString()));
+
                     bodies.add(snapshot.get("daysCompleted").toString() + "/" + snapshot.get("days").toString() + " days completed.");
                 }
                 String[] arrayTitle = titles.toArray(new String[0]);
@@ -89,6 +118,17 @@ public class ViewGoalsActivity  extends AppCompatActivity
                 goalAdapter adapter = new goalAdapter(getApplicationContext(), arrayTitle, arrayBody, images);
                 adapter.notifyDataSetChanged();
                 goalListView.setAdapter(adapter);
+
+                goalListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                        Intent intent = new Intent(ViewGoalsActivity.this, ViewGoalActivity.class);
+                        //intent.putExtra("goal", goals.get(i));
+                        startActivity(intent);
+                    }
+                });
+
+                dimLayout.setVisibility(View.GONE);
             }
         });
     }
@@ -112,11 +152,24 @@ public class ViewGoalsActivity  extends AppCompatActivity
         public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
             LayoutInflater layoutInflater = (LayoutInflater) getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             View row = layoutInflater.inflate(R.layout.row, parent, false);
-            ImageView images = row.findViewById(R.id.image);
+            ImageView image = row.findViewById(R.id.image);
             TextView myTitle = row.findViewById(R.id.titleTextView);
             TextView myBody = row.findViewById(R.id.bodyTextView);
 
-            images.setImageResource(rImgs[position]);
+            float ratio = (float)daysCompleted.get(position) / days.get(position);
+            ratio *= 100;
+            if (ratio < 14.28) image.setImageResource(rImgs[0]);
+            else if (ratio < 28.56) image.setImageResource(rImgs[1]);
+            else if (ratio < 42.84) image.setImageResource(rImgs[2]);
+            else if (ratio < 57.12) image.setImageResource(rImgs[3]);
+            else if (ratio < 71.4) image.setImageResource(rImgs[4]);
+            else if (ratio < 85.68) image.setImageResource(rImgs[5]);
+            else image.setImageResource(rImgs[6]);
+
+            if (ratio == 100) {
+                myBody.setTextColor(Color.parseColor("#22B14C"));
+            }
+
             myTitle.setText(rTitle[position]);
             myBody.setText(rBody[position]);
 

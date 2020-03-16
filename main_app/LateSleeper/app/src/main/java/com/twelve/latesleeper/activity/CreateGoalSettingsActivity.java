@@ -108,7 +108,7 @@ public class CreateGoalSettingsActivity extends AppCompatActivity {
         alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,calAlarm.getTimeInMillis(),AlarmManager.INTERVAL_DAY,pendingIntent);
 
         //now create goal
-        Goal goal = new Goal(time, days, 0, 0, new Date() );
+        Goal goal = new Goal(time, days, 0, 0, new Date(), false);
 
         goalCollection.add(goal.getGoal())
                 .addOnCompleteListener(this, new OnCompleteListener<DocumentReference>() {
