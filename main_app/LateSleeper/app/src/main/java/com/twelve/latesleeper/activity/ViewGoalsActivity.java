@@ -100,7 +100,7 @@ public class ViewGoalsActivity  extends AppCompatActivity
                     Date date = timestamp.toDate();
 
                     goals.add(new Goal(snapshot.getString("sleepTime"), parseInt(snapshot.get("days").toString()),
-                            parseInt(snapshot.get("days").toString()), parseInt(snapshot.get("totalHours").toString()),
+                            parseInt(snapshot.get("daysCompleted").toString()), parseInt(snapshot.get("totalHours").toString()),
                             date, snapshot.getBoolean("completed")));
 
                     dates.add(date);
