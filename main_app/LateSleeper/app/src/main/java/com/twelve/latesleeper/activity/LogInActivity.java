@@ -76,12 +76,14 @@ public class LogInActivity extends AppCompatActivity {
                                 updateUI(user);
                             } else {
                                 Log.w(TAG, "signInWithEmail:failure", task.getException());
-                                loadingBar.setVisibility(View.INVISIBLE);
-                                dimLayout.setVisibility(View.INVISIBLE);
+                                loadingBar.setVisibility(View.GONE);
+                                dimLayout.setVisibility(View.GONE);
                                 Toast.makeText(LogInActivity.this, "Authentication failed.",
                                         Toast.LENGTH_SHORT).show();
                                 updateUI(null);
                             }
+                            loadingBar.setVisibility(View.GONE);
+                            dimLayout.setVisibility(View.GONE);
                         }
                     });
         }
@@ -99,8 +101,6 @@ public class LogInActivity extends AppCompatActivity {
 
         } else {
             Intent intent = new Intent(LogInActivity.this, UserHomeActivity.class);
-            loadingBar.setVisibility(View.INVISIBLE);
-            dimLayout.setVisibility(View.INVISIBLE);
             startActivity(intent);
             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
         }

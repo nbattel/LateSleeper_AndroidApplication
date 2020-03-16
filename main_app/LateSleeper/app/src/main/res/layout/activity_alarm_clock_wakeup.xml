@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
@@ -13,42 +13,55 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginTop="11dp"
-        android:layout_marginEnd="69dp"
-        android:layout_marginBottom="110dp"
+        android:layout_marginTop="28dp"
+        android:background="@color/colorAccent"
         android:onClick="setTimer"
-        android:text="SET ALARM" />
+        android:text="SET ALARM"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/timepicker" />
 
     <Button
         android:id="@+id/turnOffAlarmBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="66dp"
-        android:layout_marginBottom="105dp"
+        android:layout_marginTop="36dp"
         android:layout_toStartOf="@+id/setAlarmBtn"
+        android:background="@color/colorAccent"
         android:onClick="turnOffAlarm"
-        android:text="TURN OFF ALARM" />
+        android:text="TURN OFF ALARM"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/setAlarmBtn" />
 
     <TimePicker
         android:id="@+id/timepicker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/timeTextView"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="-8dp"
-        android:layout_marginBottom="229dp"
+        android:layout_marginTop="48dp"
         android:padding="10dp"
-        android:timePickerMode="clock" />
+        android:timePickerMode="clock"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/timeTextView" />
 
     <TextView
+        android:id="@+id/timeTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:id="@+id/timeTextView"
+        android:layout_marginTop="52dp"
         android:text="Wake Up Time: "
         android:textColor="#090"
         android:textSize="20sp"
-        android:textStyle="bold"></TextView>
-</RelativeLayout>
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></TextView>
+</androidx.constraintlayout.widget.ConstraintLayout>
