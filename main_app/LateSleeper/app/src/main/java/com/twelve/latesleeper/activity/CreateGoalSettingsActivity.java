@@ -96,10 +96,16 @@ public class CreateGoalSettingsActivity extends AppCompatActivity {
 
             calAlarm.add(Calendar.DATE,1); //if its 8pm and you set alarm to 6:30pm it will happen the next day
         }
+        if (Calendar.getInstance().after(calAlarm)) {
+            calAlarm.add(Calendar.DAY_OF_MONTH, 1);
+        }
+
+
+
         Intent i = new Intent(CreateGoalSettingsActivity.this,MyBroadCastReceiverNotification.class);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(CreateGoalSettingsActivity.this,9,i,PendingIntent.FLAG_UPDATE_CURRENT);
         //9 is request code, its just random, and 0 is the flag
-        alarmManager.set(AlarmManager.RTC_WAKEUP,calAlarm.getTimeInMillis(),pendingIntent);
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,calAlarm.getTimeInMillis(),AlarmManager.INTERVAL_DAY,pendingIntent);
 
         //now create goal
         Goal goal = new Goal(time, days, 0, 0, new Date() );

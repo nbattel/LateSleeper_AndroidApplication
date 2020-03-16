@@ -19,22 +19,22 @@ public class SleepResultsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sleep_results);
-        Bundle bundle = getIntent().getExtras();
-        sleepTime = bundle.getLong("sleepTime");
-        wakeUpTime = bundle.getLong("wakeUpTime");
-        sleepResults = findViewById(R.id.sleepResults);
+       // Bundle bundle = getIntent().getExtras();
+        //sleepTime = bundle.getLong("sleepTime");
+        //wakeUpTime = bundle.getLong("wakeUpTime");
+        //sleepResults = findViewById(R.id.sleepResults);
 
-        long totalSleep = wakeUpTime - sleepTime;
+        /*long totalSleep = wakeUpTime - sleepTime;
         String result = String.format("%02d:%02d:%02d",
                 TimeUnit.MILLISECONDS.toHours(totalSleep),
                 TimeUnit.MILLISECONDS.toMinutes(totalSleep) -
                         TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(totalSleep)), // The change is in this line
                 TimeUnit.MILLISECONDS.toSeconds(totalSleep) -
-                        TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(totalSleep)));
+                        TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(totalSleep)));*/
 
 
 
-        sleepResults.setText("you slept: "+result+" Total! Congrats!");
+        sleepResults.setText("you slept: INSERT CALC Total! Congrats!");
 
 
 
