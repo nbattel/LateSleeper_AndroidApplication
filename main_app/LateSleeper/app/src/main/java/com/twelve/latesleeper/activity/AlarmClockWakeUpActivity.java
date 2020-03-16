@@ -17,7 +17,9 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FieldValue;
 import com.twelve.latesleeper.R;
+import com.twelve.latesleeper.database.Database;
 
 
 import java.util.Calendar;
@@ -36,6 +38,7 @@ public class AlarmClockWakeUpActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mAuth = FirebaseAuth.getInstance();
         setContentView(R.layout.activity_alarm_clock_wakeup);
         //Bundle bundle = getIntent().getExtras();
         //sleepTime = bundle.getLong("bedTime");
@@ -72,6 +75,13 @@ public class AlarmClockWakeUpActivity extends AppCompatActivity {
        // bundle.putLong("sleepTime", sleepTime);
         bundle.putLong("wakeUpTime",wakeUpTime);
         intent.putExtras(bundle);
+
+        Database.getDatabase().collection("users").document(mAuth.getUid())
+                .collection("goals").document(ViewSpecificGoalActivity.goalID)
+                .update(
+                        "daysCompleted", FieldValue.increment(1)
+                );
+
         startActivity(intent); //navigate to alarm results
     }
 
