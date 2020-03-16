@@ -21,7 +21,6 @@
         <activity android:name=".activity.ViewGoalsActivity" />
         <activity android:name=".activity.WiseAdvocateActivity" />
         <activity android:name=".activity.UserHomeActivity" />
-        <activity android:name=".activity.JournalActivity" />
         <activity android:name=".activity.ReframeActivity" />
         <activity android:name=".activity.QuizResultsActivity" />
         <activity android:name=".activity.RevalueActivity" />

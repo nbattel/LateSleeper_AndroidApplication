@@ -1,59 +1,141 @@
 package com.twelve.latesleeper.activity;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
-import android.graphics.PorterDuff;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
-
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
 import com.twelve.latesleeper.R;
+import com.twelve.latesleeper.database.Database;
+import com.twelve.latesleeper.model.Entry;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class RelabelActivity extends AppCompatActivity {
+
+    private FirebaseAuth mAuth;
+    private FirebaseUser currentUser;
+    TextView titleEditText;
+    EditText bodyEditText;
+    Button nextButton;
+    Spinner dropdown;
+    Boolean bodyTextComplete = false;
+    //create a list of items for the spinner.
+    String[] items = new String[]{"", "I feel anxious", "I feel nervous", "I fear missing out", "I am bored"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mAuth = FirebaseAuth.getInstance();
         setContentView(R.layout.activity_relabel);
-        //get the spinner from the xml.
-        Spinner dropdown = findViewById(R.id.feelingDropdown);
-
-//create a list of items for the spinner.
-        String[] items = new String[]{"I feel anxious", "I feel nervous", "I fear of missing out", "I am bored"};
+        titleEditText = findViewById(R.id.titleEditText);
+        bodyEditText = findViewById(R.id.bodyEditText);
+        nextButton = findViewById(R.id.nextButton);
+        //Get the spinner from the xml.
+        dropdown = findViewById(R.id.feelingDropdown);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item ,items);
         //adapter.setDropDownViewResource(android.R.layout.);
 
-        dropdown.getBackground().setColorFilter(getResources().getColor(R.color.colorPrimary), PorterDuff.Mode.SRC_ATOP); //PorterDuff.Mode.SRC_ATOP);
-//set the spinners adapter to the previously created one.
+        //set the spinners adapter to the previously created one.
         dropdown.setAdapter(adapter);
-        //dropdown.setOnItemSelectedListener(onItemSelected());
+
+        bodyEditText.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (s.toString().equals("")) {
+                    nextButton.setEnabled(false);
+                    bodyTextComplete = false;
+                }else {
+                    bodyTextComplete = true;
+                    if(bodyTextComplete && !dropdown.getSelectedItem().toString().equals("")){
+                        nextButton.setEnabled(true);
+                    }
+                }
+
+                if(dropdown.getSelectedItem().toString() == ""){
+                    Toast.makeText(getApplicationContext(), "Please Select a dropdown option", Toast.LENGTH_SHORT).show();
+                    nextButton.setEnabled(false);
+                }else{
+                    titleEditText.setText(dropdown.getSelectedItem().toString());
+                }
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // TODO Auto-generated method stub
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                // TODO Auto-generated method stub
+            }
+        });
     }
 
-    //OnClick for the save button will trigger the next screen in the workflow
+    @Override
+    protected void onStart() {
+        super.onStart();
+        currentUser = mAuth.getCurrentUser();
+    }
+
     public void nextButtonRelabel(View view){
-        Intent intent = new Intent(RelabelActivity.this, WiseAdvocateActivity.class);
-        startActivity(intent);
 
-        Toast toast = Toast.makeText(getApplicationContext(),"Relabel Next Button Clicked",Toast.LENGTH_SHORT);
-        toast.show();
-        //TODO
-        //We need to save all the information the user enters on this screen into the database on save
+        String title = titleEditText.getText().toString();
+        String body = bodyEditText.getText().toString();
+        String date = getDateAndTime();
+
+        Entry entry = new Entry(body, title, date);
+
+        if(dropdown.getSelectedItem().toString() == ""){
+            Toast.makeText(getApplicationContext(), "Please Select a dropdown option", Toast.LENGTH_SHORT).show();
+            nextButton.setEnabled(false);
+        }else{
+            // Getting a reference to the journal collection of the specific user
+            CollectionReference journalCollection = Database.getDatabase().document("users/" + currentUser.getUid()).collection("journal");
+            // Add entry to user
+            journalCollection.add(entry.getEntry())
+                .addOnCompleteListener(this, new OnCompleteListener<DocumentReference>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentReference> task) {
+                        if (task.isSuccessful()) {
+                            Toast toast = Toast.makeText(getApplicationContext(), "Congratulations on completing the Relabel step!", Toast.LENGTH_SHORT);
+                            toast.show();
+                            Intent intent = new Intent(RelabelActivity.this, WiseAdvocateActivity.class);
+                            startActivity(intent);
+                        }
+                        else {
+                            Toast toast = Toast.makeText(getApplicationContext(), "Failed writing to Journal!", Toast.LENGTH_SHORT);
+                            toast.show();
+                        }
+                    }
+                });
+        }
     }
 
-   /* public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
-        Toast.makeText(parent.getContext(),
-                "OnItemSelectedListener : " + parent.getItemAtPosition(pos).toString(),
-                Toast.LENGTH_SHORT).show();
-    }*/
-    //OnClick for the cancel button will not save any information
-    public void backButtonRelabel(View view){
-        Intent intent = new Intent(RelabelActivity.this, JournalActivity.class);
+    public void cancelRelabel(View view){
+        Intent intent = new Intent(RelabelActivity.this, UserHomeActivity.class);
         startActivity(intent);
+    }
 
-        Toast toast = Toast.makeText(getApplicationContext(),"Relabel Back Button Clicked",Toast.LENGTH_SHORT);
-        toast.show();
+    public String getDateAndTime(){
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        Date date = new Date();
+        return formatter.format(date);
     }
 }

@@ -7,53 +7,137 @@
     android:background="@color/colorPrimaryDark"
     tools:context=".activity.RelabelActivity">
 
-    <TextView
-        android:id="@+id/relabelTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:text="Step 1: Relabel"
-        android:textColor="@color/colorSecondaryDark"
-        android:textSize="50sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="366dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/relabelTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginRight="30dp"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:text="Step 1: Relabel"
+                android:textAlignment="center"
+                android:textColor="@color/colorSecondaryDark"
+                android:textSize="50sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/mcText"
+                android:layout_width="313dp"
+                android:layout_height="91dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="30dp"
+                android:text="How are you currently feeling?"
+                android:textAlignment="center"
+                android:textColor="@color/colorSecondaryDark"
+                android:textSize="24sp" />
+
+            <Spinner
+                android:id="@+id/feelingDropdown"
+                android:layout_width="319dp"
+                android:layout_height="68dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="30dp"
+                android:background="@android:drawable/btn_dropdown"
+                android:dropDownWidth="1000dp"
+                android:dropDownHeight="1000dp"
+                android:popupBackground="@color/colorSecondaryDark"
+                android:textColor="@color/colorPrimaryDark" />
+
+            <TextView
+                android:id="@+id/journalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Please ellaborate how you feel in the Journal below."
+                android:textAlignment="center"
+                android:textColor="@color/colorSecondaryDark"
+                android:textSize="24dp" />
+
+            <TextView
+                android:id="@+id/titleEditText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="178dp"
+                android:ems="10"
+                android:text="Title..."
+                android:textColor="@color/colorSecondaryDark"
+                android:textSize="24dp" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <EditText
+                    android:id="@+id/bodyEditText"
+                    android:layout_width="366dp"
+                    android:layout_height="460dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:ems="10"
+                    android:gravity="start|top"
+                    android:hint="Enter your thoughts here..."
+                    android:inputType="textMultiLine"
+                    android:nextFocusLeft="@id/bodyEditText"
+                    android:nextFocusUp="@id/bodyEditText"
+                    android:textColor="@color/colorSecondaryDark"
+                    android:textColorHint="@color/colorSecondaryDark"
+                    app:layout_constraintBottom_toTopOf="@id/nextButton"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/cancelButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@android:color/holo_blue_dark"
+                    android:onClick="cancelRelabel"
+                    android:text="Cancel"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <Button
+                    android:id="@+id/nextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@android:color/holo_blue_dark"
+                    android:enabled="false"
+                    android:onClick="nextButtonRelabel"
+                    android:text="Next"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+    </ScrollView>
 
 
-    <Button
-        android:id="@+id/saveButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="40dp"
-        android:onClick="nextButtonRelabel"
-        android:text="Next"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <Spinner
-        android:id="@+id/feelingDropdown"
-        android:layout_width="194dp"
-        android:layout_height="97dp"
-        android:layout_marginTop="108dp"
-        android:dropDownWidth="1000dp"
-        android:dropDownHeight="1000dp"
-        android:theme="@style/spinnerTheme"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="313dp"
-        android:layout_height="91dp"
-        android:layout_marginTop="120dp"
-        android:text="Congratulations on logging an entry! Tell us how staying up late makes you feel"
-        android:textAlignment="center"
-        android:textColor="@android:color/white"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relabelTextView" />
 </androidx.constraintlayout.widget.ConstraintLayout>
