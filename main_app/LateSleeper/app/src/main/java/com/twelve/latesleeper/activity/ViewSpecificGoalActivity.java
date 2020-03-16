@@ -2,6 +2,7 @@ package com.twelve.latesleeper.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
@@ -25,6 +26,8 @@ public class ViewSpecificGoalActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private Goal goal;
     private HashMap<String, Object> goalInfo;
+
+    public static String goalID;
 
     ProgressBar loadingBar;
     ConstraintLayout dimLayout;
@@ -61,6 +64,9 @@ public class ViewSpecificGoalActivity extends AppCompatActivity {
         completedTextView = findViewById(R.id.completedTextView);
         startGoal = findViewById(R.id.startGoal);
 
+        goalID = getIntent().getStringExtra("goalID");
+        Log.d("TAG", "onCreate: " + goalID);
+
         /*if(goalInfo.get("daysCompleted").toString() == '0')
         {
             startGoal.setText("Continue Goal");
@@ -82,6 +88,8 @@ public class ViewSpecificGoalActivity extends AppCompatActivity {
 
         goal = (Goal) getIntent().getSerializableExtra("goal");
         goalInfo = goal.getGoal();
+
+        goalID = getIntent().getStringExtra("goalID");
 
         sleepTime = goalInfo.get("sleepTime").toString();
         days = parseInt(goalInfo.get("days").toString());

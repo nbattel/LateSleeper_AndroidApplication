@@ -55,6 +55,7 @@ public class ViewGoalsActivity  extends AppCompatActivity
     private List<Integer> days = new ArrayList<>();
     private List<Integer> daysCompleted = new ArrayList<>();
     private List<Goal> goals = new ArrayList<>();
+    private List<String> goalIDs = new ArrayList<>();
 
     int images[] = {R.drawable.darkred, R.drawable.orange, R.drawable.yellow, R.drawable.pink, R.drawable.purple, R.drawable.blue, R.drawable.green};
 
@@ -103,6 +104,8 @@ public class ViewGoalsActivity  extends AppCompatActivity
                             parseInt(snapshot.get("daysCompleted").toString()), parseInt(snapshot.get("totalHours").toString()),
                             date, snapshot.getBoolean("completed")));
 
+                    goalIDs.add(snapshot.getId());
+
                     dates.add(date);
 
                     String[] bedTime = snapshot.get("sleepTime").toString().split(":");
@@ -128,6 +131,7 @@ public class ViewGoalsActivity  extends AppCompatActivity
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                         Intent intent = new Intent(ViewGoalsActivity.this, ViewSpecificGoalActivity.class);
                         intent.putExtra("goal", goals.get(i));
+                        intent.putExtra("goalID", goalIDs.get(i));
                         startActivity(intent);
                     }
                 });
