@@ -6,6 +6,7 @@ import androidx.test.rule.ActivityTestRule;
 
 import com.twelve.latesleeper.R;
 import com.twelve.latesleeper.activity.AlarmClockWakeUpActivity;
+import static androidx.test.espresso.Espresso.onView;
 
 import org.junit.After;
 import org.junit.Before;
@@ -28,7 +29,7 @@ public class AlarmClockWakeUpActivityTest {
 
     @Test
     public void testLaunch(){
-        View view = AlarmClockWakeUpActivity.findViewById(R.id.timeTextView);
+        View view = AlarmClockWakeUpActivity.findViewById(R.id.setAlarmBtn);
 
         assertNotNull(view);
     }
