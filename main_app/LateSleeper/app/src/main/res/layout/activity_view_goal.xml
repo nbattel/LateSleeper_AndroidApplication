@@ -8,6 +8,7 @@
     tools:context=".activity.LogInActivity">
 
     <ScrollView
+        android:id="@+id/viewGoalScrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 

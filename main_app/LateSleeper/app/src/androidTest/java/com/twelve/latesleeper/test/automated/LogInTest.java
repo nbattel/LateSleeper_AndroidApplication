@@ -2,34 +2,34 @@ package com.twelve.latesleeper.test.automated;
 
 import android.os.SystemClock;
 
-import androidx.test.espresso.Espresso;
 import androidx.test.rule.ActivityTestRule;
 
 import com.twelve.latesleeper.R;
-import com.twelve.latesleeper.activity.CreateAccountActivity;
-import com.twelve.latesleeper.activity.LogInActivity;
+import com.twelve.latesleeper.activity.MainActivity;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 
+import static androidx.test.espresso.Espresso.*;
+import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.action.ViewActions.doubleClick;
 import static androidx.test.espresso.action.ViewActions.typeText;
-import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
-import static androidx.test.espresso.matcher.ViewMatchers.withText;
-import static org.junit.Assert.*;
 
 public class LogInTest {
 
     @Rule
-    public ActivityTestRule<LogInActivity> LogInTestRule = new ActivityTestRule<LogInActivity>(LogInActivity.class);
+    public ActivityTestRule<MainActivity> LogInTestRule = new ActivityTestRule<MainActivity>(MainActivity.class);
 
-    private String emailAddress = "tfouxman@gmail.com", password = "test123";
+    private String emailAddress, password;
 
     @Before
     public void setUp() throws Exception {
+        emailAddress = "tfouxman@gmail.com";
+        password = "test123";
     }
 
     @After
@@ -37,20 +37,32 @@ public class LogInTest {
     }
 
     @Test
-    public void logIn(){
-        // Input some text in the edit text
-        Espresso.onView(withId(R.id.txtEmail)).perform(typeText(emailAddress));
-        Espresso.closeSoftKeyboard();
+    public void testLogIn(){
+        goToLogin();
 
-        // Input some text in the edit text
-        Espresso.onView(withId(R.id.txtPass)).perform(typeText(password));
-        Espresso.closeSoftKeyboard();
+        fillForm();
 
-        Espresso.onView(withId(R.id.logInButton)).perform(click());
+        onView(withId(R.id.logInButton)).perform(click());
 
-        SystemClock.sleep(4000);
+        sleep(4000);
 
-        Espresso.onView(withId(R.id.signOut)).perform(click());
+        onView(withId(R.id.signOut)).perform(click());
+    }
 
+    public void goToLogin(){
+        sleep(1000);
+        onView(withId(R.id.imageView)).perform(doubleClick());
+    }
+
+    public void fillForm(){
+        onView(withId(R.id.txtEmail)).perform(typeText(emailAddress));
+        closeSoftKeyboard();
+
+        onView(withId(R.id.txtPass)).perform(typeText(password));
+        closeSoftKeyboard();
+    }
+
+    public void sleep(int time){
+        SystemClock.sleep(time);
     }
 }
