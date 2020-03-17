@@ -29,7 +29,7 @@ public class AlarmClockWakeUpActivityTest {
 
     @Test
     public void testLaunch(){
-        View view = AlarmClockWakeUpActivity.findViewById(R.id.timeTextView);
+        View view = AlarmClockWakeUpActivity.findViewById(R.id.setAlarmBtn);
 
         assertNotNull(view);
     }

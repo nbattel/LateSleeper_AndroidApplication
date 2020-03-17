@@ -67,7 +67,7 @@ public class FourStepsTest {
 
         goToGoal();
 
-        onView(withId(R.id.Begin4Steps)).perform(click());
+        onView(withId(R.id.startGoal)).perform(click());
 
         // Relabel
         relabelInput();
@@ -91,7 +91,7 @@ public class FourStepsTest {
 
         sleep(3000);
 
-        setTime(22, 00);
+        setTime(22, 45);
 
         sleep(2000);
 
@@ -99,11 +99,11 @@ public class FourStepsTest {
 
         sleep(2000);
 
+        backToUserHome();
 
+        onView(withId(R.id.signOut)).perform(click());
 
-//        onView(withId(R.id.signOut)).perform(click());
-
-  //      sleep(2000);
+        sleep(2000);
 
         /*
         * END OF TEST
@@ -192,6 +192,17 @@ public class FourStepsTest {
 
     public void setTime(int hour, int minutes) {
         onView(withClassName(Matchers.equalTo(TimePicker.class.getName()))).perform(PickerActions.setTime(hour, minutes));
+    }
+
+    public void backToUserHome(){
+        onView(isRoot()).perform(ViewActions.pressBack());
+        onView(isRoot()).perform(ViewActions.pressBack());
+        onView(isRoot()).perform(ViewActions.pressBack());
+        onView(isRoot()).perform(ViewActions.pressBack());
+        onView(isRoot()).perform(ViewActions.pressBack());
+        onView(isRoot()).perform(ViewActions.pressBack());
+        onView(isRoot()).perform(ViewActions.pressBack());
+
     }
 
     public static ViewAction swipeDownSlow() {
