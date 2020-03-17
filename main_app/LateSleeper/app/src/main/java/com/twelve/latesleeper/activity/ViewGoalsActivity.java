@@ -76,7 +76,7 @@ public class ViewGoalsActivity  extends AppCompatActivity
 
     }
 
-    @Override
+   @Override
     public void onStart() {
         super.onStart();
         currentUser = mAuth.getCurrentUser();

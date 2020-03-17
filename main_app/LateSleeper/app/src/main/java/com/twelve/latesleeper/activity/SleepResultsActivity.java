@@ -59,7 +59,7 @@ public class SleepResultsActivity extends AppCompatActivity {
                 TimeUnit.MILLISECONDS.toSeconds(totalSleep) -
                         TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(totalSleep)));*/
 
-        Database.getDatabase().collection("users").document(mAuth.getUid()).collection("goals").document(ViewSpecificGoalActivity.goalID)
+       Database.getDatabase().collection("users").document(mAuth.getUid()).collection("goals").document(ViewSpecificGoalActivity.goalID)
                 .get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
@@ -102,6 +102,22 @@ public class SleepResultsActivity extends AppCompatActivity {
                                         TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(hoursSleptInMillis)));
                         sleepResults.setText("Total sleep time last night: "+ x);
 
+                        //now add the hours to the DB
+
+                        String array[] = x.split(":");
+                        int totalHr = Integer.parseInt(array[0]);
+
+
+                        //float decimal = totalMin/60;
+                        //float numToDb = totalHr+decimal;
+
+                        Database.getDatabase().collection("users").document(mAuth.getUid())
+                                .collection("goals").document(ViewSpecificGoalActivity.goalID)
+                                .update(
+                                        "totalHours", FieldValue.increment(totalHr)//need to figure out
+                                );
+
+
                     } catch (ParseException e) {
                         e.printStackTrace();
                     }
@@ -119,15 +135,6 @@ public class SleepResultsActivity extends AppCompatActivity {
         });
 
 
-        //Log.d("TEST2", "onComplete: "+sleepTimeDB);
-        //sleepResults.setText("you slept: INSERT CALC Total! Congrats!"+sleepTimeDB);
-
-
-        Database.getDatabase().collection("users").document(mAuth.getUid())
-                .collection("goals").document(ViewSpecificGoalActivity.goalID)
-                .update(
-                        "totalHours", FieldValue.increment(1)//need to figure out
-                );
 
     }
 
