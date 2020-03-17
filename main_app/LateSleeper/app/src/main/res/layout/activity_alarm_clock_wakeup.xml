@@ -13,12 +13,11 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginTop="28dp"
         android:background="@color/colorAccent"
-        android:onClick="setTimer"
+        android:onClick="setAlarm"
         android:text="SET ALARM"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.513"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/timepicker" />
 
@@ -27,7 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="24dp"
         android:layout_toStartOf="@+id/setAlarmBtn"
         android:background="@color/colorAccent"
         android:onClick="turnOffAlarm"
@@ -40,7 +39,7 @@
         android:id="@+id/timepicker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/timeTextView"
+
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="48dp"
@@ -48,20 +47,8 @@
         android:timePickerMode="clock"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/timeTextView" />
+        app:layout_constraintStart_toStartOf="parent"/>
 
-    <TextView
-        android:id="@+id/timeTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="52dp"
-        android:text="Wake Up Time: "
-        android:textColor="#090"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></TextView>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -112,17 +112,10 @@
                 android:layout_height="wrap_content"
                 android:background="@android:drawable/btn_default"
                 android:backgroundTint="@color/colorAccent"
-                android:onClick="startGoal"
+                android:onClick= "startGoal"
                 android:text="Start Goal" />
 
-            <Button
-                android:id="@+id/Begin4Steps"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@android:drawable/btn_default"
-                android:backgroundTint="@color/colorAccent"
-                android:onClick="fourSteps"
-                android:text="Begin 4 Steps" />
+
 
 
         </LinearLayout>
