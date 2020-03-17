@@ -38,6 +38,8 @@ public class SleepResultsActivity extends AppCompatActivity {
     //public long wakeUpTime;
     public String sleepTimeDB;
     TextView sleepResults;
+    public long hoursSleptInMillis;
+    public float hoursSlept;
     private FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,7 +89,19 @@ public class SleepResultsActivity extends AppCompatActivity {
                         Bundle bundle = getIntent().getExtras();
                         sleepTime = bundle.getLong("wakeUpTime");
 
-                        sleepResults.setText("sleepTime: "+(sleepTime - timestamp.getTime()));
+
+
+
+
+                        hoursSleptInMillis = (sleepTime - timestamp.getTime());
+                        String x = String.format("%02d:%02d:%02d",
+                                TimeUnit.MILLISECONDS.toHours(hoursSleptInMillis),
+                                TimeUnit.MILLISECONDS.toMinutes(hoursSleptInMillis) -
+                                        TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(hoursSleptInMillis)), // The change is in this line
+                                TimeUnit.MILLISECONDS.toSeconds(hoursSleptInMillis) -
+                                        TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(hoursSleptInMillis)));
+                        sleepResults.setText("Total sleep time last night: "+ x);
+
                     } catch (ParseException e) {
                         e.printStackTrace();
                     }
