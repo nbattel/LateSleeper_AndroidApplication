@@ -6,6 +6,7 @@ import androidx.test.rule.ActivityTestRule;
 
 import com.twelve.latesleeper.R;
 import com.twelve.latesleeper.activity.MainActivity;
+import static androidx.test.espresso.Espresso.onView;
 
 import org.junit.After;
 import org.junit.Before;
