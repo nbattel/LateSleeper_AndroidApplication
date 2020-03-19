@@ -35,7 +35,8 @@ public class RelabelActivity extends AppCompatActivity {
     Spinner dropdown;
     Boolean bodyTextComplete = false;
     //create a list of items for the spinner.
-    String[] items = new String[]{"", "I feel anxious", "I feel nervous", "I fear missing out", "I am bored"};
+    String[] items = new String[]{"", "I feel anxious", "I feel nervous", "I fear missing out", "I am bored", "I don't care",
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
