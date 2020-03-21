@@ -29,10 +29,9 @@ import java.util.Date;
 public class AlarmClockWakeUpActivity extends AppCompatActivity {
     TimePicker timePicker;
     private FirebaseAuth mAuth;
-    TextClock currentTime;
-    TextView timeTextView;
+
     int mHour,mMin;
-    public long sleepTime;
+
     public long wakeUpTime;
 
     @Override
@@ -56,34 +55,8 @@ public class AlarmClockWakeUpActivity extends AppCompatActivity {
 
     }//end of oncreate bracket
 
-    //trying to have button disable alarm once its going off
-    public void turnOffAlarm(View view)
-    {
-      /*  Intent intent = new Intent(alarmClockActivity.this, MyBroadcastReceiver.class);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(this.getApplicationContext(), 24444, intent, PendingIntent.FLAG_UPDATE_CURRENT| Intent.FILL_IN_DATA);
-        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
-        alarmManager.cancel(pendingIntent);*/
-        if(Utility.ringtoneHelper != null) {
-            Utility.ringtoneHelper.stopRingtone();
-        }
 
 
-        //go to results page saying how much they slept and track that day
-        Intent intent = new Intent(AlarmClockWakeUpActivity.this, SleepResultsActivity.class);
-        Bundle bundle = new Bundle();
-
-       // bundle.putLong("sleepTime", sleepTime);
-        bundle.putLong("wakeUpTime",wakeUpTime);
-        intent.putExtras(bundle);
-
-        Database.getDatabase().collection("users").document(mAuth.getUid())
-                .collection("goals").document(ViewSpecificGoalActivity.goalID)
-                .update(
-                        "daysCompleted", FieldValue.increment(1)
-                );
-
-        startActivity(intent); //navigate to alarm results
-    }
 
     public void setAlarm(View view) //this is the onclick for the button
     {
@@ -111,6 +84,14 @@ public class AlarmClockWakeUpActivity extends AppCompatActivity {
         alarmManager.set(AlarmManager.RTC_WAKEUP,calAlarm.getTimeInMillis(),pendingIntent);//actually set the alarm
         Toast.makeText(getApplicationContext(), "Alarm Set!", Toast.LENGTH_SHORT).show();
 
+    }
+
+    public void  toAccelerometer(View view)
+    {
+        Bundle bundle = new Bundle();
+        Intent intent = new Intent(AlarmClockWakeUpActivity.this, AccelerometerActivity.class);
+        bundle.putLong("wakeUpTime",wakeUpTime);
+        intent.putExtras(bundle);
     }
 
 }//end of class bracket

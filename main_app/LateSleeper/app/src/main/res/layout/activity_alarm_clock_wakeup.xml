@@ -22,15 +22,15 @@
         app:layout_constraintTop_toBottomOf="@+id/timepicker" />
 
     <Button
-        android:id="@+id/turnOffAlarmBtn"
+        android:id="@+id/accelBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="24dp"
         android:layout_toStartOf="@+id/setAlarmBtn"
         android:background="@color/colorAccent"
-        android:onClick="turnOffAlarm"
-        android:text="TURN OFF ALARM"
+        android:onClick="toAccelerometer"
+        android:text="Continue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/setAlarmBtn" />
