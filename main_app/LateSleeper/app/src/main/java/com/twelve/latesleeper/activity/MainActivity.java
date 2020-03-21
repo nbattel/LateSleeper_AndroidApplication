@@ -2,67 +2,53 @@ package com.twelve.latesleeper.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
+import android.widget.TextView;
+
 import com.twelve.latesleeper.R;
 
 public class MainActivity extends AppCompatActivity {
 
-    // Variable to keep track of the amount of times the user touches the screen
-    private int touchCount = 0;
+    // Delay time
+    private static int DELAY_TIME = 5000;
+
+    // Animation
+    Animation topAnimation, bottomAnimation;
+
+    // Views
+    ImageView imageLogo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-    }
 
-    // On click function to move to the log in activity
-    public void nextActivity(View view) {
-        touchCount  = touchCount  + 1;
+        MediaPlayer welcomeVoice = MediaPlayer.create(MainActivity.this, R.raw.welcomevoice);
+        welcomeVoice.start();
 
-        // If the user taps twice, the activity will change to the login screen
-        if (touchCount == 2) {
-            touchCount = 0;
-            Intent intent = new Intent(MainActivity.this, LogInActivity.class);
-            startActivity(intent);
-        }
+        // Applying animations to image view and text
+        // Animations
+        topAnimation = AnimationUtils.loadAnimation(this, R.anim.top_animation);
+
+        // Hooks
+        imageLogo = findViewById(R.id.imageView);
+
+        imageLogo.setAnimation(topAnimation);
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent intent  = new Intent(MainActivity.this, LogInActivity.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                finish();
+            }
+        }, DELAY_TIME);
     }
 }
-
-/* TEST CODE
-*
-    // Access a Cloud Firestore instance from your Activity
-    FirebaseFirestore db = FirebaseFirestore.getInstance();
-        DocumentReference user = db.collection("users").document("p0uS1ViEoRqPsrThI1rS");     //.collection("Journal");
-        CollectionReference entries = user.collection("Journal");
-
-            user.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                @Override
-                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                    if (task.isSuccessful()) {
-                        DocumentSnapshot document = task.getResult();
-                        if (document.exists()) {
-                            Log.d("USER", "DocumentSnapshot data: " + document.getData());
-                        } else {
-                            Log.d("ERROR", "No such document");
-                        }
-                    } else {
-                        Log.d("ERROR", "get failed with ", task.getException());
-                    }
-                }
-            });
-
-            entries.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                @Override
-                public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                    if (task.isSuccessful()) {
-                        for (QueryDocumentSnapshot document : task.getResult()) {
-                            Log.d("JOURNAL", document.getId() + " => " + document.getString("date") + "->" + document.getString("title"));
-                        }
-                    } else {
-                        Log.d("COLLECTION ERROR", "Error getting documents: ", task.getException());
-                    }
-                }
-            });
-* */
