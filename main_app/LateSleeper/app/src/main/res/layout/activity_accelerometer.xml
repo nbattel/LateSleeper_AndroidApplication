@@ -29,4 +29,17 @@
         android:layout_marginTop="30sp"
         android:layout_below="@+id/yValue"
         />
+
+    <Button
+        android:id="@+id/disableAlarmButton"
+        android:layout_width="140dp"
+        android:layout_height="95dp"
+        android:text="Turn off Alarm"
+
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="279dp"
+        android:onClick="turnOffAlarm">
+
+
+    </Button>
 </RelativeLayout>
