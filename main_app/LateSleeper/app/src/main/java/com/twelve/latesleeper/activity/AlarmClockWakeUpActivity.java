@@ -29,9 +29,7 @@ import java.util.Date;
 public class AlarmClockWakeUpActivity extends AppCompatActivity {
     TimePicker timePicker;
     private FirebaseAuth mAuth;
-
     int mHour,mMin;
-
     public long wakeUpTime;
 
     @Override
@@ -92,6 +90,7 @@ public class AlarmClockWakeUpActivity extends AppCompatActivity {
         Intent intent = new Intent(AlarmClockWakeUpActivity.this, AccelerometerActivity.class);
         bundle.putLong("wakeUpTime",wakeUpTime);
         intent.putExtras(bundle);
+        startActivity(intent);
     }
 
 }//end of class bracket

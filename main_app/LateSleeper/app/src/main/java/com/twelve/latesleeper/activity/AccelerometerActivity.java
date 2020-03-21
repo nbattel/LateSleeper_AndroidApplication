@@ -43,7 +43,7 @@ public class AccelerometerActivity extends AppCompatActivity implements SensorEv
         zValue=(TextView) findViewById(R.id.zValue);
         //Bundle bundle = getIntent().getExtras();
        // wakeUpTime = bundle.getLong("wakeUpTime");
-        //disableAlarmButton = findViewById(R.id.disableAlarmButton);
+        disableAlarmButton = findViewById(R.id.disableAlarmButton);
         //get system services
 
         Log.d(TAG, "onCreate: Initialized Sensor Services");
@@ -82,9 +82,11 @@ public class AccelerometerActivity extends AppCompatActivity implements SensorEv
     }
 
 
-    /*public void turnOffAlarm(View view)
+    public void turnOffAlarm(View view)
     {
 
+        sensorManager.unregisterListener(this);
+       // sensorManager = null;
 
         if(Utility.ringtoneHelper != null) {
             Utility.ringtoneHelper.stopRingtone();
@@ -95,9 +97,9 @@ public class AccelerometerActivity extends AppCompatActivity implements SensorEv
         Intent intent = new Intent(AccelerometerActivity.this, SleepResultsActivity.class);
         Bundle bundle = new Bundle();
 
-        // bundle.putLong("sleepTime", sleepTime);
-        //bundle.putLong("wakeUpTime",wakeUpTime);
-        //intent.putExtras(bundle);
+        //bundle.putLong("sleepTime", sleepTime);
+        bundle.putLong("wakeUpTime",wakeUpTime);
+        intent.putExtras(bundle);
 
         Database.getDatabase().collection("users").document(mAuth.getUid())
                 .collection("goals").document(ViewSpecificGoalActivity.goalID)
@@ -106,7 +108,7 @@ public class AccelerometerActivity extends AppCompatActivity implements SensorEv
                 );
 
         startActivity(intent); //navigate to alarm results
-    }*/
+    }
 
 
 }
