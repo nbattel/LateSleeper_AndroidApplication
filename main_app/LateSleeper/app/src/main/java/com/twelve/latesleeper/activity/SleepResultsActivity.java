@@ -46,6 +46,8 @@ public class SleepResultsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sleep_results);
         mAuth = FirebaseAuth.getInstance();
+
+
        // Bundle bundle = getIntent().getExtras();
         //sleepTime = bundle.getLong("sleepTime");
         //wakeUpTime = bundle.getLong("wakeUpTime");

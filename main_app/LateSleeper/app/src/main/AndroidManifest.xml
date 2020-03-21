@@ -22,6 +22,7 @@
         <activity android:name=".activity.UserHomeActivity" />
         <activity android:name=".activity.ReframeActivity" />
         <activity android:name=".activity.QuizResultsActivity" />
+        <activity android:name=".activity.AccelerometerActivity"/>
         <activity android:name=".activity.RevalueActivity" />
         <activity android:name=".activity.SleepResultsActivity" />
         <activity android:name=".activity.LogInActivity" />
