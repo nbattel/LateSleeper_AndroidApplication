@@ -63,7 +63,7 @@ public class UserHomeActivity extends AppCompatActivity {
 
     // On click function to log the user into their account
     public void toCreateGoal(View view){
-        Intent intent = new Intent(UserHomeActivity.this, AccelerometerActivity.class);
+        Intent intent = new Intent(UserHomeActivity.this, CreateGoalSettingsActivity.class);
         //NEED to verify user info is valid in order to login - do this after
         intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
         startActivity(intent);
@@ -72,6 +72,11 @@ public class UserHomeActivity extends AppCompatActivity {
 
     public void toViewGoals(View view){
         Intent intent = new Intent(UserHomeActivity.this, ViewGoalsActivity.class);
+        startActivity(intent);
+    }
+
+    public void toAccelerometer(View view){
+        Intent intent = new Intent(UserHomeActivity.this, AccelerometerActivity.class);
         startActivity(intent);
     }
 

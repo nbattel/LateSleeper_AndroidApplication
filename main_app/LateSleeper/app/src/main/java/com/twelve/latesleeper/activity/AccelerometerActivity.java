@@ -62,7 +62,7 @@ public class AccelerometerActivity extends AppCompatActivity implements SensorEv
         yValue.setText("yValue: " + sensorEvent.values[1]);
         zValue.setText("zValue: " + sensorEvent.values[2]);
 
-       if(sensorEvent.values[0] > 1)
+       if((sensorEvent.values[0] > 2 || sensorEvent.values[0] < -2) || (sensorEvent.values[1] > 2 || sensorEvent.values[1] < -2) )
        {
 
            Vibrator v = (Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
@@ -72,7 +72,7 @@ public class AccelerometerActivity extends AppCompatActivity implements SensorEv
                //deprecated in API 26
                v.vibrate(500);
            }
-           Toast.makeText(getApplicationContext(), "PUT YOUR PHONE DOWN CUNT", Toast.LENGTH_SHORT).show();
+           Toast.makeText(getApplicationContext(), "PUT YOUR PHONE DOWN", Toast.LENGTH_SHORT).show();
        }
     }
 
