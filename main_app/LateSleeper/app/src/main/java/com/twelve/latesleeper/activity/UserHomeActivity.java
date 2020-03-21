@@ -63,7 +63,7 @@ public class UserHomeActivity extends AppCompatActivity {
 
     // On click function to log the user into their account
     public void toCreateGoal(View view){
-        Intent intent = new Intent(UserHomeActivity.this, GoalOverviewActivity.class);
+        Intent intent = new Intent(UserHomeActivity.this, AccelerometerActivity.class);
         //NEED to verify user info is valid in order to login - do this after
         intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
         startActivity(intent);
