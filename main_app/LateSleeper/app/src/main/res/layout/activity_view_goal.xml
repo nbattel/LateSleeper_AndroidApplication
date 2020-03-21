@@ -115,7 +115,23 @@
                 android:onClick= "startGoal"
                 android:text="Start Goal" />
 
+            <Button
+                android:id="@+id/viewRelabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:drawable/btn_default"
+                android:backgroundTint="@color/colorAccent"
+                android:onClick="startGoal"
+                android:text="View Relabel Journal" />
 
+            <Button
+                android:id="@+id/viewRevalue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:drawable/btn_default"
+                android:backgroundTint="@color/colorAccent"
+                android:onClick="startGoal"
+                android:text="View Revalue Journal" />
 
 
         </LinearLayout>
