@@ -51,8 +51,8 @@
                 android:layout_height="wrap_content"
                 android:text="Create New Account"
                 android:textAlignment="center"
-                android:textColor="@android:color/white"
-                android:textSize="36sp" />
+                android:textColor="@android:color/secondary_text_dark"
+                android:textSize="30sp" />
 
             <EditText
                 android:id="@+id/txtEmail"
@@ -60,13 +60,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
                 android:layout_marginBottom="30dp"
+                android:background="@drawable/custom_edittext"
                 android:ems="10"
                 android:hint="Email address"
                 android:inputType="textWebEmailAddress"
                 android:textAlignment="textStart"
-                android:textColor="@android:color/white"
-                android:textColorHint="@android:color/white"
-                android:textSize="26sp" />
+                android:textColor="@android:color/secondary_text_dark"
+                android:textColorHint="@android:color/secondary_text_dark"
+                android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/txtPass"
@@ -74,13 +75,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
                 android:layout_marginBottom="30dp"
+                android:background="@drawable/custom_edittext"
                 android:ems="10"
                 android:hint="Password"
                 android:inputType="textPassword"
                 android:textAlignment="textStart"
-                android:textColor="@android:color/white"
-                android:textColorHint="@android:color/white"
-                android:textSize="26sp" />
+                android:textColor="@android:color/secondary_text_dark"
+                android:textColorHint="@android:color/secondary_text_dark"
+                android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/txtPassConfirm"
@@ -88,13 +90,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
                 android:layout_marginBottom="30dp"
+                android:background="@drawable/custom_edittext"
                 android:ems="10"
                 android:hint="Confirm Password"
                 android:inputType="textPassword"
                 android:textAlignment="textStart"
-                android:textColor="@android:color/white"
-                android:textColorHint="@android:color/white"
-                android:textSize="26sp" />
+                android:textColor="@android:color/secondary_text_dark"
+                android:textColorHint="@android:color/secondary_text_dark"
+                android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/txtFirstName"
@@ -102,13 +105,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
                 android:layout_marginBottom="30dp"
+                android:background="@drawable/custom_edittext"
                 android:ems="10"
                 android:hint="First Name"
                 android:inputType="textPersonName"
                 android:textAlignment="textStart"
-                android:textColor="@android:color/white"
-                android:textColorHint="@android:color/white"
-                android:textSize="26sp" />
+                android:textColor="@android:color/secondary_text_dark"
+                android:textColorHint="@android:color/secondary_text_dark"
+                android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/txtLastName"
@@ -116,13 +120,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
                 android:layout_marginBottom="30dp"
+                android:background="@drawable/custom_edittext"
                 android:ems="10"
                 android:hint="Last Name"
                 android:inputType="textPersonName"
                 android:textAlignment="textStart"
-                android:textColor="@android:color/white"
-                android:textColorHint="@android:color/white"
-                android:textSize="26sp" />
+                android:textColor="@android:color/secondary_text_dark"
+                android:textColorHint="@android:color/secondary_text_dark"
+                android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/txtStreetAddress"
@@ -134,7 +139,8 @@
                 android:textAlignment="textStart"
                 android:textColor="@android:color/white"
                 android:textSize="26sp"
-                android:visibility="gone" />
+                android:visibility="gone"
+                android:background="@drawable/custom_edittext"/>
 
             <EditText
                 android:id="@+id/txtCity"
@@ -146,7 +152,8 @@
                 android:textAlignment="textStart"
                 android:textColor="@android:color/white"
                 android:textSize="26sp"
-                android:visibility="gone" />
+                android:visibility="gone"
+                android:background="@drawable/custom_edittext"/>
 
             <EditText
                 android:id="@+id/txtProvince"
@@ -158,7 +165,8 @@
                 android:textAlignment="textStart"
                 android:textColor="@android:color/white"
                 android:textSize="26sp"
-                android:visibility="gone" />
+                android:visibility="gone"
+                android:background="@drawable/custom_edittext"/>
 
             <EditText
                 android:id="@+id/txtPhoneNumber"
@@ -170,7 +178,8 @@
                 android:textAlignment="textStart"
                 android:textColor="@android:color/white"
                 android:textSize="26sp"
-                android:visibility="gone" />
+                android:visibility="gone"
+                android:background="@drawable/custom_edittext"/>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -178,17 +187,18 @@
 
                 <Button
                     android:id="@+id/btnConfirm"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="168dp"
+                    android:layout_height="48dp"
                     android:layout_marginStart="50dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="50dp"
                     android:layout_marginBottom="50dp"
-                    android:background="@color/colorAccent"
+                    android:background="@drawable/custom_button"
+                    android:backgroundTint="@color/colorAccent"
                     android:enabled="false"
                     android:onClick="createAccount"
                     android:text="Create New Account"
-                    android:textSize="24sp"
+                    android:textSize="14sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
