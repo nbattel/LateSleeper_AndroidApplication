@@ -14,7 +14,7 @@
         android:layout_marginTop="32dp"
         android:text="Log In"
         android:textColor="@color/colorSecondaryDark"
-        android:textSize="50sp"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/loginActivityLogo" />
@@ -32,7 +32,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logInTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/logInTextView"
+        android:background="@drawable/custom_edittext" />
 
     <EditText
         android:id="@+id/txtPass"
@@ -48,14 +49,15 @@
         android:textColor="@color/colorSecondaryDark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtEmail" />
+        app:layout_constraintTop_toBottomOf="@+id/txtEmail"
+        android:background="@drawable/custom_edittext"/>
 
     <Button
         android:id="@+id/logInButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
-        android:background="@android:drawable/btn_default"
+        android:background="@drawable/custom_button"
         android:backgroundTint="@color/colorAccent"
         android:onClick="logIn"
         android:text="Log In"
@@ -89,10 +91,10 @@
 
     <Button
         android:id="@+id/createAccountButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="128dp"
+        android:layout_height="47dp"
         android:layout_marginTop="20dp"
-        android:background="@android:drawable/btn_default"
+        android:background="@drawable/custom_button"
         android:backgroundTint="@color/colorAccent"
         android:onClick="createAccount"
         android:text="Create Account"
@@ -102,7 +104,7 @@
 
     <ImageView
         android:id="@+id/loginActivityLogo"
-        android:layout_width="206dp"
+        android:layout_width="0dp"
         android:layout_height="94dp"
         android:layout_marginTop="16dp"
         android:src="@drawable/mainactivitylogo"

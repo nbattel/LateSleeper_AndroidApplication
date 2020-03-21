@@ -1,10 +1,14 @@
 package com.twelve.latesleeper.activity;
 
+import android.animation.ObjectAnimator;
+import android.animation.PropertyValuesHolder;
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -27,6 +31,7 @@ public class LogInActivity extends AppCompatActivity {
     ProgressBar loadingBar;
     ConstraintLayout dimLayout;
     private static final String TAG = "LOGIN";
+    ImageView logo;
 
 
     @Override
@@ -39,6 +44,17 @@ public class LogInActivity extends AppCompatActivity {
         passwordEditText = (EditText) findViewById(R.id.txtPass);
         loadingBar = (ProgressBar) findViewById(R.id.loadingBar);
         dimLayout = (ConstraintLayout) findViewById(R.id.dimLayout);
+        logo = (ImageView) findViewById(R.id.loginActivityLogo);
+
+        ObjectAnimator scaleDown = ObjectAnimator.ofPropertyValuesHolder(logo,
+                PropertyValuesHolder.ofFloat("scaleX", 1.5f),
+                PropertyValuesHolder.ofFloat("scaleY", 1.5f));
+        scaleDown.setDuration(2000);
+
+        scaleDown.setRepeatCount(ObjectAnimator.INFINITE);
+        scaleDown.setRepeatMode(ObjectAnimator.REVERSE);
+
+        scaleDown.start();
     }
 
     @Override
