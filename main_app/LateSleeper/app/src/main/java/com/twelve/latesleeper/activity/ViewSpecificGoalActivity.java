@@ -115,6 +115,10 @@ public class ViewSpecificGoalActivity extends AppCompatActivity {
             startGoal.setText("Start Goal");
         }
 
+        if(completed) {
+            startGoal.setVisibility(View.GONE);
+        }
+
 
     }
 
