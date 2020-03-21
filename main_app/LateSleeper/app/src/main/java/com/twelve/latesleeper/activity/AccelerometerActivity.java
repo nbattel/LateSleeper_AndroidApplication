@@ -17,9 +17,13 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FieldValue;
 import com.twelve.latesleeper.R;
 import com.twelve.latesleeper.database.Database;
@@ -103,9 +107,35 @@ public class AccelerometerActivity extends AppCompatActivity implements SensorEv
 
         Database.getDatabase().collection("users").document(mAuth.getUid())
                 .collection("goals").document(ViewSpecificGoalActivity.goalID)
-                .update(
-                        "daysCompleted", FieldValue.increment(1)
-                );
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                        if (task.isSuccessful()) {
+                            DocumentSnapshot doc = task.getResult();
+                            int days = (Integer)doc.get("days");
+                            int daysCompleted = (Integer)doc.get("daysCompleted");
+                            if (daysCompleted + 1 == days) {
+                                Database.getDatabase().collection("users").document(mAuth.getUid())
+                                        .collection("goals").document(ViewSpecificGoalActivity.goalID)
+                                        .update(
+                                                "daysCompleted", FieldValue.increment(1),
+                                                "completed", true
+                                        );
+                            }
+                            else {
+                                Database.getDatabase().collection("users").document(mAuth.getUid())
+                                        .collection("goals").document(ViewSpecificGoalActivity.goalID)
+                                        .update(
+                                                "completed", true
+                                        );
+                            }
+                        }
+                        else {
+                            Log.d(TAG, "onComplete: FAILED");
+                        }
+                    }
+                });
 
         startActivity(intent); //navigate to alarm results
     }
