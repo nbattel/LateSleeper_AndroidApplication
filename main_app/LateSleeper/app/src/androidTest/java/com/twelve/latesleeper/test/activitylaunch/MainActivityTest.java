@@ -29,7 +29,7 @@ public class MainActivityTest {
 
     @Test
     public void testLaunch(){
-        View view = mainActivity.findViewById(R.id.text);
+        View view = mainActivity.findViewById(R.id.imageView);
 
         assertNotNull(view);
     }

@@ -98,12 +98,12 @@ public class ViewSpecificGoalActivity extends AppCompatActivity {
         dateCreated = new Date(goalInfo.get("dateCreated").toString());
         completed = Boolean.parseBoolean(goalInfo.get("completed").toString());
 
-        sleepTimeTextView.setText("Sleep time: " + goalInfo.get("sleepTime").toString());
-        daysTextView.setText("Days for goal: " + goalInfo.get("days").toString());
-        daysCompletedTextView.setText("Days completed: " + parseInt(goalInfo.get("daysCompleted").toString()));
-        totalHoursTextView.setText("Total hours recorded: " + goalInfo.get("totalHours").toString());
-        dateCreatedTextView.setText("Created on  " + goalInfo.get("dateCreated").toString());
-        completedTextView.setText("Completed: " + goalInfo.get("completed").toString());
+        sleepTimeTextView.setText("Sleep time \n" + goalInfo.get("sleepTime").toString());
+        daysTextView.setText("Days for goal \n" + goalInfo.get("days").toString());
+        daysCompletedTextView.setText("Days completed \n" + parseInt(goalInfo.get("daysCompleted").toString()));
+        totalHoursTextView.setText("Total hours recorded \n" + goalInfo.get("totalHours").toString());
+        dateCreatedTextView.setText("Created \n" + goalInfo.get("dateCreated").toString());
+        completedTextView.setText("Completed \n" + goalInfo.get("completed").toString());
 
         dimLayout.setVisibility(View.GONE);
 
@@ -118,7 +118,7 @@ public class ViewSpecificGoalActivity extends AppCompatActivity {
 
     }
 
-    public void startGoal(View view) {
+    public void startGoal(View view){
         Intent intent = new Intent(ViewSpecificGoalActivity.this, RelabelActivity.class);
         startActivity(intent);
     }

@@ -56,7 +56,7 @@ public class CreateNewGoalTest {
     @Test
     public void testCreateNewGoal(){
 
-        goToLogin();
+        sleep(5000);
 
         fillForm();
 
@@ -109,11 +109,6 @@ public class CreateNewGoalTest {
 
         // LogInActivity
         sleep(4000);
-    }
-
-    public void goToLogin(){
-        sleep(1000);
-        onView(withId(R.id.imageView)).perform(doubleClick());
     }
 
     public void fillForm(){

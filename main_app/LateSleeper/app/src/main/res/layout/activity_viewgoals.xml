@@ -13,9 +13,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="26dp"
-        android:text="View Goals"
+        android:text="Goals"
         android:textAlignment="center"
-        android:textColor="@android:color/white"
+        android:textColor="@color/colorSecondaryDark"
         android:textSize="36sp" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -45,7 +45,13 @@
     <ListView
         android:id="@+id/goalListView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@drawable/custom_listview"
+        android:divider="#D81B60"
+
+        android:dividerHeight="2dp"
+
+>
 
     </ListView>
 
