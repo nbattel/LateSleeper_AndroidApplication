@@ -11,8 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.CreateGoalSettingsActivity"></activity>
-        <activity android:name=".activity.RevalueJournalActivity" />
+        <activity android:name=".activity.ViewSpecificEntryActivity"></activity>
+        <activity android:name=".activity.ViewJournalActivity" />
+        <activity android:name=".activity.CreateGoalSettingsActivity" />
         <activity android:name=".activity.AlarmClockWakeUpActivity" />
         <activity android:name=".activity.ViewSpecificGoalActivity" />
         <activity android:name=".activity.GoalOverviewActivity" />
@@ -22,7 +23,7 @@
         <activity android:name=".activity.UserHomeActivity" />
         <activity android:name=".activity.ReframeActivity" />
         <activity android:name=".activity.QuizResultsActivity" />
-        <activity android:name=".activity.AccelerometerActivity"/>
+        <activity android:name=".activity.AccelerometerActivity" />
         <activity android:name=".activity.RevalueActivity" />
         <activity android:name=".activity.SleepResultsActivity" />
         <activity android:name=".activity.LogInActivity" />

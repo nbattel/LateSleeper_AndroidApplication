@@ -127,9 +127,16 @@ public class ViewSpecificGoalActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    /*public void fourSteps(View view) {
-        Intent intent = new Intent(ViewSpecificGoalActivity.this, RelabelActivity.class);
+    public void relabelJournal(View view) {
+        Intent intent = new Intent(ViewSpecificGoalActivity.this, ViewJournalActivity.class);
+        intent.putExtra("journalType", true);
         startActivity(intent);
-    }*/
+    }
+
+    public void revalueJournal(View view) {
+        Intent intent = new Intent(ViewSpecificGoalActivity.this, ViewJournalActivity.class);
+        intent.putExtra("journalType", false);
+        startActivity(intent);
+    }
 
 }

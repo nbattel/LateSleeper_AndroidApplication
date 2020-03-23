@@ -109,7 +109,7 @@ public class RevalueActivity extends AppCompatActivity {
 
         // Getting a reference to the journal collection of the specific user
         CollectionReference journalCollection = Database.getDatabase().document("users/" + currentUser.getUid()).collection("goals")
-                .document(ViewSpecificGoalActivity.goalID).collection("relabelJournal");
+                .document(ViewSpecificGoalActivity.goalID).collection("revalueJournal");
         // Add entry to user
         journalCollection.add(entry.getEntry())
                 .addOnCompleteListener(this, new OnCompleteListener<DocumentReference>() {
