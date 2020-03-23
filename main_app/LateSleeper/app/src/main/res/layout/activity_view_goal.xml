@@ -5,137 +5,217 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryDark"
-    tools:context=".activity.LogInActivity">
+    tools:context=".activity.ViewSpecificGoalActivity">
 
-    <ScrollView
-        android:id="@+id/viewGoalScrollView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <Button
+        android:id="@+id/startGoal"
+        android:layout_width="128dp"
+        android:layout_height="47dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/custom_button"
+        android:backgroundTint="@color/colorAccent"
+        android:onClick="startGoal"
+        android:text="Start Goal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/colorPrimaryDark"
-            android:orientation="vertical">
+    <TextView
+        android:id="@+id/titleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Here Is Your Goal"
+        android:textColor="@color/colorSecondaryDark"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/titleTextView"
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="389dp"
+        android:layout_height="430dp"
+        android:layout_marginTop="68dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleTextView">
+
+        <!--        Sleep Time-->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/sleepTimeCardView"
+            android:layout_width="325dp"
+            android:layout_height="65dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="30dp"
+            app:cardCornerRadius="15dp">
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="60dp"
-                android:text="Here is your goal:"
-                android:textAlignment="center"
-                android:textColor="@color/colorAccent"
-                android:textSize="48sp" />
+                android:layout_height="170dp"
+                android:background="@drawable/bg1">
 
-            <TextView
-                android:id="@+id/sleepTimeTextView"
+                <TextView
+                    android:id="@+id/sleepTimeTextView"
+                    android:layout_width="325dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="center"
+                    android:text="Sleep Time"
+                    android:textColor="@color/colorSecondaryDark"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toTopOf="@+id/textView8"
+                    app:layout_constraintEnd_toEndOf="parent" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!--        Days for goal-->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/daysCardView"
+            android:layout_width="325dp"
+            android:layout_height="65dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="30dp"
+            app:cardCornerRadius="15dp">
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginBottom="16dp"
-                android:text="sleepTime"
-                android:textAlignment="viewStart"
-                android:textColor="@android:color/white"
-                android:textSize="30sp" />
+                android:layout_height="170dp"
+                android:background="@drawable/bg1">
 
-            <TextView
-                android:id="@+id/daysTextView"
+                <TextView
+                    android:id="@+id/daysTextView"
+                    android:layout_width="325dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="center"
+                    android:text="Days for Goal"
+                    android:textColor="@color/colorSecondaryDark"
+                    android:textSize="20sp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!--        Days Completed-->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/daysCompletedCardView"
+            android:layout_width="325dp"
+            android:layout_height="65dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="30dp"
+            app:cardCornerRadius="15dp">
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginBottom="16dp"
-                android:text="days"
-                android:textAlignment="viewStart"
-                android:textColor="@android:color/white"
-                android:textSize="30sp" />
+                android:layout_height="170dp"
+                android:background="@drawable/bg1">
 
-            <TextView
-                android:id="@+id/daysCompletedTextView"
+                <TextView
+                    android:id="@+id/daysCompletedTextView"
+                    android:layout_width="325dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="center"
+                    android:text="Days Completed"
+                    android:textColor="@color/colorSecondaryDark"
+                    android:textSize="20sp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!--        Insects Caught-->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/totalHoursCardView"
+            android:layout_width="325dp"
+            android:layout_height="65dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="30dp"
+            app:cardCornerRadius="15dp">
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginBottom="16dp"
-                android:text="daysCompleted"
-                android:textAlignment="viewStart"
-                android:textColor="@android:color/white"
-                android:textSize="30sp" />
+                android:layout_height="170dp"
+                android:background="@drawable/bg1">
 
-            <TextView
-                android:id="@+id/totalHoursTextView"
+                <TextView
+                    android:id="@+id/totalHoursTextView"
+                    android:layout_width="325dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="center"
+                    android:text="Total Hours Recorded"
+                    android:textColor="@color/colorSecondaryDark"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <!--        Date created-->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/dateCreatedCardView"
+            android:layout_width="325dp"
+            android:layout_height="65dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="30dp"
+            app:cardCornerRadius="15dp">
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginBottom="16dp"
-                android:text="totalHours"
-                android:textAlignment="viewStart"
-                android:textColor="@android:color/white"
-                android:textSize="30sp" />
+                android:layout_height="170dp"
+                android:background="@drawable/bg1">
 
-            <TextView
-                android:id="@+id/dateCreatedTextView"
+                <TextView
+                    android:id="@+id/dateCreatedTextView"
+                    android:layout_width="325dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="center"
+                    android:text="Date Created"
+                    android:textColor="@color/colorSecondaryDark"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <!--        Completed-->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/completedCardView"
+            android:layout_width="325dp"
+            android:layout_height="65dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="30dp"
+            app:cardCornerRadius="15dp">
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginBottom="16dp"
-                android:text="dateCreated"
-                android:textAlignment="viewStart"
-                android:textColor="@android:color/white"
-                android:textSize="30sp" />
+                android:layout_height="170dp"
+                android:background="@drawable/bg1">
 
-            <TextView
-                android:id="@+id/completedTextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginBottom="16dp"
-                android:text="completed"
-                android:textAlignment="viewStart"
-                android:textColor="@android:color/white"
-                android:textSize="30sp" />
+                <TextView
+                    android:id="@+id/completedTextView"
+                    android:layout_width="325dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="center"
+                    android:text="Completed"
+                    android:textColor="@color/colorSecondaryDark"
+                    android:textSize="20sp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
-            <Button
-                android:id="@+id/startGoal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@android:drawable/btn_default"
-                android:backgroundTint="@color/colorAccent"
-                android:onClick= "startGoal"
-                android:text="Start Goal" />
-
-            <Button
-                android:id="@+id/viewRelabel"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@android:drawable/btn_default"
-                android:backgroundTint="@color/colorAccent"
-                android:onClick="startGoal"
-                android:text="View Relabel Journal" />
-
-            <Button
-                android:id="@+id/viewRevalue"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@android:drawable/btn_default"
-                android:backgroundTint="@color/colorAccent"
-                android:onClick="startGoal"
-                android:text="View Revalue Journal" />
-
-
-        </LinearLayout>
-    </ScrollView>
+    </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/dimLayout"

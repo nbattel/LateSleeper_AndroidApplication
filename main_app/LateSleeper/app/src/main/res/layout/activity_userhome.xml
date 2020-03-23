@@ -1,93 +1,205 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:background="@color/colorPrimaryDark"
-    android:layout_height="match_parent">
+    android:id="@+id/linearLayout2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark">
 
     <TextView
         android:id="@+id/welcomeText"
-        android:layout_width="match_parent"
-        android:layout_height="103dp"
-        android:text="Welcome, USER"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/round_textview"
+        android:gravity="center"
+        android:text="Username"
         android:textColor="@color/colorSecondaryDark"
-        android:textSize="48sp" />
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <at.markushi.ui.CircleButton
         android:id="@+id/journalBtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:drawable/btn_default"
-        android:backgroundTint="@color/colorAccent"
-        android:onClick="toCreateGoal"
-        android:text="Create Goal" />
-
-    <Button
-        android:id="@+id/newEntry"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="50dp"
-        android:background="@android:drawable/btn_default"
-        android:backgroundTint="@color/colorAccent"
-        android:onClick="toViewGoals"
-        android:text="View Goals" />
-
-    <TextView
-        android:id="@+id/goalsSet"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:text="Goals set: ..."
-        android:textColor="@android:color/white"
-        android:textSize="30sp" />
-
-    <TextView
-        android:id="@+id/goalsCompleted"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:text="Goals completed: ..."
-        android:textColor="@android:color/white"
-        android:textSize="30sp" />
-
-    <TextView
-        android:id="@+id/totalEntries"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:text="Total Entries Submitted: ..."
-        android:textColor="@android:color/white"
-        android:textSize="30sp" />
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Insects caught:"
-        android:textColor="@android:color/white"
-        android:textSize="30sp" />
-
-    <Button
-        android:id="@+id/signOut"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_marginTop="20dp"
-        android:layout_marginBottom="50dp"
-        android:background="@android:drawable/btn_default"
-        android:backgroundTint="@color/colorAccent"
+        android:onClick="toCreateGoal"
+        android:src="@drawable/ic_mode_edit_black_24dp"
+        app:cb_color="#D81B60"
+        app:cb_pressedRingWidth="12dip"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/welcomeText" />
+
+    <at.markushi.ui.CircleButton
+        android:id="@+id/signOut"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="32dp"
         android:onClick="signOut"
-        android:text="Sign Out" />
+        android:src="@drawable/ic_close_black_24dp"
+        app:cb_color="#D81B60"
+        app:cb_pressedRingWidth="12dip"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/testButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
-        android:layout_marginBottom="10dp"
-        android:background="@android:drawable/btn_default"
-        android:backgroundTint="@color/colorAccent"
-        android:onClick="toAccelerometer"
-        android:text="Accelerometer Test" />
+    <at.markushi.ui.CircleButton
+        android:id="@+id/newEntry"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="20dp"
+        android:onClick="toViewGoals"
+        android:src="@drawable/ic_remove_red_eye_black_24dp"
+        app:cb_color="#D81B60"
+        app:cb_pressedRingWidth="12dip"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.096"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/welcomeText" />
 
-</LinearLayout>
+    <LinearLayout
+        android:layout_width="389dp"
+        android:layout_height="430dp"
+        android:layout_marginTop="128dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/welcomeText">
+
+        <!--        Goals Set-->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/goalsSetCardView"
+            android:layout_width="325dp"
+            android:layout_height="65dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="30dp"
+            android:layout_gravity="center"
+            app:cardCornerRadius="15dp">
+
+            <LinearLayout
+                android:layout_height="170dp"
+                android:layout_width="match_parent"
+                android:background="@drawable/bg1"
+                >
+                <TextView
+                    android:id="@+id/goalsSet"
+                    android:layout_width="325dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="center"
+
+                    android:text="Goals Set"
+                    android:textColor="@color/colorSecondaryDark"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toTopOf="@+id/textView8"
+                    app:layout_constraintEnd_toEndOf="parent" />
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <!--        Goals Complete-->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/goalsCompletedCardView"
+            android:layout_width="325dp"
+            android:layout_height="65dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="30dp"
+            android:layout_gravity="center"
+            app:cardCornerRadius="15dp">
+
+            <LinearLayout
+                android:layout_height="170dp"
+                android:layout_width="match_parent"
+                android:background="@drawable/bg1"
+                >
+
+                <TextView
+                    android:id="@+id/goalsCompleted"
+                    android:layout_width="325dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="center"
+
+                    android:text="Goals Completed"
+                    android:textColor="@color/colorSecondaryDark"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+        <!--        Total Entries-->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/totalEntriesCardView"
+            android:layout_width="325dp"
+            android:layout_height="65dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="30dp"
+            android:layout_gravity="center"
+            app:cardCornerRadius="15dp">
+
+            <LinearLayout
+                android:layout_height="170dp"
+                android:layout_width="match_parent"
+                android:background="@drawable/bg1"
+                >
+
+                <TextView
+                    android:id="@+id/totalEntries"
+                    android:layout_width="325dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="center"
+
+                    android:text="Total Entries Submitted"
+                    android:textColor="@color/colorSecondaryDark"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+
+
+        </androidx.cardview.widget.CardView>
+
+        <!--        Insects Caught-->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/insectsCaughtCardView"
+            android:layout_width="325dp"
+            android:layout_height="65dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="30dp"
+            android:layout_gravity="center"
+            app:cardCornerRadius="15dp">
+            <LinearLayout
+                android:layout_height="170dp"
+                android:layout_width="match_parent"
+                android:background="@drawable/bg1"
+                >
+
+                <TextView
+                    android:id="@+id/insectsCaught"
+                    android:layout_width="325dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="center"
+
+                    android:text="Insects Caught"
+                    android:textColor="@color/colorSecondaryDark"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

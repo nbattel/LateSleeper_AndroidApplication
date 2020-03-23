@@ -41,7 +41,9 @@ public class AccelerometerActivity extends AppCompatActivity implements SensorEv
         super.onCreate(savedInstanceState);
         mAuth = FirebaseAuth.getInstance();
         setContentView(R.layout.activity_accelerometer);
+        Bundle bundle = getIntent().getExtras();
 
+        wakeUpTime = bundle.getLong("wakeUpTime");
         xValue=(TextView) findViewById(R.id.xValue);
         yValue=(TextView) findViewById(R.id.yValue);
         zValue=(TextView) findViewById(R.id.zValue);

@@ -1,6 +1,10 @@
 package com.twelve.latesleeper.activity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.hardware.Sensor;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -34,13 +38,16 @@ import java.util.concurrent.TimeUnit;
 
 public class SleepResultsActivity extends AppCompatActivity {
 
-    public long sleepTime;
-    //public long wakeUpTime;
+
+    public long wakeUpTime;
     public String sleepTimeDB;
     TextView sleepResults;
     public long hoursSleptInMillis;
     public float hoursSlept;
     private FirebaseAuth mAuth;
+    private SensorManager sensorManager;
+
+    Sensor accelerometer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,18 +55,12 @@ public class SleepResultsActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
 
-       // Bundle bundle = getIntent().getExtras();
-        //sleepTime = bundle.getLong("sleepTime");
-        //wakeUpTime = bundle.getLong("wakeUpTime");
+
+         Bundle bundle = getIntent().getExtras();
+
+        wakeUpTime = bundle.getLong("wakeUpTime");
         sleepResults = findViewById(R.id.sleepResults);
 
-        /*long totalSleep = wakeUpTime - sleepTime;
-        String result = String.format("%02d:%02d:%02d",
-                TimeUnit.MILLISECONDS.toHours(totalSleep),
-                TimeUnit.MILLISECONDS.toMinutes(totalSleep) -
-                        TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(totalSleep)), // The change is in this line
-                TimeUnit.MILLISECONDS.toSeconds(totalSleep) -
-                        TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(totalSleep)));*/
 
        Database.getDatabase().collection("users").document(mAuth.getUid()).collection("goals").document(ViewSpecificGoalActivity.goalID)
                 .get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
@@ -89,13 +90,13 @@ public class SleepResultsActivity extends AppCompatActivity {
                         Date parsedDate = bedDateTimeStamp.parse(bedDate);
                         Timestamp timestamp = new Timestamp(parsedDate.getTime());
                         Bundle bundle = getIntent().getExtras();
-                        sleepTime = bundle.getLong("wakeUpTime");
+                       wakeUpTime = bundle.getLong("wakeUpTime");
 
 
 
 
 
-                        hoursSleptInMillis = (sleepTime - timestamp.getTime());
+                        hoursSleptInMillis = (wakeUpTime - timestamp.getTime());
                         String x = String.format("%02d:%02d:%02d",
                                 TimeUnit.MILLISECONDS.toHours(hoursSleptInMillis),
                                 TimeUnit.MILLISECONDS.toMinutes(hoursSleptInMillis) -
