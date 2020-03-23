@@ -1,9 +1,10 @@
 package com.twelve.latesleeper.model;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Entry {
+public class Entry implements Serializable {
     HashMap<String, String> entry;
 
     public Entry(String body,String title,String date)

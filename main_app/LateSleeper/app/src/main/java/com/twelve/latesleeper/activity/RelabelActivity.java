@@ -108,7 +108,8 @@ public class RelabelActivity extends AppCompatActivity {
             nextButton.setEnabled(false);
         }else{
             // Getting a reference to the journal collection of the specific user
-            CollectionReference journalCollection = Database.getDatabase().document("users/" + currentUser.getUid()).collection("journal");
+            CollectionReference journalCollection = Database.getDatabase().document("users/" + currentUser.getUid()).collection("goals")
+                    .document(ViewSpecificGoalActivity.goalID).collection("relabelJournal");
             // Add entry to user
             journalCollection.add(entry.getEntry())
                 .addOnCompleteListener(this, new OnCompleteListener<DocumentReference>() {
