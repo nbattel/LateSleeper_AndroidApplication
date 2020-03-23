@@ -113,12 +113,12 @@ public class ViewGoalsActivity  extends AppCompatActivity
                     cal.set(Calendar.MINUTE, parseInt(bedTime[1]));
                     Date d = cal.getTime();
                     DateFormat dateFormat = new SimpleDateFormat("hh:mm a");
-                    titles.add("Bedtime at " + dateFormat.format(d));
+                    titles.add("Bedtime: " + dateFormat.format(d).toUpperCase());
 
                     days.add(parseInt(snapshot.get("days").toString()));
                     daysCompleted.add(parseInt(snapshot.get("daysCompleted").toString()));
 
-                    bodies.add(snapshot.get("daysCompleted").toString() + "/" + snapshot.get("days").toString() + " days completed.");
+                    bodies.add(snapshot.get("daysCompleted").toString() + "/" + snapshot.get("days").toString() + " Days Complete");
                 }
                 String[] arrayTitle = titles.toArray(new String[0]);
                 String[] arrayBody = bodies.toArray(new String[0]);
@@ -163,6 +163,8 @@ public class ViewGoalsActivity  extends AppCompatActivity
             ImageView image = row.findViewById(R.id.image);
             TextView myTitle = row.findViewById(R.id.titleTextView);
             TextView myBody = row.findViewById(R.id.bodyTextView);
+
+            myTitle.setTextColor(Color.parseColor("#AEAEAE"));
 
             float ratio = (float)daysCompleted.get(position) / days.get(position);
             ratio *= 100;

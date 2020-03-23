@@ -1,6 +1,7 @@
 package com.twelve.latesleeper.activity;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -45,6 +46,9 @@ public class UserHomeActivity extends AppCompatActivity {
         totalEntries = findViewById(R.id.totalEntries);
         welcomeBack = findViewById(R.id.welcomeText);
         //now modify the text based on information about user in database
+
+        MediaPlayer welcomeVoice = MediaPlayer.create(UserHomeActivity.this, R.raw.dashboardwelcome);
+        welcomeVoice.start();
     }
 
     @Override
@@ -89,7 +93,7 @@ public class UserHomeActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
                             count = task.getResult().size();
-                            totalEntries.setText("Total Entries Submitted: " + count);
+                            totalEntries.setText("Total Entries Submitted" + "\n" + count);
                             Log.d("TESTSIZE", task.getResult().size() + "");
                         } else {
                             Log.d("FAILEDDOCUMENT", "Error getting documents.", task.getException());
@@ -103,7 +107,7 @@ public class UserHomeActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
                             count = task.getResult().size();
-                            goalsSet.setText("Goals set: " + count);
+                            goalsSet.setText("Goals Set" + "\n" + count);
                             Log.d("TESTSIZE", task.getResult().size() + "");
                         } else {
                             Log.d("FAILEDDOCUMENT", "Error getting documents.", task.getException());
@@ -118,7 +122,7 @@ public class UserHomeActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
                             count = task.getResult().size();
-                            goalsCompleted.setText("Goals completed: " + count);
+                            goalsCompleted.setText("Goals Completed" + "\n" + count);
                             Log.d("TESTSIZE", task.getResult().size() + "");
                         } else {
                             Log.d("FAILEDDOCUMENT", "Error getting documents.", task.getException());
@@ -130,7 +134,7 @@ public class UserHomeActivity extends AppCompatActivity {
 
     public void updateUI(FirebaseUser user) {
         if (user != null) {
-            welcomeText.setText("Welcome, " + user.getDisplayName());
+            welcomeText.setText(user.getDisplayName());
         } else {
             Intent intent = new Intent(UserHomeActivity.this, LogInActivity.class);
             startActivity(intent);

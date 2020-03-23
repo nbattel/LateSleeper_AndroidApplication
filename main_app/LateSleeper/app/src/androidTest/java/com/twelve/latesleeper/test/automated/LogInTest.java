@@ -38,20 +38,15 @@ public class LogInTest {
 
     @Test
     public void testLogIn(){
-        goToLogin();
+        sleep(5000);
 
         fillForm();
 
         onView(withId(R.id.logInButton)).perform(click());
 
-        sleep(4000);
+        sleep(5000);
 
         onView(withId(R.id.signOut)).perform(click());
-    }
-
-    public void goToLogin(){
-        sleep(1000);
-        onView(withId(R.id.imageView)).perform(doubleClick());
     }
 
     public void fillForm(){
