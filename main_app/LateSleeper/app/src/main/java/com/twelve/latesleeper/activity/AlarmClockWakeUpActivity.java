@@ -88,7 +88,7 @@ public class AlarmClockWakeUpActivity extends AppCompatActivity {
     {
         Bundle bundle = new Bundle();
         Intent intent = new Intent(AlarmClockWakeUpActivity.this, AccelerometerActivity.class);
-        bundle.putLong("wakeUpTime",wakeUpTime);
+        bundle.putLong("wakeUpTime", wakeUpTime);
         intent.putExtras(bundle);
         startActivity(intent);
     }

@@ -21,10 +21,15 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FieldValue;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.Transaction;
 import com.twelve.latesleeper.R;
 import com.twelve.latesleeper.database.Database;
 
@@ -104,38 +109,7 @@ public class AccelerometerActivity extends AppCompatActivity implements SensorEv
         }
 
 
-        /*
-        Database.getDatabase().collection("users").document(mAuth.getUid())
-                .collection("goals").document(ViewSpecificGoalActivity.goalID)
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                        if (task.isSuccessful()) {
-                            DocumentSnapshot doc = task.getResult();
-                            Integer days = (Integer)doc.get("days");
-                            Integer daysCompleted = (Integer)doc.get("daysCompleted");
-                            if (daysCompleted + 1 == days) {
-                                Database.getDatabase().collection("users").document(mAuth.getUid())
-                                        .collection("goals").document(ViewSpecificGoalActivity.goalID)
-                                        .update(
-                                                "daysCompleted", FieldValue.increment(1),
-                                                "completed", true
-                                        );
-                            }
-                            else {
-                                Database.getDatabase().collection("users").document(mAuth.getUid())
-                                        .collection("goals").document(ViewSpecificGoalActivity.goalID)
-                                        .update(
-                                                "completed", true
-                                        );
-                            }
-                        }
-                        else {
-                            Log.d(TAG, "onComplete: FAILED");
-                        }
-                    }
-                });*/
+
         //go to results page saying how much they slept and track that day
         Intent intent = new Intent(AccelerometerActivity.this, SleepResultsActivity.class);
         Bundle bundle = new Bundle();
