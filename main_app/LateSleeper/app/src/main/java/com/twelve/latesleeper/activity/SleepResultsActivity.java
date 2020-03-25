@@ -40,6 +40,7 @@ public class SleepResultsActivity extends AppCompatActivity {
 
 
     public long wakeUpTime;
+    public long sleepTime;
     public String sleepTimeDB;
     TextView sleepResults;
     public long hoursSleptInMillis;
@@ -56,9 +57,9 @@ public class SleepResultsActivity extends AppCompatActivity {
 
 
 
-         Bundle bundle = getIntent().getExtras();
+         //Bundle bundle = getIntent().getExtras();
 
-        wakeUpTime = bundle.getLong("wakeUpTime");
+        //wakeUpTime = bundle.getLong("wakeUpTime");
         sleepResults = findViewById(R.id.sleepResults);
 
 
@@ -78,12 +79,12 @@ public class SleepResultsActivity extends AppCompatActivity {
                     Calendar now = Calendar.getInstance();
                     int year = now.get(Calendar.YEAR);
                     int month = now.get(Calendar.MONTH) + 1; // Note: zero based!
-                    int day = now.get(Calendar.DAY_OF_MONTH)-1 ;//sleeptime was yesterday
+                    int day = now.get(Calendar.DAY_OF_MONTH) ;//sleeptime was yesterday
                     int hour = Integer.parseInt(sleepHour);
                     int minute = Integer.parseInt(sleepMin);
                     String bedDate = year+"-"+month+'-'+day+' '+hour+':'+minute;
                     Log.d("TEST2", "onComplete: "+bedDate);
-                    sleepResults.setText(bedDate);
+                    //sleepResults.setText(bedDate);
 
                     SimpleDateFormat bedDateTimeStamp = new SimpleDateFormat("yyyy-MM-dd HH:mm");
                     try {
@@ -91,12 +92,13 @@ public class SleepResultsActivity extends AppCompatActivity {
                         Timestamp timestamp = new Timestamp(parsedDate.getTime());
                         Bundle bundle = getIntent().getExtras();
                        wakeUpTime = bundle.getLong("wakeUpTime");
+                       sleepTime = bundle.getLong("sleepTime");
 
 
 
 
 
-                        hoursSleptInMillis = (wakeUpTime - timestamp.getTime());
+                        hoursSleptInMillis = (wakeUpTime - sleepTime);
                         String x = String.format("%02d:%02d:%02d",
                                 TimeUnit.MILLISECONDS.toHours(hoursSleptInMillis),
                                 TimeUnit.MILLISECONDS.toMinutes(hoursSleptInMillis) -
