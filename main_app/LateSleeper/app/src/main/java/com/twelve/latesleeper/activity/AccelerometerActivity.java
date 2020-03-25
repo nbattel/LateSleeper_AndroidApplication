@@ -103,10 +103,9 @@ public class AccelerometerActivity extends AppCompatActivity implements SensorEv
             Utility.ringtoneHelper.stopRingtone();
         }
 
-        /*COMMENTED CODE BELOW CAUSES CRASH*/
-        /*ITS SOME CASTING INTEGER ERROR ACCORDING TO LOGCAT*/
 
-       /* Database.getDatabase().collection("users").document(mAuth.getUid())
+        /*
+        Database.getDatabase().collection("users").document(mAuth.getUid())
                 .collection("goals").document(ViewSpecificGoalActivity.goalID)
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
@@ -114,8 +113,8 @@ public class AccelerometerActivity extends AppCompatActivity implements SensorEv
                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                         if (task.isSuccessful()) {
                             DocumentSnapshot doc = task.getResult();
-                            int days = (Integer)doc.get("days");
-                            int daysCompleted = (Integer)doc.get("daysCompleted");
+                            Integer days = (Integer)doc.get("days");
+                            Integer daysCompleted = (Integer)doc.get("daysCompleted");
                             if (daysCompleted + 1 == days) {
                                 Database.getDatabase().collection("users").document(mAuth.getUid())
                                         .collection("goals").document(ViewSpecificGoalActivity.goalID)
