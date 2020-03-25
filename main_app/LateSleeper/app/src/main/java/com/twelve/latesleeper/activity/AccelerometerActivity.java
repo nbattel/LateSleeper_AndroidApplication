@@ -28,9 +28,13 @@ import com.google.firebase.firestore.FieldValue;
 import com.twelve.latesleeper.R;
 import com.twelve.latesleeper.database.Database;
 
+import java.util.Calendar;
+import java.util.Date;
+
 public class AccelerometerActivity extends AppCompatActivity implements SensorEventListener {
     private FirebaseAuth mAuth;
     public long wakeUpTime;
+    public long sleepTime;
     private Button disableAlarmButton;
     private SensorManager sensorManager;
     Sensor accelerometer;
@@ -58,7 +62,8 @@ public class AccelerometerActivity extends AppCompatActivity implements SensorEv
         accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         //now we have the accelerometer
         sensorManager.registerListener(AccelerometerActivity.this,accelerometer,SensorManager.SENSOR_DELAY_NORMAL);
-
+        Date currentTime = Calendar.getInstance().getTime();
+        sleepTime = currentTime.getTime();
 
     }//end of oncreate bracket
     @Override
@@ -98,16 +103,10 @@ public class AccelerometerActivity extends AppCompatActivity implements SensorEv
             Utility.ringtoneHelper.stopRingtone();
         }
 
+        /*COMMENTED CODE BELOW CAUSES CRASH*/
+        /*ITS SOME CASTING INTEGER ERROR ACCORDING TO LOGCAT*/
 
-        //go to results page saying how much they slept and track that day
-        Intent intent = new Intent(AccelerometerActivity.this, SleepResultsActivity.class);
-        Bundle bundle = new Bundle();
-
-        //bundle.putLong("sleepTime", sleepTime);
-        bundle.putLong("wakeUpTime",wakeUpTime);
-        intent.putExtras(bundle);
-
-        Database.getDatabase().collection("users").document(mAuth.getUid())
+       /* Database.getDatabase().collection("users").document(mAuth.getUid())
                 .collection("goals").document(ViewSpecificGoalActivity.goalID)
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
@@ -137,8 +136,15 @@ public class AccelerometerActivity extends AppCompatActivity implements SensorEv
                             Log.d(TAG, "onComplete: FAILED");
                         }
                     }
-                });
+                });*/
+        //go to results page saying how much they slept and track that day
+        Intent intent = new Intent(AccelerometerActivity.this, SleepResultsActivity.class);
+        Bundle bundle = new Bundle();
 
+        //bundle.putLong("sleepTime", sleepTime);
+        bundle.putLong("wakeUpTime",wakeUpTime);
+        bundle.putLong("sleepTime",sleepTime);
+        intent.putExtras(bundle);
         startActivity(intent); //navigate to alarm results
     }
 
