@@ -90,7 +90,6 @@ public class CreateGoalSettingsActivity extends AppCompatActivity {
         calAlarm.set(Calendar.HOUR_OF_DAY,mHourSleep);//setting the hour to the user entered hour through timepicker
         calAlarm.set(Calendar.MINUTE,mMinSleep); //setting the minute to the user entered minute through timepicker
         calAlarm.set(Calendar.SECOND,0);//just setting the alarm to go off  right when time changes to the specific minute
-
         if(calAlarm.before((calNow)))
         {
 
