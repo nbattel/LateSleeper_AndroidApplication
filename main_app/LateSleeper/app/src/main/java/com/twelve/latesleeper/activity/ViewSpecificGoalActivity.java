@@ -125,8 +125,6 @@ public class ViewSpecificGoalActivity extends AppCompatActivity {
         if(completed) {
             startGoal.setVisibility(View.GONE);
         }
-
-
     }
 
     public void startGoal(View view){
@@ -156,6 +154,8 @@ public class ViewSpecificGoalActivity extends AppCompatActivity {
         }
 
         Intent intent = new Intent(ViewSpecificGoalActivity.this, RelabelActivity.class);
+        intent.putExtra("goal", goal);
+        intent.putExtra("goalID", goalID);
         startActivity(intent);
     }
 

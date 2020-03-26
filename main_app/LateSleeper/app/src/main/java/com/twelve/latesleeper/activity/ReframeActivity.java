@@ -11,12 +11,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.twelve.latesleeper.R;
+import com.twelve.latesleeper.model.Goal;
 
 import static java.lang.Integer.parseInt;
 
 public class ReframeActivity extends AppCompatActivity {
 
     private String mcChoices[] = {"", "0 (Never)", "1 (Rarely)", "2 (Sometimes)","3 (Often)", "4 (Always)"};
+    private Goal goal;
+    private static String goalID;
     Spinner dropdown1;
     Spinner dropdown2;
     Spinner dropdown3;
@@ -33,6 +36,9 @@ public class ReframeActivity extends AppCompatActivity {
         dropdown2 = findViewById(R.id.question2Dropdown);
         dropdown3 = findViewById(R.id.question3Dropdown);
         dropdown4 = findViewById(R.id.question4Dropdown);
+
+        goal = (Goal) getIntent().getSerializableExtra("goal");
+        goalID = getIntent().getStringExtra("goalID");
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item , mcChoices);
 
@@ -66,14 +72,10 @@ public class ReframeActivity extends AppCompatActivity {
             Intent intent = new Intent(ReframeActivity.this, QuizResultsActivity.class);
             Bundle bundle = new Bundle();
             bundle.putInt("finalScore", score);
+            intent.putExtra("goal", goal);
+            intent.putExtra("goalID", goalID);
             intent.putExtras(bundle);
             startActivity(intent);
         }
-    }
-
-    //OnClick for the cancel button will not save any information
-    public void backButton(View view){
-        Intent intent = new Intent(ReframeActivity.this, RelabelActivity.class);
-        startActivity(intent);
     }
 }
