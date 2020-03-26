@@ -17,16 +17,29 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FieldValue;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.Transaction;
 import com.twelve.latesleeper.R;
 import com.twelve.latesleeper.database.Database;
+
+import java.util.Calendar;
+import java.util.Date;
 
 public class AccelerometerActivity extends AppCompatActivity implements SensorEventListener {
     private FirebaseAuth mAuth;
     public long wakeUpTime;
+    public long sleepTime;
     private Button disableAlarmButton;
     private SensorManager sensorManager;
     Sensor accelerometer;
@@ -54,7 +67,8 @@ public class AccelerometerActivity extends AppCompatActivity implements SensorEv
         accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         //now we have the accelerometer
         sensorManager.registerListener(AccelerometerActivity.this,accelerometer,SensorManager.SENSOR_DELAY_NORMAL);
-
+        Date currentTime = Calendar.getInstance().getTime();
+        sleepTime = currentTime.getTime();
 
     }//end of oncreate bracket
     @Override
@@ -94,6 +108,37 @@ public class AccelerometerActivity extends AppCompatActivity implements SensorEv
             Utility.ringtoneHelper.stopRingtone();
         }
 
+       Database.getDatabase().collection("users").document(mAuth.getUid())
+                .collection("goals").document(ViewSpecificGoalActivity.goalID)
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                        if (task.isSuccessful()) {
+                            DocumentSnapshot doc = task.getResult();
+                            long days = (long)doc.get("days");
+                            long daysCompleted = (long)doc.get("daysCompleted");
+                            if (daysCompleted + 1 == days) {
+                                Database.getDatabase().collection("users").document(mAuth.getUid())
+                                        .collection("goals").document(ViewSpecificGoalActivity.goalID)
+                                        .update(
+                                                "daysCompleted", FieldValue.increment(1),
+                                                "completed", true
+                                        );
+                            }
+                            else {
+                                Database.getDatabase().collection("users").document(mAuth.getUid())
+                                        .collection("goals").document(ViewSpecificGoalActivity.goalID)
+                                        .update(
+                                                "daysCompleted", FieldValue.increment(1)
+                                        );
+                            }
+                        }
+                        else {
+                            Log.d(TAG, "onComplete: FAILED");
+                        }
+                    }
+                });
 
         //go to results page saying how much they slept and track that day
         Intent intent = new Intent(AccelerometerActivity.this, SleepResultsActivity.class);
@@ -101,14 +146,8 @@ public class AccelerometerActivity extends AppCompatActivity implements SensorEv
 
         //bundle.putLong("sleepTime", sleepTime);
         bundle.putLong("wakeUpTime",wakeUpTime);
+        bundle.putLong("sleepTime",sleepTime);
         intent.putExtras(bundle);
-
-        Database.getDatabase().collection("users").document(mAuth.getUid())
-                .collection("goals").document(ViewSpecificGoalActivity.goalID)
-                .update(
-                        "daysCompleted", FieldValue.increment(1)
-                );
-
         startActivity(intent); //navigate to alarm results
     }
 

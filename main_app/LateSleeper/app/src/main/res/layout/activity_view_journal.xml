@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="26dp"
-        android:text="Goals"
+        android:text="Journal"
         android:textAlignment="center"
         android:textColor="@color/colorSecondaryDark"
         android:textSize="36sp" />
@@ -51,7 +51,7 @@
 
         android:dividerHeight="2dp"
 
->
+        >
 
     </ListView>
 
