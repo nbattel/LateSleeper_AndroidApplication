@@ -6,26 +6,26 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import com.twelve.latesleeper.R;
+import com.twelve.latesleeper.model.Goal;
 
 public class RefocusActivity extends AppCompatActivity {
+
+    private Goal goal;
+    private static String goalID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_refocus);
+        goal = (Goal) getIntent().getSerializableExtra("goal");
+        goalID = getIntent().getStringExtra("goalID");
     }
 
     //OnClick for the save button will trigger the next screen in the workflow
-    public void nextButtonAlarm(View view){
-        Intent intent = new Intent(RefocusActivity.this, AlarmClockWakeUpActivity.class);
+    public void nextButton(View view){
+        Intent intent = new Intent(RefocusActivity.this, ViewSpecificGoalActivity.class);
+        intent.putExtra("goal", goal);
+        intent.putExtra("goalID", goalID);
         startActivity(intent);
-
-        //TODO --> We need to save all the information the user enters on this screen into the database on save
     }
-
-    //OnClick for the cancel button will not save any information
-    /*public void backButtonRefocus(View view){
-        Intent intent = new Intent(RefocusActivity.this, ReframeActivity.class);
-        startActivity(intent);
-    }*/
 }

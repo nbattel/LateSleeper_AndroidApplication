@@ -22,6 +22,8 @@ import com.google.firebase.firestore.DocumentReference;
 import com.twelve.latesleeper.R;
 import com.twelve.latesleeper.database.Database;
 import com.twelve.latesleeper.model.Entry;
+import com.twelve.latesleeper.model.Goal;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -29,6 +31,8 @@ public class RelabelActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private FirebaseUser currentUser;
+    private Goal goal;
+    private static String goalID;
     TextView titleEditText;
     EditText bodyEditText;
     Button nextButton;
@@ -48,6 +52,9 @@ public class RelabelActivity extends AppCompatActivity {
         nextButton = findViewById(R.id.nextButton);
         //Get the spinner from the xml.
         dropdown = findViewById(R.id.feelingDropdown);
+
+        goal = (Goal) getIntent().getSerializableExtra("goal");
+        goalID = getIntent().getStringExtra("goalID");
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item ,items);
         //adapter.setDropDownViewResource(android.R.layout.);
@@ -119,6 +126,8 @@ public class RelabelActivity extends AppCompatActivity {
                             Toast toast = Toast.makeText(getApplicationContext(), "Congratulations on completing the Relabel step!", Toast.LENGTH_SHORT);
                             toast.show();
                             Intent intent = new Intent(RelabelActivity.this, ReframeActivity.class);
+                            intent.putExtra("goal", goal);
+                            intent.putExtra("goalID", goalID);
                             startActivity(intent);
                         }
                         else {
