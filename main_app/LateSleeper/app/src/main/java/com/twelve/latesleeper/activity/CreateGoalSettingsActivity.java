@@ -116,6 +116,7 @@ public class CreateGoalSettingsActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             Toast toast = Toast.makeText(getApplicationContext(), "Congratulations on creating a goal!", Toast.LENGTH_LONG);
                             toast.show();
+                            ViewSpecificGoalActivity.goalID = task.getResult().getId();
                             //set up notifications
                             Intent intent = new Intent(CreateGoalSettingsActivity.this, ViewGoalsActivity.class);
                             startActivity(intent);

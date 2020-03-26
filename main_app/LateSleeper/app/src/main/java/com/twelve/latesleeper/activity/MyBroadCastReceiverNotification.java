@@ -26,9 +26,10 @@ public class MyBroadCastReceiverNotification extends BroadcastReceiver {
             NotificationChannel channel = new NotificationChannel(CHANNEL_ID,CHANNEL_NAME,NotificationManager.IMPORTANCE_DEFAULT);
             channel.setDescription(CHANNEL_DESC);
             NotificationManager manager = (NotificationManager)context.getSystemService(NotificationManager.class);
+            Intent myIntent = new Intent(context,AlarmClockWakeUpActivity.class);
             manager.createNotificationChannel(channel);
             NotificationManager notificationManager = (NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
-            PendingIntent pi = PendingIntent.getActivity(context,9,new Intent(),0);
+            PendingIntent pi = PendingIntent.getActivity(context,9,myIntent,0);
             Notification notification = new Notification.Builder(context,CHANNEL_ID)
                     .setContentTitle("TIME FOR BED")
                     .setContentText("REMEMBER YOUR GOAL")

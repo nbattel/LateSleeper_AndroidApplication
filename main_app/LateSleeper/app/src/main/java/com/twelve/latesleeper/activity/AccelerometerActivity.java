@@ -44,7 +44,7 @@ public class AccelerometerActivity extends AppCompatActivity implements SensorEv
     private SensorManager sensorManager;
     Sensor accelerometer;
     private static final String TAG = "accelerometer activity";
-   TextView xValue, yValue, zValue;
+    TextView xValue, yValue, zValue;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,7 +57,7 @@ public class AccelerometerActivity extends AppCompatActivity implements SensorEv
         yValue=(TextView) findViewById(R.id.yValue);
         zValue=(TextView) findViewById(R.id.zValue);
         //Bundle bundle = getIntent().getExtras();
-       // wakeUpTime = bundle.getLong("wakeUpTime");
+        // wakeUpTime = bundle.getLong("wakeUpTime");
         disableAlarmButton = findViewById(R.id.disableAlarmButton);
         //get system services
 
@@ -78,18 +78,18 @@ public class AccelerometerActivity extends AppCompatActivity implements SensorEv
         yValue.setText("yValue: " + sensorEvent.values[1]);
         zValue.setText("zValue: " + sensorEvent.values[2]);
 
-       if((sensorEvent.values[0] > 2 || sensorEvent.values[0] < -2) || (sensorEvent.values[1] > 2 || sensorEvent.values[1] < -2) )
-       {
+        if((sensorEvent.values[0] > 2 || sensorEvent.values[0] < -2) || (sensorEvent.values[1] > 2 || sensorEvent.values[1] < -2) )
+        {
 
-           Vibrator v = (Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
-           if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-               v.vibrate(VibrationEffect.createOneShot(500, VibrationEffect.DEFAULT_AMPLITUDE));
-           } else {
-               //deprecated in API 26
-               v.vibrate(500);
-           }
-           Toast.makeText(getApplicationContext(), "PUT YOUR PHONE DOWN", Toast.LENGTH_SHORT).show();
-       }
+            Vibrator v = (Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                v.vibrate(VibrationEffect.createOneShot(500, VibrationEffect.DEFAULT_AMPLITUDE));
+            } else {
+                //deprecated in API 26
+                v.vibrate(500);
+            }
+            Toast.makeText(getApplicationContext(), "PUT YOUR PHONE DOWN", Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override
@@ -102,13 +102,13 @@ public class AccelerometerActivity extends AppCompatActivity implements SensorEv
     {
 
         sensorManager.unregisterListener(this);
-       // sensorManager = null;
+        // sensorManager = null;
 
         if(Utility.ringtoneHelper != null) {
             Utility.ringtoneHelper.stopRingtone();
         }
 
-       Database.getDatabase().collection("users").document(mAuth.getUid())
+        Database.getDatabase().collection("users").document(mAuth.getUid())
                 .collection("goals").document(ViewSpecificGoalActivity.goalID)
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {

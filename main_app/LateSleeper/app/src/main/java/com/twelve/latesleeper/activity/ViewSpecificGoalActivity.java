@@ -1,5 +1,8 @@
 package com.twelve.latesleeper.activity;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,6 +19,10 @@ import com.google.firebase.auth.FirebaseUser;
 import com.twelve.latesleeper.R;
 import com.twelve.latesleeper.model.Goal;
 
+import java.sql.Timestamp;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 
@@ -123,6 +130,31 @@ public class ViewSpecificGoalActivity extends AppCompatActivity {
     }
 
     public void startGoal(View view){
+        AlarmManager alarmManager = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
+
+        String sleepTimeHourAndMinute[] = sleepTime.split(":");
+        String sleepHour = sleepTimeHourAndMinute[0];
+        String sleepMin = sleepTimeHourAndMinute[1];
+        Calendar now = Calendar.getInstance();
+        int year = now.get(Calendar.YEAR);
+        int month = now.get(Calendar.MONTH) + 1; // Note: zero based!
+        int day = now.get(Calendar.DAY_OF_MONTH) ;//sleeptime was yesterday
+        int hour = Integer.parseInt(sleepHour);
+        int minute = Integer.parseInt(sleepMin);
+        String bedDate = year+"-"+month+'-'+day+' '+hour+':'+minute;
+        SimpleDateFormat bedDateTimeStamp = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+        try{
+            Date parsedDate = bedDateTimeStamp.parse(bedDate);
+            Timestamp timestamp = new Timestamp(parsedDate.getTime());
+            Intent i = new Intent(ViewSpecificGoalActivity.this,MyBroadCastReceiverNotification.class);
+            PendingIntent pendingIntent = PendingIntent.getBroadcast(ViewSpecificGoalActivity.this,1,i,PendingIntent.FLAG_UPDATE_CURRENT);
+            //9 is request code, its just random, and 0 is the flag
+            alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,timestamp.getTime(),AlarmManager.INTERVAL_DAY,pendingIntent);
+        }
+        catch (ParseException e) {
+            e.printStackTrace();
+        }
+
         Intent intent = new Intent(ViewSpecificGoalActivity.this, RelabelActivity.class);
         startActivity(intent);
     }
