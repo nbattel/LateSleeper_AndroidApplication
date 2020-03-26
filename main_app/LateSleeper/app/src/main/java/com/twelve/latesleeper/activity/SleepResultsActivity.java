@@ -54,94 +54,34 @@ public class SleepResultsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sleep_results);
         mAuth = FirebaseAuth.getInstance();
-
-
-
-         //Bundle bundle = getIntent().getExtras();
-
+        //Bundle bundle = getIntent().getExtras();
         //wakeUpTime = bundle.getLong("wakeUpTime");
         sleepResults = findViewById(R.id.sleepResults);
 
+        Bundle bundle = getIntent().getExtras();
+        wakeUpTime = bundle.getLong("wakeUpTime");
+        sleepTime = bundle.getLong("sleepTime");
 
-       Database.getDatabase().collection("users").document(mAuth.getUid()).collection("goals").document(ViewSpecificGoalActivity.goalID)
-                .get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                if (task.isSuccessful()) {
-                    //if it succeeds
-                    DocumentSnapshot result = task.getResult();
-
-                    sleepTimeDB = String.valueOf(result.get("sleepTime"));
-                    Log.d("TEST", "onComplete: "+sleepTimeDB);
-                    String sleepTimeHourAndMinute[] = sleepTimeDB.split(":");
-                    String sleepHour = sleepTimeHourAndMinute[0];
-                    String sleepMin = sleepTimeHourAndMinute[1];
-                    Calendar now = Calendar.getInstance();
-                    int year = now.get(Calendar.YEAR);
-                    int month = now.get(Calendar.MONTH) + 1; // Note: zero based!
-                    int day = now.get(Calendar.DAY_OF_MONTH) ;//sleeptime was yesterday
-                    int hour = Integer.parseInt(sleepHour);
-                    int minute = Integer.parseInt(sleepMin);
-                    String bedDate = year+"-"+month+'-'+day+' '+hour+':'+minute;
-                    Log.d("TEST2", "onComplete: "+bedDate);
-                    //sleepResults.setText(bedDate);
-
-                    SimpleDateFormat bedDateTimeStamp = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-                    try {
-                        Date parsedDate = bedDateTimeStamp.parse(bedDate);
-                        Timestamp timestamp = new Timestamp(parsedDate.getTime());
-                        Bundle bundle = getIntent().getExtras();
-                       wakeUpTime = bundle.getLong("wakeUpTime");
-                       sleepTime = bundle.getLong("sleepTime");
-
-
-
-
-
-                        hoursSleptInMillis = (wakeUpTime - sleepTime);
-                        String x = String.format("%02d:%02d:%02d",
-                                TimeUnit.MILLISECONDS.toHours(hoursSleptInMillis),
-                                TimeUnit.MILLISECONDS.toMinutes(hoursSleptInMillis) -
-                                        TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(hoursSleptInMillis)), // The change is in this line
-                                TimeUnit.MILLISECONDS.toSeconds(hoursSleptInMillis) -
-                                        TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(hoursSleptInMillis)));
+        hoursSleptInMillis = (wakeUpTime - sleepTime);
+        String x = String.format("%02d:%02d:%02d",
+                    TimeUnit.MILLISECONDS.toHours(hoursSleptInMillis),
+                    TimeUnit.MILLISECONDS.toMinutes(hoursSleptInMillis) - TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(hoursSleptInMillis)), // The change is in this line
+                    TimeUnit.MILLISECONDS.toSeconds(hoursSleptInMillis) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(hoursSleptInMillis)));
                         sleepResults.setText("Total sleep time last night: "+ x);
-
                         //now add the hours to the DB
-
-                        String array[] = x.split(":");
-                        int totalHr = Integer.parseInt(array[0]);
-
-
-                        //float decimal = totalMin/60;
-                        //float numToDb = totalHr+decimal;
-
-                        Database.getDatabase().collection("users").document(mAuth.getUid())
+        String array[] = x.split(":");
+        int totalHr = Integer.parseInt(array[0]);
+        Database.getDatabase().collection("users").document(mAuth.getUid())
                                 .collection("goals").document(ViewSpecificGoalActivity.goalID)
                                 .update(
                                         "totalHours", FieldValue.increment(totalHr)//need to figure out
                                 );
-
-
-                    } catch (ParseException e) {
-                        e.printStackTrace();
-                    }
-
-
-                }
-                else {
-                    //if it fails
-
-                }
-
-
-
-            }
-        });
-
-
-
     }
+
+
+
+
+
 
     public void toRevalue(View view)
     {
