@@ -29,12 +29,12 @@ public class QuizResultsActivity extends AppCompatActivity {
         goalID = getIntent().getStringExtra("goalID");
         int sc = bundle.getInt("finalScore");
         quizResult.setText("You scored a total of: " + sc);
-        if (sc > 5) {
-            refocus.setText("After taking the quiz, the wise advocate has determined that this pattern is unhealthy, click continue button ");
+        if (sc >= 20) {
+            refocus.setText("After taking the quiz, the wise advocate has determined that this pattern is unhealthy, click the 'View Goal' button below.");
         } else {
             refocus.setText("This pattern has been determined as healthy by the wise advocate, " +
                     "no further action is required, however, it is up to you if you want to continue with the 4 steps. " +
-                    "Click the next button if you do");
+                    "Click the 'View Goal' button below.");
         }
 
     }
