@@ -67,7 +67,7 @@ public class SleepResultsActivity extends AppCompatActivity {
                     TimeUnit.MILLISECONDS.toHours(hoursSleptInMillis),
                     TimeUnit.MILLISECONDS.toMinutes(hoursSleptInMillis) - TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(hoursSleptInMillis)), // The change is in this line
                     TimeUnit.MILLISECONDS.toSeconds(hoursSleptInMillis) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(hoursSleptInMillis)));
-                        sleepResults.setText("Total sleep time last night: "+ x);
+                        sleepResults.setText("Total Sleep Time\n" + x);
                         //now add the hours to the DB
         String array[] = x.split(":");
         int totalHr = Integer.parseInt(array[0]);

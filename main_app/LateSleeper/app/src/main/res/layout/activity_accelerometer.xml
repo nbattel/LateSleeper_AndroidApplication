@@ -1,45 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#000000"
     android:padding="30sp">
 
 
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/xValue" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/yValue"
-        android:layout_marginTop="30sp"
-        android:layout_below="@+id/xValue"
-        />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/zValue"
-        android:layout_marginTop="30sp"
-        android:layout_below="@+id/yValue"
-        />
-
-    <Button
+    <at.markushi.ui.CircleButton
         android:id="@+id/disableAlarmButton"
-        android:layout_width="140dp"
-        android:layout_height="95dp"
-        android:text="Turn off Alarm"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_centerInParent="true"
+        android:onClick="turnOffAlarm"
+        android:src="@drawable/ic_alarm_off_black_24dp"
+        app:cb_color="#D81B60"
+        app:cb_pressedRingWidth="12dip"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="279dp"
-        android:onClick="turnOffAlarm">
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:textAlignment="center"
+        android:text="Sleep Mode"
+        android:textColor="#D81B60"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="128dp"
+        android:layout_above="@+id/disableAlarmButton"
+        android:layout_below="@+id/textView"
+        android:layout_marginTop="48dp"
+        android:layout_marginBottom="19dp"
+        android:text="Please place your phone down on a flat surface. Enjoy a good nights rest!"
+        android:textAlignment="center"
+        android:textColor="#D81B60"
+        android:textSize="20sp" />
 
 
-    </Button>
 </RelativeLayout>

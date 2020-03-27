@@ -36,11 +36,13 @@ import com.twelve.latesleeper.database.Database;
 import java.util.Calendar;
 import java.util.Date;
 
+import at.markushi.ui.CircleButton;
+
 public class AccelerometerActivity extends AppCompatActivity implements SensorEventListener {
     private FirebaseAuth mAuth;
     public long wakeUpTime;
     public long sleepTime;
-    private Button disableAlarmButton;
+    private CircleButton disableAlarmButton;
     private SensorManager sensorManager;
     Sensor accelerometer;
     private static final String TAG = "accelerometer activity";
@@ -53,9 +55,9 @@ public class AccelerometerActivity extends AppCompatActivity implements SensorEv
         Bundle bundle = getIntent().getExtras();
 
         wakeUpTime = bundle.getLong("wakeUpTime");
-        xValue=(TextView) findViewById(R.id.xValue);
-        yValue=(TextView) findViewById(R.id.yValue);
-        zValue=(TextView) findViewById(R.id.zValue);
+//        xValue=(TextView) findViewById(R.id.xValue);
+//        yValue=(TextView) findViewById(R.id.yValue);
+//        zValue=(TextView) findViewById(R.id.zValue);
         //Bundle bundle = getIntent().getExtras();
         // wakeUpTime = bundle.getLong("wakeUpTime");
         disableAlarmButton = findViewById(R.id.disableAlarmButton);
@@ -74,21 +76,21 @@ public class AccelerometerActivity extends AppCompatActivity implements SensorEv
     @Override
     public void onSensorChanged(SensorEvent sensorEvent) {
         Log.d(TAG, "onSensorChanged: X:  "+sensorEvent.values[0]+" Y: "+sensorEvent.values[1]+" Z: "+sensorEvent.values[2]);
-        xValue.setText("xValue: " + sensorEvent.values[0]);
-        yValue.setText("yValue: " + sensorEvent.values[1]);
-        zValue.setText("zValue: " + sensorEvent.values[2]);
+//        xValue.setText("xValue: " + sensorEvent.values[0]);
+//        yValue.setText("yValue: " + sensorEvent.values[1]);
+//        zValue.setText("zValue: " + sensorEvent.values[2]);
 
         if((sensorEvent.values[0] > 2 || sensorEvent.values[0] < -2) || (sensorEvent.values[1] > 2 || sensorEvent.values[1] < -2) )
         {
 
             Vibrator v = (Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                v.vibrate(VibrationEffect.createOneShot(500, VibrationEffect.DEFAULT_AMPLITUDE));
+                v.vibrate(VibrationEffect.createOneShot(1000, VibrationEffect.DEFAULT_AMPLITUDE));
             } else {
                 //deprecated in API 26
-                v.vibrate(500);
+                v.vibrate(1000);
             }
-            Toast.makeText(getApplicationContext(), "PUT YOUR PHONE DOWN", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Put your phone down, and continue sleeping!", Toast.LENGTH_SHORT).show();
         }
     }
 
