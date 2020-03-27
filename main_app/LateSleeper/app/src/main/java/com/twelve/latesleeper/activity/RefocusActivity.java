@@ -23,7 +23,7 @@ public class RefocusActivity extends AppCompatActivity {
 
     //OnClick for the save button will trigger the next screen in the workflow
     public void nextButton(View view){
-        Intent intent = new Intent(RefocusActivity.this, ViewSpecificGoalActivity.class);
+        Intent intent = new Intent(RefocusActivity.this, UserHomeActivity.class);
         intent.putExtra("goal", goal);
         intent.putExtra("goalID", goalID);
         startActivity(intent);
