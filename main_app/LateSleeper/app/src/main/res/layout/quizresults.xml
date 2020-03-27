@@ -1,273 +1,322 @@
 <?xml version= "1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark">
+    android:background="@color/colorPrimaryDark"
+    tools:context=".activity.QuizResultsActivity">
 
-
-    <LinearLayout
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginRight = "20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="32dp">
-
-            <TextView
-                android:id="@+id/textDashboard"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Dangers of a lack of sleep: "
-                android:textSize="28sp"
-                app:layout_constraintTop_toTopOf="parent"
-                android:textColor="#FFFFFF">
-
-            </TextView>
-
-        </RelativeLayout>
-
-    <GridLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/mcResults"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:columnCount="2"
-        android:rowCount="3"
-        android:alignmentMode="alignMargins"
-        android:columnOrderPreserved="false">
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            app:cardElevation="6dp"
-            app:cardCornerRadius="12dp"
-            android:layout_margin="12dp">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:padding="16dp"
-                android:gravity="center">
-
-                <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:src="@drawable/fatigue">
-                </ImageView>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Fatigue"
-                    android:textSize="18sp"
-                    android:layout_marginTop="12sp"
-                    android:textColor="#6f6f6f">
-                </TextView>
-
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-        <androidx.cardview.widget.CardView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            app:cardElevation="6dp"
-            app:cardCornerRadius="12dp"
-            android:layout_margin="12dp">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:padding="16dp"
-                android:gravity="center">
-
-                <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:src="@drawable/moods">
-                </ImageView>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Mood Changes"
-                    android:textSize="18sp"
-                    android:layout_marginTop="12sp"
-                    android:textColor="#6f6f6f">
-                </TextView>
-
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-        <androidx.cardview.widget.CardView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            app:cardElevation="6dp"
-            app:cardCornerRadius="12dp"
-            android:layout_margin="12dp">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:padding="16dp"
-                android:gravity="center">
-
-                <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:src="@drawable/concentrating">
-                </ImageView>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Difficulty Concentrating"
-                    android:textSize="15dp"
-                    android:layout_marginTop="2sp"
-                    android:textColor="#6f6f6f">
-                </TextView>
-
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-        <androidx.cardview.widget.CardView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            app:cardElevation="6dp"
-            app:cardCornerRadius="12dp"
-            android:layout_margin="12dp">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:padding="16dp"
-                android:gravity="center">
-
-                <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:src="@drawable/memory">
-                </ImageView>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="47dp"
-                    android:layout_marginTop="12sp"
-                    android:textColor="#6f6f6f"
-                    android:text="Memory Problems"
-                    android:textSize="17sp"></TextView>
-
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            app:cardElevation="6dp"
-            app:cardCornerRadius="12dp"
-            android:layout_margin="12dp">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:padding="16dp"
-                android:gravity="center">
-
-                <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:src="@drawable/paranoia">
-                </ImageView>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Paranoia"
-                    android:textSize="18sp"
-                    android:layout_marginTop="12sp"
-                    android:textColor="#6f6f6f">
-                </TextView>
-
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-        <androidx.cardview.widget.CardView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            app:cardElevation="6dp"
-            app:cardCornerRadius="12dp"
-            android:layout_margin="12dp">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:padding="16dp"
-                android:gravity="center">
-
-                <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:src="@drawable/hallucinations">
-                </ImageView>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Hallucinations"
-                    android:textSize="18sp"
-                    android:layout_marginTop="12sp"
-                    android:textColor="#6f6f6f">
-                </TextView>
-
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-    </GridLayout>
-        <TextView
-            android:id="@+id/mcResults"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:text="Quiz Results"
-            android:textColor="@color/colorSecondaryDark"
-            android:textSize="30dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/resultTitle" />
-        <TextView
-            android:id="@+id/moveToRefocus"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="156dp"
-            android:layout_marginTop="106dp"
-            android:layout_marginEnd="157dp"
-            android:text="TextView"
-            android:textColor="@color/colorSecondaryDark"
-            android:textSize="24dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/mcResults" />
-        <Button
-            android:id="@+id/nextButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="20dp"
-            android:background="@android:color/holo_blue_dark"
-            android:onClick="nextButton"
-            android:text="Next"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
-    </LinearLayout>
+        android:layout_marginTop="16dp"
+        android:text="{quiz score}"
+        android:textColor="@color/colorSecondaryDark"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
+    <TextView
+        android:id="@+id/moveToRefocus"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:text="{recommendations}"
+        android:textColor="@color/colorSecondaryDark"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/nextButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.54"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView15"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/textDashboard"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:text="These are the dangers of a lack of sleep!"
+        android:textAlignment="center"
+        android:textColor="@color/colorSecondaryDark"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mcResults" />
+
+    <TextView
+        android:id="@+id/backgroundTextview"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/round_textview"
+        android:gravity="center"
+        android:textColor="@android:color/secondary_text_dark"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/backgroundTextview4" />
+
+    <TextView
+        android:id="@+id/backgroundTextview5"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="28dp"
+        android:background="@drawable/round_textview"
+        android:gravity="center"
+        android:textColor="@color/colorSecondaryDark"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toStartOf="@+id/backgroundTextview6"
+        app:layout_constraintStart_toEndOf="@+id/backgroundTextview"
+        app:layout_constraintTop_toBottomOf="@+id/backgroundTextview2" />
+
+    <TextView
+        android:id="@+id/backgroundTextview6"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="28dp"
+        android:background="@drawable/round_textview"
+        android:gravity="center"
+        android:textColor="@color/colorSecondaryDark"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/backgroundTextview3" />
+
+    <TextView
+        android:id="@+id/backgroundTextview4"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/round_textview"
+        android:gravity="center"
+        android:textColor="@color/colorSecondaryDark"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textDashboard" />
+
+    <TextView
+        android:id="@+id/backgroundTextview2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="28dp"
+        android:background="@drawable/round_textview"
+        android:gravity="center"
+        android:textColor="@color/colorSecondaryDark"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toStartOf="@+id/backgroundTextview3"
+        app:layout_constraintStart_toEndOf="@+id/backgroundTextview4"
+        app:layout_constraintTop_toBottomOf="@+id/textDashboard" />
+
+    <TextView
+        android:id="@+id/backgroundTextview3"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="28dp"
+        android:background="@drawable/round_textview"
+        android:gravity="center"
+        android:textColor="@color/colorSecondaryDark"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textDashboard" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/fatigue"
+        app:layout_constraintBottom_toTopOf="@+id/backgroundTextview3"
+        app:layout_constraintEnd_toStartOf="@+id/backgroundTextview3"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/backgroundTextview3"
+        app:layout_constraintTop_toBottomOf="@+id/backgroundTextview3"></ImageView>
+
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="28dp"
+        android:background="@drawable/custom_textview_title"
+        android:text="Fatigue"
+        android:textAlignment="center"
+        android:textColor="@android:color/secondary_text_dark"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/backgroundTextview6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/backgroundTextview3"
+        app:layout_constraintVertical_bias="0.466"></TextView>
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="70dp"
+        android:layout_height="30dp"
+        android:background="@drawable/custom_textview_title"
+        android:text="Mood "
+        android:textAlignment="center"
+        android:textColor="@android:color/secondary_text_dark"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/backgroundTextview5"
+        app:layout_constraintEnd_toStartOf="@+id/textView2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/textView17"
+        app:layout_constraintTop_toBottomOf="@+id/backgroundTextview2"></TextView>
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/moods"
+        app:layout_constraintBottom_toTopOf="@+id/backgroundTextview5"
+        app:layout_constraintEnd_toStartOf="@+id/backgroundTextview5"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/backgroundTextview5"
+        app:layout_constraintTop_toBottomOf="@+id/backgroundTextview5"></ImageView>
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/concentrating"
+        app:layout_constraintBottom_toTopOf="@+id/backgroundTextview6"
+        app:layout_constraintEnd_toStartOf="@+id/backgroundTextview6"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/backgroundTextview6"
+        app:layout_constraintTop_toBottomOf="@+id/backgroundTextview6"></ImageView>
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/memory"
+        app:layout_constraintBottom_toTopOf="@+id/backgroundTextview2"
+        app:layout_constraintEnd_toStartOf="@+id/backgroundTextview2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/backgroundTextview2"
+        app:layout_constraintTop_toBottomOf="@+id/backgroundTextview2"></ImageView>
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="28dp"
+        android:background="@drawable/custom_textview_title"
+        android:text="Paranoia"
+        android:textAlignment="center"
+        android:textColor="@android:color/secondary_text_dark"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/backgroundTextview"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/backgroundTextview4"
+        app:layout_constraintVertical_bias="0.466"></TextView>
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="173dp"
+        android:layout_height="33dp"
+        android:background="@drawable/custom_textview_title"
+        android:text="Memory Problems"
+        android:textAlignment="center"
+        android:textColor="@android:color/secondary_text_dark"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/backgroundTextview2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textDashboard"
+        app:layout_constraintVertical_bias="0.642"></TextView>
+
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="143dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="4dp"
+        android:background="@drawable/custom_textview_title"
+        android:text="Difficulty Concentrating"
+        android:textAlignment="center"
+        android:textColor="@android:color/secondary_text_dark"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/backgroundTextview6"></TextView>
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="137dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/custom_textview_title"
+        android:text="Hallucinations"
+        android:textAlignment="center"
+        android:textColor="@android:color/secondary_text_dark"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/backgroundTextview"></TextView>
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/paranoia"
+        app:layout_constraintBottom_toTopOf="@+id/backgroundTextview4"
+        app:layout_constraintEnd_toStartOf="@+id/backgroundTextview4"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/backgroundTextview4"
+        app:layout_constraintTop_toBottomOf="@+id/backgroundTextview4"></ImageView>
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/hallucinations"
+        app:layout_constraintBottom_toTopOf="@+id/backgroundTextview"
+        app:layout_constraintEnd_toStartOf="@+id/backgroundTextview"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/backgroundTextview"
+        app:layout_constraintTop_toBottomOf="@+id/backgroundTextview"></ImageView>
+
+    <at.markushi.ui.CircleButton
+        android:id="@+id/nextButton"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginBottom="4dp"
+        android:onClick="nextButton"
+        android:src="@drawable/ic_done_black_24dp"
+        app:cb_color="#D81B60"
+        app:cb_pressedRingWidth="12dip"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 
-</ScrollView>
+    <at.markushi.ui.CircleButton
+        android:id="@+id/homeButton"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginBottom="4dp"
+        android:onClick="homeButton"
+        android:src="@drawable/ic_home_black_24dp"
+        android:enabled="false"
+        android:visibility="invisible"
+        app:cb_color="#D81B60"
+        app:cb_pressedRingWidth="12dip"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

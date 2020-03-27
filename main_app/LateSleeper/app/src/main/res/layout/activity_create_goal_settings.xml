@@ -7,76 +7,83 @@
     android:background="@color/colorPrimaryDark"
     tools:context=".activity.CreateGoalSettingsActivity">
 
-    <ScrollView
-        android:id="@+id/goalSettingsScrollView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Goal Settings"
+        android:textAlignment="center"
+        android:textColor="@color/colorSecondaryDark"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/textView9"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:layout_marginBottom="20dp"
-                android:text="Goal Settings"
-                android:textAlignment="center"
-                android:textColor="@android:color/white"
-                android:textSize="36sp" />
+    <at.markushi.ui.CircleButton
+        android:id="@+id/button2"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:onClick="SaveGoal"
+        android:src="@drawable/ic_save_black_24dp"
+        app:cb_color="#D81B60"
+        app:cb_pressedRingWidth="12dip"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
 
-            <TextView
-                android:id="@+id/textView11"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:text="Pick a bed time:"
-                android:textColor="@color/colorAccent"
-                android:textSize="30sp" />
+    <TimePicker
+        android:id="@+id/timePicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:theme="@style/Accent"
+        android:timePickerMode="spinner"
+        app:layout_constraintBottom_toTopOf="@+id/textView14"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
-            <TimePicker
-                android:id="@+id/timePicker"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:theme="@style/Accent"
-                android:timePickerMode="spinner" />
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Set Bedtime"
+        android:textAlignment="center"
+        android:textColor="@color/colorAccent"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/timePicker"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
-            <TextView
-                android:id="@+id/textView14"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:text="For how many days?"
-                android:textColor="@color/colorAccent"
-                android:textSize="30sp" />
+    <NumberPicker
+        android:id="@+id/numberPicker"
+        android:layout_width="wrap_content"
+        android:layout_height="170dp"
+        android:layout_gravity="center_horizontal"
+        android:theme="@style/Accent"
+        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
-            <NumberPicker
-                android:id="@+id/numberPicker"
-                android:layout_width="wrap_content"
-                android:layout_height="170dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="8dp"
-                android:theme="@style/Accent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-            <Button
-                android:id="@+id/button2"
-                android:layout_width="135dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="26dp"
-                android:background="@color/colorAccent"
-                android:onClick="SaveGoal"
-                android:text="Save Goal" />
-        </LinearLayout>
-    </ScrollView>
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Set Consecutive Days"
+        android:textAlignment="center"
+        android:textColor="@color/colorAccent"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/numberPicker"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/timePicker" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
