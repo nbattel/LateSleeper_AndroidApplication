@@ -54,7 +54,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
                 android:background="@android:drawable/btn_dropdown"
-                android:dropDownWidth="1000dp"
+                android:dropDownWidth="300dp"
                 android:dropDownHeight="1000dp"
                 android:popupBackground="@color/colorSecondaryDark"
                 android:textColor="@color/colorPrimaryDark" />

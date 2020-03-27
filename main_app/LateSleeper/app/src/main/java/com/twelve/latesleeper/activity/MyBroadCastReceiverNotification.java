@@ -32,7 +32,7 @@ public class MyBroadCastReceiverNotification extends BroadcastReceiver {
             PendingIntent pi = PendingIntent.getActivity(context,9,myIntent,0);
             Notification notification = new Notification.Builder(context,CHANNEL_ID)
                     .setContentTitle("TIME FOR BED")
-                    .setContentText("REMEMBER YOUR GOAL")
+                    .setContentText("Remember your goal!")
                     .setSmallIcon(R.mipmap.ic_launcher)
                     .setAutoCancel(true)
                     .setContentIntent(pi).build(); //getNotification();
