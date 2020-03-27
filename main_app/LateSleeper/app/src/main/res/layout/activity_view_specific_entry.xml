@@ -44,7 +44,7 @@
                 android:layout_marginBottom="16dp"
                 android:text="Title"
                 android:textColor="@color/colorAccent"
-                android:textSize="36sp" />
+                android:textSize="30sp" />
 
             <TextView
                 android:id="@+id/entryDate"
@@ -53,7 +53,7 @@
                 android:layout_gravity="center_horizontal"
                 android:text="Date"
                 android:textColor="@color/colorAccent"
-                android:textSize="18sp" />
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/entryBody"
@@ -63,7 +63,7 @@
                 android:layout_marginRight="16dp"
                 android:text="Body"
                 android:textColor="@android:color/white"
-                android:textSize="18sp" />
+                android:textSize="20sp" />
 
         </LinearLayout>
     </ScrollView>
