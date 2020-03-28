@@ -47,7 +47,7 @@
         android:focusableInTouchMode="true"
         android:text="Remember to set your alarm"
         android:textAlignment="center"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/colorSecondaryDark"
         android:textSize="28sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
