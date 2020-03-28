@@ -19,36 +19,40 @@
 
             <TextView
                 android:id="@+id/reframeTextView"
-                android:layout_width="wrap_content"
+                android:layout_width="231dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="40dp"
-                android:layout_marginEnd="20dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/custom_textview_title"
                 android:focusable="true"
                 android:focusableInTouchMode="true"
                 android:text="Step 2: Reframe"
+                android:textAlignment="center"
                 android:textColor="@color/colorSecondaryDark"
-                android:textSize="50sp" />
+                android:textSize="30sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/question1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="25dp"
                 android:layout_marginEnd="20dp"
-                android:text="This pattern causes me to have a lack of sleep."
+                android:text="I often tend to go on my phone late at night."
                 android:textColor="@color/colorSecondaryDark"
-                android:textSize="24dp" />
+                android:textSize="20sp" />
 
             <Spinner
                 android:id="@+id/question1Dropdown"
-                android:layout_width="match_parent"
-                android:layout_height="68dp"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="15dp"
                 android:background="@android:drawable/btn_dropdown"
-                android:dropDownWidth="1000dp"
+                android:dropDownWidth="300dp"
                 android:dropDownHeight="1000dp"
                 android:popupBackground="@color/colorSecondaryDark"
                 android:textColor="@color/colorPrimaryDark"
@@ -59,20 +63,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="25dp"
                 android:layout_marginEnd="20dp"
-                android:text="This pattern causes me to not get my work done."
+                android:text="I eat less than 2 hours before going to bed."
                 android:textColor="@color/colorSecondaryDark"
-                android:textSize="24dp" />
+                android:textSize="20sp" />
 
             <Spinner
                 android:id="@+id/question2Dropdown"
-                android:layout_width="match_parent"
-                android:layout_height="68dp"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="15dp"
                 android:background="@android:drawable/btn_dropdown"
-                android:dropDownWidth="1000dp"
+                android:dropDownWidth="300dp"
                 android:dropDownHeight="1000dp"
                 android:popupBackground="@color/colorSecondaryDark"
                 android:textColor="@color/colorPrimaryDark"
@@ -83,20 +87,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="25dp"
                 android:layout_marginEnd="20dp"
-                android:text="This pattern causes me to get nervous/upset."
+                android:text="I have caffeine more than 3 hours before going to bed."
                 android:textColor="@color/colorSecondaryDark"
-                android:textSize="24dp" />
+                android:textSize="20sp" />
 
             <Spinner
                 android:id="@+id/question3Dropdown"
-                android:layout_width="match_parent"
-                android:layout_height="68dp"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="15dp"
                 android:background="@android:drawable/btn_dropdown"
-                android:dropDownWidth="1000dp"
+                android:dropDownWidth="300dp"
                 android:dropDownHeight="1000dp"
                 android:popupBackground="@color/colorSecondaryDark"
                 android:textColor="@color/colorPrimaryDark"
@@ -107,20 +111,164 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="25dp"
                 android:layout_marginEnd="20dp"
-                android:text="This pattern causes me to procrastinate."
+                android:text="I tend to watch movies late at night."
                 android:textColor="@color/colorSecondaryDark"
-                android:textSize="24dp" />
+                android:textSize="20sp" />
 
             <Spinner
                 android:id="@+id/question4Dropdown"
-                android:layout_width="match_parent"
-                android:layout_height="68dp"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="15dp"
                 android:background="@android:drawable/btn_dropdown"
-                android:dropDownWidth="1000dp"
+                android:dropDownWidth="300dp"
+                android:dropDownHeight="1000dp"
+                android:popupBackground="@color/colorSecondaryDark"
+                android:textColor="@color/colorPrimaryDark"
+                tools:layout_marginEnd="20dp" />
+
+            <TextView
+                android:id="@+id/question5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="20dp"
+                android:text="I play video games late at night."
+                android:textColor="@color/colorSecondaryDark"
+                android:textSize="20sp" />
+
+            <Spinner
+                android:id="@+id/question5Dropdown"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="15dp"
+                android:background="@android:drawable/btn_dropdown"
+                android:dropDownWidth="300dp"
+                android:dropDownHeight="1000dp"
+                android:popupBackground="@color/colorSecondaryDark"
+                android:textColor="@color/colorPrimaryDark"
+                tools:layout_marginEnd="20dp" />
+
+            <TextView
+                android:id="@+id/question6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="20dp"
+                android:text="I go to the bar until late at night."
+                android:textColor="@color/colorSecondaryDark"
+                android:textSize="20sp" />
+
+            <Spinner
+                android:id="@+id/question6Dropdown"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="15dp"
+                android:background="@android:drawable/btn_dropdown"
+                android:dropDownWidth="300dp"
+                android:dropDownHeight="1000dp"
+                android:popupBackground="@color/colorSecondaryDark"
+                android:textColor="@color/colorPrimaryDark"
+                tools:layout_marginEnd="20dp" />
+
+            <TextView
+                android:id="@+id/question7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="20dp"
+                android:text="I am out late with friends."
+                android:textColor="@color/colorSecondaryDark"
+                android:textSize="20sp" />
+
+            <Spinner
+                android:id="@+id/question7Dropdown"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="15dp"
+                android:background="@android:drawable/btn_dropdown"
+                android:dropDownWidth="300dp"
+                android:dropDownHeight="1000dp"
+                android:popupBackground="@color/colorSecondaryDark"
+                android:textColor="@color/colorPrimaryDark"
+                tools:layout_marginEnd="20dp" />
+
+            <TextView
+                android:id="@+id/question8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="20dp"
+                android:text="I am restless and tend to move around a lot when I sleep."
+                android:textColor="@color/colorSecondaryDark"
+                android:textSize="20sp" />
+
+            <Spinner
+                android:id="@+id/question8Dropdown"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="15dp"
+                android:background="@android:drawable/btn_dropdown"
+                android:dropDownWidth="300dp"
+                android:dropDownHeight="1000dp"
+                android:popupBackground="@color/colorSecondaryDark"
+                android:textColor="@color/colorPrimaryDark"
+                tools:layout_marginEnd="20dp" />
+
+            <TextView
+                android:id="@+id/question9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="20dp"
+                android:text="I am talking to my partner late at night. "
+                android:textColor="@color/colorSecondaryDark"
+                android:textSize="20sp" />
+
+            <Spinner
+                android:id="@+id/question9Dropdown"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="15dp"
+                android:background="@android:drawable/btn_dropdown"
+                android:dropDownWidth="300dp"
+                android:dropDownHeight="1000dp"
+                android:popupBackground="@color/colorSecondaryDark"
+                android:textColor="@color/colorPrimaryDark"
+                tools:layout_marginEnd="20dp" />
+
+            <TextView
+                android:id="@+id/question10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="20dp"
+                android:text="I take naps during the day."
+                android:textColor="@color/colorSecondaryDark"
+                android:textSize="20sp" />
+
+            <Spinner
+                android:id="@+id/question10Dropdown"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="15dp"
+                android:background="@android:drawable/btn_dropdown"
+                android:dropDownWidth="300dp"
                 android:dropDownHeight="1000dp"
                 android:popupBackground="@color/colorSecondaryDark"
                 android:textColor="@color/colorPrimaryDark"
@@ -134,18 +282,15 @@
                     android:id="@+id/nextButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
                     android:layout_marginEnd="20dp"
-                    android:layout_marginBottom="20dp"
-                    android:background="@color/colorAccent"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/custom_button"
+                    android:backgroundTint="@color/colorAccent"
                     android:onClick="nextButtonReframe"
                     android:text="Next"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintEnd_toEndOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
     </ScrollView>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

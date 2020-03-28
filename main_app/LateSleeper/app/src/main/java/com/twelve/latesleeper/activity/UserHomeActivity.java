@@ -16,6 +16,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.twelve.latesleeper.R;
+import com.twelve.latesleeper.Said;
 import com.twelve.latesleeper.database.Database;
 
 
@@ -47,8 +48,11 @@ public class UserHomeActivity extends AppCompatActivity {
         welcomeBack = findViewById(R.id.welcomeText);
         //now modify the text based on information about user in database
 
-        MediaPlayer welcomeVoice = MediaPlayer.create(UserHomeActivity.this, R.raw.dashboardwelcome);
-        welcomeVoice.start();
+        if(Said.welcomeVoiceSay == false) {
+            MediaPlayer welcomeVoice = MediaPlayer.create(UserHomeActivity.this, R.raw.dashboardwelcome);
+            welcomeVoice.start();
+            Said.setWelcomeVoiceSay(true);
+        }
     }
 
     @Override

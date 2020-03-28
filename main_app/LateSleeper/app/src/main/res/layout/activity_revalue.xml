@@ -18,16 +18,20 @@
 
             <TextView
                 android:id="@+id/revalueTitleTextView"
-                android:layout_width="wrap_content"
+                android:layout_width="215dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="40dp"
-                android:layout_marginEnd="20dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/custom_textview_title"
                 android:focusable="true"
                 android:focusableInTouchMode="true"
                 android:text="Step 4: Revalue"
+                android:textAlignment="center"
                 android:textColor="@color/colorSecondaryDark"
-                android:textSize="50sp" />
+                android:textSize="30sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/revalueDescription"
@@ -36,8 +40,9 @@
                 android:layout_marginTop="20dp"
                 android:text="Please Revalue your steps so far and write another journal entry."
                 android:textAlignment="center"
+                android:layout_gravity="center"
                 android:textColor="@color/colorSecondaryDark"
-                android:textSize="24dp" />
+                android:textSize="20sp" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -48,7 +53,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="16dp"
                     android:layout_marginEnd="115dp"
                     android:ems="10"
                     android:hint="Title..."
@@ -56,18 +61,21 @@
                     android:nextFocusUp="@id/journalTitle"
                     android:textColor="@color/colorSecondaryDark"
                     android:textColorHint="@color/colorSecondaryDark"
-                    android:textSize="24dp"
+                    android:textSize="20sp"
+                    android:background="@drawable/custom_edittext"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <EditText
                     android:id="@+id/journalBody"
-                    android:layout_width="400dp"
-                    android:layout_height="350dp"
+                    android:layout_width="350dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginEnd="10dp"
+                    android:background="@drawable/custom_edittext"
                     android:ems="10"
                     android:gravity="start|top"
                     android:hint="Enter your thoughts here..."
@@ -76,7 +84,9 @@
                     android:nextFocusUp="@id/journalBody"
                     android:textColor="@color/colorSecondaryDark"
                     android:textColorHint="@color/colorSecondaryDark"
+                    android:textSize="20sp"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/journalTitle" />
 
@@ -87,7 +97,8 @@
                     android:layout_marginTop="20dp"
                     android:layout_marginEnd="20dp"
                     android:layout_marginBottom="20dp"
-                    android:background="@color/colorAccent"
+                    android:background="@drawable/custom_button"
+                    android:backgroundTint="@color/colorAccent"
                     android:enabled="false"
                     android:onClick="nextButtonRevalue"
                     android:text="Next"

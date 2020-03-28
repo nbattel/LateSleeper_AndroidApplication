@@ -7,11 +7,32 @@
     android:background="@color/colorPrimaryDark"
     tools:context=".activity.ViewSpecificGoalActivity">
 
+    <at.markushi.ui.CircleButton
+        android:id="@+id/viewRelabelJournal"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:onClick="relabelJournal"
+        android:src="@drawable/ic_label_black_24dp"
+        app:cb_color="#D81B60"
+        app:cb_pressedRingWidth="12dip"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <at.markushi.ui.CircleButton
+        android:id="@+id/viewRevalueJournal"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:onClick="revalueJournal"
+        android:src="@drawable/ic_autorenew_black_24dp"
+        app:cb_color="#D81B60"
+        app:cb_pressedRingWidth="12dip"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
     <Button
         android:id="@+id/startGoal"
         android:layout_width="128dp"
         android:layout_height="47dp"
-        android:layout_marginBottom="16dp"
         android:background="@drawable/custom_button"
         android:backgroundTint="@color/colorAccent"
         android:onClick="startGoal"
@@ -19,39 +40,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/viewRelabelJournal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginBottom="25dp"
-        android:background="@drawable/custom_button"
-        android:backgroundTint="@color/colorAccent"
-        android:onClick="relabelJournal"
-        android:text="Relabel Journal"
-        android:textSize="10sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
-
-    <Button
-        android:id="@+id/viewRevalueJournal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="15dp"
-        android:layout_marginBottom="25dp"
-        android:background="@drawable/custom_button"
-        android:backgroundTint="@color/colorAccent"
-        android:onClick="revalueJournal"
-        android:text="Revalue Journal"
-        android:textSize="10sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.9"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
@@ -71,7 +59,7 @@
         android:id="@+id/linearLayout"
         android:layout_width="389dp"
         android:layout_height="430dp"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="40dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
