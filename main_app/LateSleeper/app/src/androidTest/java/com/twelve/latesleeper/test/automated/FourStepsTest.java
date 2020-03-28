@@ -3,6 +3,7 @@ package com.twelve.latesleeper.test.automated;
 import android.os.SystemClock;
 import android.widget.TimePicker;
 
+import androidx.test.espresso.NoMatchingViewException;
 import androidx.test.espresso.ViewAction;
 import androidx.test.espresso.action.GeneralLocation;
 import androidx.test.espresso.action.GeneralSwipeAction;
@@ -14,6 +15,8 @@ import androidx.test.rule.ActivityTestRule;
 
 import com.twelve.latesleeper.R;
 import com.twelve.latesleeper.activity.MainActivity;
+
+import junit.framework.AssertionFailedError;
 
 import org.hamcrest.Matchers;
 import org.junit.After;
@@ -56,10 +59,17 @@ public class FourStepsTest {
 
     @Test
     public void testStartGoal(){
+
+        try {
+            onView(withId(R.id.signOut)).perform(click());
+        } catch (NoMatchingViewException e) {
+            // no user is logged in
+        }
+
         goToLogin();
 
         fillForm();
-
+        sleep(5000);
         onView(withId(R.id.logInButton)).perform(click());
 
         // UserHomeActivity
