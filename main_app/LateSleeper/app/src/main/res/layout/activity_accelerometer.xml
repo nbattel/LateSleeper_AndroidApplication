@@ -39,7 +39,7 @@
         android:layout_below="@+id/textView"
         android:layout_marginTop="48dp"
         android:layout_marginBottom="19dp"
-        android:text="Please place your phone down on a flat surface. Enjoy a good nights rest!"
+        android:text="Please place your phone down on a flat surface. Enjoy a good night's rest!"
         android:textAlignment="center"
         android:textColor="#D81B60"
         android:textSize="20sp" />
