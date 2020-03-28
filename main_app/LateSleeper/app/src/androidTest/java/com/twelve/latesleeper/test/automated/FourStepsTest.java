@@ -60,13 +60,16 @@ public class FourStepsTest {
     @Test
     public void testStartGoal(){
 
+        goToLogin();
+
         try {
             onView(withId(R.id.signOut)).perform(click());
+            sleep(5000);
         } catch (NoMatchingViewException e) {
             // no user is logged in
         }
 
-        goToLogin();
+        sleep(5000);
 
         fillForm();
         sleep(5000);
