@@ -29,6 +29,8 @@ import static androidx.test.espresso.Espresso.onData;
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.action.ViewActions.doubleClick;
+import static androidx.test.espresso.action.ViewActions.scrollTo;
+import static androidx.test.espresso.action.ViewActions.swipeDown;
 import static androidx.test.espresso.action.ViewActions.swipeUp;
 import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.matcher.ViewMatchers.isRoot;
@@ -62,14 +64,14 @@ public class FourStepsTest {
 
         goToLogin();
 
+        sleep(3000);
+
         try {
             onView(withId(R.id.signOut)).perform(click());
-            sleep(5000);
+            sleep(3000);
         } catch (NoMatchingViewException e) {
-            // no user is logged in
-        }
 
-        sleep(5000);
+        }
 
         fillForm();
         sleep(5000);
@@ -92,29 +94,26 @@ public class FourStepsTest {
         // Reframe
         reframeInput();
 
-        onView(withId(R.id.nextButton)).perform(click());
+        onView(withId(R.id.nextButton)).perform(scrollTo(), click());
 
+        // Refocus
         sleep(3000);
 
         onView(withId(R.id.nextButton)).perform(click());
 
         sleep(3000);
 
-        onView(withId(R.id.nextButton)).perform(click());
+//        setTime(22, 45);
+//
+//        sleep(2000);
+//
+//        onView(withId(R.id.setAlarmBtn)).perform(click());
+//
+//        sleep(2000);
+//
+//        backToUserHome();
 
-        sleep(3000);
-
-        setTime(22, 45);
-
-        sleep(2000);
-
-        onView(withId(R.id.setAlarmBtn)).perform(click());
-
-        sleep(2000);
-
-        backToUserHome();
-
-        onView(withId(R.id.signOut)).perform(click());
+//        onView(withId(R.id.signOut)).perform(click());
 
         sleep(2000);
 
@@ -175,29 +174,61 @@ public class FourStepsTest {
         // Question 1
         onView(withId(R.id.question1Dropdown)).perform(click());
         sleep(500);
-        onData(allOf(is(instanceOf(String.class)), is("2 (Sometimes)"))).perform(click());
+        onData(allOf(is(instanceOf(String.class)), is("2 (Sometimes)"))).perform(scrollTo(), click());
         sleep(500);
 
         // Question 2
         onView(withId(R.id.question2Dropdown)).perform(click());
         sleep(500);
-        onData(allOf(is(instanceOf(String.class)), is("4 (Always)"))).perform(click());
+        onData(allOf(is(instanceOf(String.class)), is("4 (Always)"))).perform(scrollTo(), click());
         sleep(500);
-
-        onView(withId(R.id.reframeScrollView)).perform(swipeUp());
-
-        sleep(2000);
 
         // Question 3
-        onView(withId(R.id.question3Dropdown)).perform(click());
+        onView(withId(R.id.question3Dropdown)).perform(scrollTo(), click());
         sleep(500);
-        onData(allOf(is(instanceOf(String.class)), is("3 (Often)"))).perform(click());
+        onData(allOf(is(instanceOf(String.class)), is("3 (Often)"))).perform(scrollTo(), click());
         sleep(500);
 
         // Question 4
-        onView(withId(R.id.question4Dropdown)).perform(click());
+        onView(withId(R.id.question4Dropdown)).perform(scrollTo(), click());
         sleep(500);
-        onData(allOf(is(instanceOf(String.class)), is("4 (Always)"))).perform(click());
+        onData(allOf(is(instanceOf(String.class)), is("4 (Always)"))).perform(scrollTo(), click());
+        sleep(500);
+
+        // Question 5
+        onView(withId(R.id.question5Dropdown)).perform(scrollTo(), click());
+        sleep(500);
+        onData(allOf(is(instanceOf(String.class)), is("4 (Always)"))).perform(scrollTo(), click());
+        sleep(500);
+
+        // Question 6
+        onView(withId(R.id.question6Dropdown)).perform(scrollTo(), click());
+        sleep(500);
+        onData(allOf(is(instanceOf(String.class)), is("4 (Always)"))).perform(scrollTo(), click());
+        sleep(500);
+
+        // Question 7
+        onView(withId(R.id.question7Dropdown)).perform(scrollTo(), click());
+        sleep(500);
+        onData(allOf(is(instanceOf(String.class)), is("4 (Always)"))).perform(scrollTo(), click());
+        sleep(500);
+
+        // Question 8
+        onView(withId(R.id.question8Dropdown)).perform(scrollTo(), click());
+        sleep(500);
+        onData(allOf(is(instanceOf(String.class)), is("4 (Always)"))).perform(scrollTo(), click());
+        sleep(500);
+
+        // Question 9
+        onView(withId(R.id.question9Dropdown)).perform(scrollTo(), click());
+        sleep(500);
+        onData(allOf(is(instanceOf(String.class)), is("4 (Always)"))).perform(scrollTo(), click());
+        sleep(500);
+
+        // Question 10
+        onView(withId(R.id.question10Dropdown)).perform(scrollTo(), click());
+        sleep(500);
+        onData(allOf(is(instanceOf(String.class)), is("4 (Always)"))).perform(scrollTo(), click());
         sleep(500);
 
         sleep(4000);
