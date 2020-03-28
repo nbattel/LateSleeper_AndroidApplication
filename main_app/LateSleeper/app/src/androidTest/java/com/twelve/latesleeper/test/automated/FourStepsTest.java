@@ -1,6 +1,7 @@
 package com.twelve.latesleeper.test.automated;
 
 import android.os.SystemClock;
+import android.util.Log;
 import android.widget.TimePicker;
 
 import androidx.test.espresso.NoMatchingViewException;
@@ -11,7 +12,15 @@ import androidx.test.espresso.action.Press;
 import androidx.test.espresso.action.Swipe;
 import androidx.test.espresso.action.ViewActions;
 import androidx.test.espresso.contrib.PickerActions;
+import androidx.test.platform.app.InstrumentationRegistry;
 import androidx.test.rule.ActivityTestRule;
+import androidx.test.uiautomator.By;
+import androidx.test.uiautomator.UiDevice;
+import androidx.test.uiautomator.UiObject;
+import androidx.test.uiautomator.UiObject2;
+import androidx.test.uiautomator.UiObjectNotFoundException;
+import androidx.test.uiautomator.UiSelector;
+import androidx.test.uiautomator.Until;
 
 import com.twelve.latesleeper.R;
 import com.twelve.latesleeper.activity.MainActivity;
@@ -38,6 +47,9 @@ import static androidx.test.espresso.matcher.ViewMatchers.withClassName;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withSpinnerText;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
+import static androidx.test.platform.app.InstrumentationRegistry.getInstrumentation;
+import static junit.framework.TestCase.assertEquals;
+import static junit.framework.TestCase.assertTrue;
 import static org.hamcrest.Matchers.anything;
 import static org.hamcrest.Matchers.instanceOf;
 import static org.hamcrest.Matchers.is;
@@ -49,10 +61,14 @@ public class FourStepsTest {
 
     private String emailAddress, password;
 
+    private UiDevice device;
+
     @Before
     public void setUp() throws Exception {
         emailAddress = "tfouxman@gmail.com";
         password = "test123";
+        device = UiDevice.getInstance(getInstrumentation());
+
     }
 
     @After
@@ -60,7 +76,7 @@ public class FourStepsTest {
     }
 
     @Test
-    public void testStartGoal(){
+    public void testStartGoal() throws UiObjectNotFoundException {
 
         goToLogin();
 
@@ -76,6 +92,7 @@ public class FourStepsTest {
         fillForm();
         sleep(5000);
         onView(withId(R.id.logInButton)).perform(click());
+        Log.d("SUCCESS","Login successful");
 
         // UserHomeActivity
         sleep(2000);
@@ -91,10 +108,14 @@ public class FourStepsTest {
 
         sleep(2000);
 
+        Log.d("SUCCESS","Relabel successful");
+
         // Reframe
         reframeInput();
 
         onView(withId(R.id.nextButton)).perform(scrollTo(), click());
+
+        Log.d("SUCCESS","Reframe successful");
 
         // Refocus
         sleep(3000);
@@ -103,13 +124,22 @@ public class FourStepsTest {
 
         sleep(3000);
 
-//        setTime(22, 45);
-//
-//        sleep(2000);
-//
-//        onView(withId(R.id.setAlarmBtn)).perform(click());
-//
-//        sleep(2000);
+        Log.d("SUCCESS","Refocus successful");
+
+        sleep(200000);
+
+        testNotification();
+
+        sleep(3000);
+
+
+        setTime(22, 45);
+
+        sleep(2000);
+
+        onView(withId(R.id.setAlarmBtn)).perform(click());
+
+        sleep(2000);
 //
 //        backToUserHome();
 
@@ -247,6 +277,26 @@ public class FourStepsTest {
         onView(isRoot()).perform(ViewActions.pressBack());
         onView(isRoot()).perform(ViewActions.pressBack());
 
+    }
+
+    public void testNotification() throws UiObjectNotFoundException {
+
+        Log.d("TESTING","Testing notification click");
+
+        String NOTIFICATION_TITLE = "TIME FOR BED";
+        String NOTIFICATION_TEXT = "Remember your goal!";
+
+        device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation());
+        device.pressHome();
+        sleep(5000);
+        device.openNotification();
+        device.wait(Until.hasObject(By.text(NOTIFICATION_TITLE)), 30000);
+        UiObject2 title = device.findObject(By.text(NOTIFICATION_TITLE));
+        UiObject2 text = device.findObject(By.text(NOTIFICATION_TEXT));
+        assertEquals(NOTIFICATION_TITLE, title.getText());
+        assertEquals(NOTIFICATION_TEXT, text.getText());
+        title.click();
+        sleep(4000);
     }
 
     public static ViewAction swipeDownSlow() {
