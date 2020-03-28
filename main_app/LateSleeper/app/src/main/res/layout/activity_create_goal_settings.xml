@@ -7,6 +7,11 @@
     android:background="@color/colorPrimaryDark"
     tools:context=".activity.CreateGoalSettingsActivity">
 
+    <ScrollView
+        android:id="@+id/goalSettingsScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
     <TextView
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
@@ -85,5 +90,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/timePicker" />
+
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
