@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.NumberPicker;
 import android.widget.TimePicker;
 
+import androidx.test.espresso.NoMatchingViewException;
 import androidx.test.espresso.UiController;
 import androidx.test.espresso.ViewAction;
 import androidx.test.espresso.ViewInteraction;
@@ -19,6 +20,8 @@ import androidx.test.rule.ActivityTestRule;
 
 import com.twelve.latesleeper.R;
 import com.twelve.latesleeper.activity.MainActivity;
+
+import junit.framework.AssertionFailedError;
 
 import org.hamcrest.Matcher;
 import org.hamcrest.Matchers;
@@ -56,10 +59,19 @@ public class CreateNewGoalTest {
     @Test
     public void testCreateNewGoal(){
 
-        sleep(5000);
+        goToLogin();
 
+        sleep(3000);
+
+        try {
+            onView(withId(R.id.signOut)).perform(click());
+            sleep(3000);
+        } catch (NoMatchingViewException e) {
+
+        }
+        
         fillForm();
-
+        sleep(5000);
         onView(withId(R.id.logInButton)).perform(click());
 
         // UserHomeActivity
@@ -67,13 +79,13 @@ public class CreateNewGoalTest {
 
         onView(withId(R.id.journalBtn)).perform(click());
 
-        // CreateGoalActivity
+/*        // CreateGoalActivity
         sleep(3000);
 
         onView(withId(R.id.createGoalScrollView)).perform(swipeDownSlow());
         onView(withId(R.id.createGoalScrollView)).perform(swipeDownSlow());
 
-        onView(withId(R.id.continueButton)).perform(click());
+        onView(withId(R.id.continueButton)).perform(click());*/
 
         // CreateGoalSettingsActivity
         sleep(2000);
@@ -109,6 +121,11 @@ public class CreateNewGoalTest {
 
         // LogInActivity
         sleep(4000);
+    }
+
+    public void goToLogin(){
+        sleep(1000);
+        onView(withId(R.id.imageView)).perform(doubleClick());
     }
 
     public void fillForm(){
