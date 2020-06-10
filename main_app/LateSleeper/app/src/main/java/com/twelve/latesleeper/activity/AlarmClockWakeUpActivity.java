@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.TextClock;
 
@@ -76,6 +77,7 @@ public class AlarmClockWakeUpActivity extends AppCompatActivity {
         }
         wakeUpTime = calAlarm.getTimeInMillis();
         //call broadcast receiver
+        Log.d("alarm", "setAlarm: "+calAlarm);
         Intent i = new Intent(AlarmClockWakeUpActivity.this,MyBroadcastReceiverAlarm.class);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(AlarmClockWakeUpActivity.this,24444,i,PendingIntent.FLAG_UPDATE_CURRENT);
         //24444 is request code, its just random, and 0 is the flag

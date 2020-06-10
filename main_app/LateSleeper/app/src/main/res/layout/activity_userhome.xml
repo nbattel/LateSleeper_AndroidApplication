@@ -170,35 +170,6 @@
         </androidx.cardview.widget.CardView>
 
         <!--        Insects Caught-->
-        <androidx.cardview.widget.CardView
-            android:id="@+id/insectsCaughtCardView"
-            android:layout_width="325dp"
-            android:layout_height="65dp"
-            android:layout_marginRight="30dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="30dp"
-            android:layout_gravity="center"
-            app:cardCornerRadius="15dp">
-            <LinearLayout
-                android:layout_height="170dp"
-                android:layout_width="match_parent"
-                android:background="@drawable/bg1"
-                >
-
-                <TextView
-                    android:id="@+id/insectsCaught"
-                    android:layout_width="325dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:gravity="center"
-
-                    android:text="Insects Caught"
-                    android:textColor="@color/colorSecondaryDark"
-                    android:textSize="20sp" />
-            </LinearLayout>
-
-
-        </androidx.cardview.widget.CardView>
 
     </LinearLayout>
 
