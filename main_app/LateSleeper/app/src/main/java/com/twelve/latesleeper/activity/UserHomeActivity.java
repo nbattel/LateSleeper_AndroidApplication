@@ -14,10 +14,13 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.twelve.latesleeper.R;
 import com.twelve.latesleeper.Said;
 import com.twelve.latesleeper.database.Database;
+
+import static java.lang.Math.toIntExact;
 
 
 public class UserHomeActivity extends AppCompatActivity {
@@ -90,15 +93,16 @@ public class UserHomeActivity extends AppCompatActivity {
 
 
     public void retrieveJournalAmount(String id) {
-        Database.getDatabase().collection("users").document(id).collection("journal")
+        Database.getDatabase().collection("users").document(id)
                 .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                     @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                         if (task.isSuccessful()) {
-                            count = task.getResult().size();
+                            if (task.getResult().contains("journals")) count = toIntExact(task.getResult().getLong("journals"));
+                            else count = 0;
                             totalEntries.setText("Total Entries Submitted" + "\n" + count);
-                            Log.d("TESTSIZE", task.getResult().size() + "");
+                            Log.d("TESTSIZE", count + "");
                         } else {
                             Log.d("FAILEDDOCUMENT", "Error getting documents.", task.getException());
                         }

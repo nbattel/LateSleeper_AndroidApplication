@@ -18,6 +18,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FieldValue;
 import com.twelve.latesleeper.R;
 import com.twelve.latesleeper.database.Database;
 import com.twelve.latesleeper.model.Entry;
@@ -116,6 +117,10 @@ public class RevalueActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<DocumentReference> task) {
                         if (task.isSuccessful()) {
+                            Database.getDatabase().document("users/" + currentUser.getUid())
+                                    .update(
+                                            "journals", FieldValue.increment(1)
+                                    );
                             Toast toast = Toast.makeText(getApplicationContext(), "Congratulations on completing the Revalue step!", Toast.LENGTH_SHORT);
                             toast.show();
                             Intent intent = new Intent(RevalueActivity.this, UserHomeActivity.class);
